@@ -84,7 +84,6 @@ export function ProcessTimeline() {
         <div className="flex flex-col gap-8 md:gap-12 relative z-10">
           {steps.map((step, index) => {
             const isActive = index <= activeIndex;
-            const isCurrentlyActive = index === activeIndex;
 
             return (
               <div 

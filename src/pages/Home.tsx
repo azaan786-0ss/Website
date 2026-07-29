@@ -5,6 +5,7 @@ import { TrustBar } from "../components/sections/TrustBar";
 import { ServicesOverview } from "../components/sections/ServicesOverview";
 import { WhyChooseUs } from "../components/sections/WhyChooseUs";
 import { ProcessTimeline } from "../components/sections/ProcessTimeline";
+import { FAQSection } from "../components/sections/FAQSection";
 import { FinalCTA } from "../components/sections/FinalCTA";
 
 export function Home() {
@@ -16,6 +17,7 @@ export function Home() {
       <ServicesOverview />
       <WhyChooseUs />
       <ProcessTimeline />
+      <FAQSection />
       <FinalCTA />
       <Footer />
     </div>

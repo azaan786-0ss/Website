@@ -1,63 +1,66 @@
-import { useEffect } from "react";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
-import { TechCore } from "../../canvas/TechCore";
+import { LighthousePerformanceHUD } from "./web/LighthousePerformanceHUD";
 
 export function ServiceDetailHero() {
   const text = "Web Design & Development";
   const words = text.split(' ');
 
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+    }
+  };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fadeUpReveal').forEach(el => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
 
   return (
-    <section className="mb-space-32 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div>
-        <div className="flex items-center space-x-2 text-text-secondary font-caption text-caption mb-12 fadeUpReveal">
+    <section className="mb-space-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="flex items-center space-x-2 text-text-secondary font-caption text-caption mb-12">
           <Link className="hover:text-primary transition-colors" to="/">Home</Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-          <span className="hover:text-primary transition-colors cursor-pointer">Services</span>
+          <Link className="hover:text-primary transition-colors" to="/services">Services</Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
           <span className="text-on-surface">Web Design & Development</span>
-        </div>
-        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-6 word-reveal" id="hero-headline">
+        </motion.div>
+        <motion.h1 variants={itemVariants} className="font-display-xl-mobile text-3xl sm:text-4xl md:text-5xl xl:font-display-xl xl:text-display-xl text-on-surface mb-6">
           {words.map((word, index) => (
-            <span key={index} style={{ animationDelay: `${index * 0.15}s` }}>
-              {word}{index < words.length - 1 ? ' ' : ''}
+            <span key={index} className="inline-block mr-[0.25em]">
+              {word}
             </span>
           ))}
-        </h1>
-        <p className="font-body-lg text-body-lg text-text-secondary mb-10 max-w-2xl fadeUpReveal delay-200">
+        </motion.h1>
+        <motion.p variants={itemVariants} className="font-body-lg text-sm sm:text-base md:text-lg xl:text-body-lg text-text-secondary mb-8 md:mb-10 max-w-2xl">
           A website engineered to convert, not just look good. We build scalable, high-performance digital platforms tailored for your business objectives.
-        </p>
-        <div className="flex items-center space-x-4 fadeUpReveal delay-300">
-          <a className="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-body-md font-medium rounded-DEFAULT hover:bg-primary/90 transition-all shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] hover:shadow-[0_6px_20px_rgba(79,70,229,0.23)] hover:-translate-y-0.5" href="#contact">
+        </motion.p>
+        <motion.div variants={itemVariants} className="flex items-center space-x-4">
+          <Link to="/start-project" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-on-primary font-body-md text-sm sm:text-base font-medium rounded-DEFAULT hover:bg-primary/90 transition-all shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] hover:shadow-[0_6px_20px_rgba(79,70,229,0.23)] hover:-translate-y-0.5">
             Start a Project
-          </a>
-        </div>
-      </div>
-      <div className="w-full h-[400px] fadeUpReveal delay-200">
-        <TechCore />
-      </div>
+          </Link>
+        </motion.div>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full max-w-full sm:max-w-[560px] mx-auto lg:ml-auto lg:mr-0"
+      >
+        <LighthousePerformanceHUD />
+      </motion.div>
     </section>
   );
 }

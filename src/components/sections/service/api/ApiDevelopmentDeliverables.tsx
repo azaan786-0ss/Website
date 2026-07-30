@@ -1,69 +1,76 @@
-import React from "react";
+
+import { motion } from "framer-motion";
 
 export function ApiDevelopmentDeliverables() {
+  const deliverables = [
+    "Production-ready OpenAPI (Swagger) specifications",
+    "Shared Postman workspaces for testing & QA",
+    "TypeScript & Python client-side SDKs",
+    "API Gateway & WAF security configurations",
+    "Comprehensive load testing & JMeter suites",
+  ];
+
+  const techStack = [
+    { code: "JS", name: "Node.js" },
+    { code: "TS", name: "TypeScript" },
+    { code: "Go", name: "Golang" },
+    { code: "GQL", name: "GraphQL" },
+    { code: "AWS", name: "API Gateway" },
+    { code: "Redis", name: "Redis Caching" },
+    { code: "Kong", name: "Kong Gateway" },
+    { code: "PG", name: "PostgreSQL" },
+  ];
+
   return (
-    <section className="px-space-6 py-space-32 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-space-16">
-      <div>
-        <h3 className="font-display-md text-display-md text-on-surface mb-space-8">Standard Deliverables</h3>
-        <ul className="space-y-space-4">
-          <li className="flex items-center gap-space-3 p-space-3 border-b border-outline-variant group">
-            <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-            <span className="font-body-md text-body-md">Production-ready OpenAPI (Swagger) specifications</span>
-          </li>
-          <li className="flex items-center gap-space-3 p-space-3 border-b border-outline-variant group">
-            <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-            <span className="font-body-md text-body-md">Shared Postman workspaces for testing &amp; QA</span>
-          </li>
-          <li className="flex items-center gap-space-3 p-space-3 border-b border-outline-variant group">
-            <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-            <span className="font-body-md text-body-md">TypeScript &amp; Python client-side SDKs</span>
-          </li>
-          <li className="flex items-center gap-space-3 p-space-3 border-b border-outline-variant group">
-            <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-            <span className="font-body-md text-body-md">API Gateway &amp; WAF security configurations</span>
-          </li>
-          <li className="flex items-center gap-space-3 p-space-3 border-b border-outline-variant group">
-            <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-            <span className="font-body-md text-body-md">Comprehensive load testing &amp; JMeter suites</span>
-          </li>
-        </ul>
-      </div>
-      <div className="bg-surface-container-low p-space-8 rounded-2xl border border-outline-variant group hover:border-primary transition-colors duration-300">
-        <h4 className="font-heading-md text-heading-md mb-space-6 text-on-surface">Engineering Stack</h4>
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-space-6">
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm">JS</div>
-            <span className="font-caption text-caption">Node.js</span>
+    <section className="py-space-32 bg-slate-50/80 border-y border-slate-200/80 overflow-hidden">
+      <div className="px-6 md:px-8 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="font-display-md text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-8">Standard Deliverables</h3>
+          <ul className="space-y-4">
+            {deliverables.map((item, idx) => (
+              <motion.li 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-indigo-300 transition-all group"
+              >
+                <span className="material-symbols-outlined text-indigo-600 text-[24px] group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                <span className="font-semibold text-slate-800 text-sm sm:text-base">{item}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all"
+        >
+          <h4 className="font-caption text-xs uppercase font-bold text-slate-400 tracking-widest mb-6 text-center">Engineering Stack</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            {techStack.map((t, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ scale: 1.08, y: -4 }}
+                className="flex flex-col items-center gap-2 cursor-pointer group"
+              >
+                <div className="w-12 h-12 bg-slate-50 group-hover:bg-indigo-50 border border-slate-200 group-hover:border-indigo-300 rounded-xl flex items-center justify-center font-extrabold text-sm text-slate-800 group-hover:text-indigo-600 shadow-xs transition-all">
+                  {t.code}
+                </div>
+                <span className="text-xs font-semibold text-slate-500 group-hover:text-slate-900 transition-colors">{t.name}</span>
+              </motion.div>
+            ))}
           </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[50ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm">TS</div>
-            <span className="font-caption text-caption">TypeScript</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[100ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm">Go</div>
-            <span className="font-caption text-caption">Golang</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[150ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm">GQL</div>
-            <span className="font-caption text-caption">GraphQL</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[200ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm text-sm">AWS</div>
-            <span className="font-caption text-caption text-center leading-tight mt-1">API Gateway</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[250ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm text-sm">Redis</div>
-            <span className="font-caption text-caption">Caching</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[300ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm text-sm">Kong</div>
-            <span className="font-caption text-caption">Gateway</span>
-          </div>
-          <div className="flex flex-col items-center gap-space-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-[350ms] hover:!-translate-y-1">
-            <div className="w-12 h-12 bg-white rounded-lg border border-outline-variant flex items-center justify-center text-primary font-bold shadow-sm">PG</div>
-            <span className="font-caption text-caption">PostgreSQL</span>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

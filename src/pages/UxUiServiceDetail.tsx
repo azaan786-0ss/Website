@@ -1,6 +1,6 @@
-import React from "react";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
+import { ServiceBackLink } from "../components/ui/ServiceBackLink";
 import { UxUiHero } from "../components/sections/service/uxui/UxUiHero";
 import { UxUiCapabilities } from "../components/sections/service/uxui/UxUiCapabilities";
 import { UxUiProcess } from "../components/sections/service/uxui/UxUiProcess";
@@ -12,6 +12,7 @@ export function UxUiServiceDetail() {
     <div className="bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-white min-h-screen relative font-body-md">
       <Navbar />
       <main className="relative z-10 pt-32 pb-0">
+        <ServiceBackLink />
         <UxUiHero />
         <UxUiCapabilities />
         <UxUiProcess />

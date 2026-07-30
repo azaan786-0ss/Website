@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export function FinalCTA() {
   return (
     <section className="bg-bg-dark-primary text-on-secondary py-space-32 px-6 md:px-8">
@@ -6,9 +8,9 @@ export function FinalCTA() {
         <p className="font-body-lg text-body-lg text-secondary-fixed-dim max-w-2xl">
           Ready to elevate your engineering output? Partner with Nexus Strategy for your next major technical initiative.
         </p>
-        <button className="bg-primary text-on-primary px-space-8 py-space-4 rounded-DEFAULT font-caption text-caption hover:bg-primary-container active:scale-[0.98] transition-all mt-space-4">
+        <Link to="/start-project" className="bg-primary text-on-primary px-space-8 py-space-4 rounded-DEFAULT font-caption text-caption hover:bg-primary-container active:scale-[0.98] transition-all mt-space-4 inline-block">
           Start a Project
-        </button>
+        </Link>
       </div>
     </section>
   );

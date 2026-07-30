@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
+import { ServiceBackLink } from "../components/ui/ServiceBackLink";
 import { ProductEngineeringHero } from "../components/sections/service/engineering/ProductEngineeringHero";
 import { ProductEngineeringCapabilities } from "../components/sections/service/engineering/ProductEngineeringCapabilities";
 import { ProductEngineeringRoadmap } from "../components/sections/service/engineering/ProductEngineeringRoadmap";
@@ -16,6 +17,7 @@ export function ProductEngineeringDetail() {
     <div className="bg-[#FAFAFC] text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-white min-h-screen font-body-md flex flex-col">
       <Navbar />
       <main className="flex-1 pt-20">
+        <ServiceBackLink />
         <ProductEngineeringHero />
         <ProductEngineeringCapabilities />
         <ProductEngineeringRoadmap />

@@ -1,0 +1,96 @@
+src/components/sections/service/ServiceDetailHero.tsx(33,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: number[]; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                      Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                        Type 'number[]' is not assignable to type 'Easing[]'.
+                          Type 'number' is not assignable to type 'Easing'.
+src/components/sections/service/ServiceDetailHero.tsx(40,20): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: number[]; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                      Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                        Type 'number[]' is not assignable to type 'Easing[]'.
+                          Type 'number' is not assignable to type 'Easing'.
+src/components/sections/service/ServiceDetailHero.tsx(47,19): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: number[]; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                      Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                        Type 'number[]' is not assignable to type 'Easing[]'.
+                          Type 'number' is not assignable to type 'Easing'.
+src/components/sections/service/ServiceDetailHero.tsx(50,21): error TS2322: Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: number[]; }; }; }' is not assignable to type 'Variants'.
+  Property 'visible' is incompatible with index signature.
+    Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'Variant'.
+      Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type 'TargetAndTransition'.
+        Type '{ opacity: number; y: number; transition: { duration: number; ease: number[]; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues$1 | undefined; }'.
+          Types of property 'transition' are incompatible.
+            Type '{ duration: number; ease: number[]; }' is not assignable to type 'Transition<any> | undefined'.
+              Type '{ duration: number; ease: number[]; }' is not assignable to type 'TransitionWithValueOverrides<any>'.
+                Type '{ duration: number; ease: number[]; }' is not assignable to type 'ValueAnimationTransition<any>'.
+                  Types of property 'ease' are incompatible.
+                    Type 'number[]' is not assignable to type 'Easing | Easing[] | undefined'.
+                      Type 'number[]' is not assignable to type 'EasingFunction | Easing[]'.
+                        Type 'number[]' is not assignable to type 'Easing[]'.
+                          Type 'number' is not assignable to type 'Easing'.
+src/components/sections/service/api/ApiDevelopmentCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/api/ApiDevelopmentCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/api/ApiDevelopmentDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/api/ApiDevelopmentHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/api/ApiDevelopmentLifecycle.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/brand/BrandIdentityHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/cloud/CloudArchitectureCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/cloud/CloudArchitectureCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/cloud/CloudArchitectureDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/cloud/CloudArchitectureHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/cloud/CloudArchitectureRoadmap.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/data/DataAnalyticsCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/data/DataAnalyticsCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/data/DataAnalyticsDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/data/DataAnalyticsHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/data/DataAnalyticsRoadmap.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/engineering/ProductEngineeringCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/engineering/ProductEngineeringCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/engineering/ProductEngineeringDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/engineering/ProductEngineeringHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/engineering/ProductEngineeringRoadmap.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/performance/PerformanceOptimizationCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/performance/PerformanceOptimizationCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/performance/PerformanceOptimizationDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/performance/PerformanceOptimizationHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/performance/PerformanceOptimizationProcess.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/process/ProcessAutomationCTA.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/process/ProcessAutomationCapabilities.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/process/ProcessAutomationDeliverables.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/process/ProcessAutomationHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/process/ProcessAutomationLifecycle.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/strategy/ProductStrategyHero.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/strategy/ProductStrategyRoadmap.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/sections/service/uxui/UxUiProcess.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/ApiDevelopmentDetail.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/BrandIdentityDetail.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/CloudArchitectureDetail.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/ProductEngineeringDetail.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/ProductStrategyDetail.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/UxUiServiceDetail.tsx(1,1): error TS6133: 'React' is declared but its value is never read.

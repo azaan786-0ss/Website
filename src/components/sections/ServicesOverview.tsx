@@ -35,9 +35,18 @@ export function ServicesOverview() {
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="mb-space-16 max-w-2xl">
-          <h2 className="font-display-md text-display-md mb-space-4">Engineering Capabilities</h2>
-          <p className="font-body-lg text-body-lg text-secondary">A unified approach to digital product creation, spanning robust architecture to polished interfaces.</p>
+        <div className="mb-space-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <h2 className="font-display-md text-display-md mb-space-4">Engineering Capabilities</h2>
+            <p className="font-body-lg text-body-lg text-secondary">A unified approach to digital product creation, spanning robust architecture to polished interfaces.</p>
+          </div>
+          <Link 
+            to="/services" 
+            className="inline-flex items-center font-heading-md text-base font-semibold text-primary hover:text-primary-container transition-colors group flex-shrink-0 pb-1 border-b border-transparent hover:border-primary/30"
+          >
+            View All Services
+            <span className="material-symbols-outlined ml-1.5 text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-6">
           <Link to="/services/web-design" className="block p-space-8 rounded-lg border border-border bg-bg-primary hover:border-primary hover:shadow-[0_2px_8px_rgba(17,19,24,0.06)] transition-all group cursor-pointer">

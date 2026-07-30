@@ -1,4 +1,5 @@
 import { FriendlyBotCanvas } from '../canvas/FriendlyBotCanvas';
+import { Link } from 'react-router-dom';
 
 export function HeroSection() {
   return (
@@ -13,9 +14,9 @@ export function HeroSection() {
             We design, build, and scale digital products with the rigor of an in-house team. Focused on performance, architecture, and enduring value.
           </p>
           <div className="flex flex-wrap items-center gap-space-4">
-            <button className="bg-primary text-on-primary px-space-8 py-space-4 rounded-DEFAULT font-caption text-caption hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(79,70,229,0.39)]">
+            <Link to="/start-project" className="bg-primary text-on-primary px-space-8 py-space-4 rounded-DEFAULT font-caption text-caption hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(79,70,229,0.39)] inline-block">
               Start a Project
-            </button>
+            </Link>
             <a className="px-space-8 py-space-4 rounded-DEFAULT border border-border text-on-surface font-caption text-caption hover:bg-bg-secondary transition-colors inline-flex items-center gap-2" href="#services">
               See our services
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

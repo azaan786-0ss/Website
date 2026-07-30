@@ -1,40 +1,67 @@
-import React from "react";
+
+import { motion } from "framer-motion";
 
 export function ApiDevelopmentLifecycle() {
+  const steps = [
+    {
+      step: 1,
+      title: "Schema & Contract Design",
+      desc: "Defining types, endpoints, and data flows using OpenAPI/Swagger specifications.",
+    },
+    {
+      step: 2,
+      title: "Core Engineering & Middleware",
+      desc: "Building highly concurrent backend logic with robust logging and error handling.",
+    },
+    {
+      step: 3,
+      title: "Security Hardening & Caching",
+      desc: "Implementing Redis layers, WAF rules, and comprehensive identity management.",
+    },
+    {
+      step: 4,
+      title: "Docs, SDKs & Monitoring",
+      desc: "Continuous integration with automated testing and real-time observability dashboards.",
+    },
+  ];
+
   return (
-    <section className="bg-bg-secondary py-space-32">
-      <div className="px-space-6 max-w-7xl mx-auto">
-        <div className="mb-space-16 text-center md:text-left">
-          <h2 className="font-display-lg text-display-lg text-on-surface mb-space-4">The API Lifecycle</h2>
-          <p className="font-body-lg text-body-lg text-text-secondary">A methodical approach to building robust digital bridges.</p>
-        </div>
-        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-space-12">
+    <section className="bg-white py-space-32 overflow-hidden">
+      <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-space-16 text-center"
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">The API Lifecycle</h2>
+          <p className="font-body-lg text-slate-600 max-w-2xl mx-auto text-base sm:text-lg">A methodical approach to building robust digital bridges.</p>
+        </motion.div>
+
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Connecting Line (Desktop) */}
-          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent hidden md:block -z-0"></div>
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-indigo-100 -translate-y-6 z-0" />
           
-          <div className="relative z-10 bg-surface p-space-8 border border-outline-variant rounded-xl group transition-all hover:-translate-y-2 hover:border-primary hover:shadow-lg cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-heading-md mb-space-4 shadow-md group-hover:scale-110 transition-transform">1</div>
-            <h4 className="font-heading-md text-heading-md mb-space-2 group-hover:text-primary transition-colors">Schema &amp; Contract Design</h4>
-            <p className="font-caption text-caption text-text-secondary">Defining types, endpoints, and data flows using OpenAPI/Swagger specifications.</p>
-          </div>
-          
-          <div className="relative z-10 bg-surface p-space-8 border border-outline-variant rounded-xl group transition-all hover:-translate-y-2 hover:border-primary hover:shadow-lg cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-heading-md mb-space-4 shadow-md group-hover:scale-110 transition-transform">2</div>
-            <h4 className="font-heading-md text-heading-md mb-space-2 group-hover:text-primary transition-colors">Core Engineering &amp; Middleware</h4>
-            <p className="font-caption text-caption text-text-secondary">Building highly concurrent backend logic with robust logging and error handling.</p>
-          </div>
-          
-          <div className="relative z-10 bg-surface p-space-8 border border-outline-variant rounded-xl group transition-all hover:-translate-y-2 hover:border-primary hover:shadow-lg cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-heading-md mb-space-4 shadow-md group-hover:scale-110 transition-transform">3</div>
-            <h4 className="font-heading-md text-heading-md mb-space-2 group-hover:text-primary transition-colors">Security Hardening &amp; Caching</h4>
-            <p className="font-caption text-caption text-text-secondary">Implementing Redis layers, WAF rules, and comprehensive identity management.</p>
-          </div>
-          
-          <div className="relative z-10 bg-surface p-space-8 border border-outline-variant rounded-xl group transition-all hover:-translate-y-2 hover:border-primary hover:shadow-lg cursor-pointer">
-            <div className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-heading-md mb-space-4 shadow-md group-hover:scale-110 transition-transform">4</div>
-            <h4 className="font-heading-md text-heading-md mb-space-2 group-hover:text-primary transition-colors">Docs, SDKs &amp; Monitoring</h4>
-            <p className="font-caption text-caption text-text-secondary">Continuous integration with automated testing and real-time observability dashboards.</p>
-          </div>
+          {steps.map((stg, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.12 }}
+              whileHover={{ y: -6 }}
+              className="relative z-10 bg-slate-50 p-8 border border-slate-200/80 rounded-2xl group transition-all duration-300 hover:border-indigo-300 hover:shadow-xl hover:bg-white cursor-pointer flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold text-lg mb-6 shadow-md shadow-indigo-600/20 group-hover:scale-110 transition-transform">
+                  {stg.step}
+                </div>
+                <h4 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-indigo-600 transition-colors">{stg.title}</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">{stg.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

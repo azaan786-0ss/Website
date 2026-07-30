@@ -1,50 +1,68 @@
+import { motion } from "framer-motion";
+
 export function ProductStrategyDeliverables() {
+  const deliverables = [
+    "Product Requirement Documents (PRD)",
+    "Feature Prioritization Matrix",
+    "GTM Launch Playbook",
+    "Interactive Strategic Roadmap Deck",
+    "ROI & Growth Forecast",
+  ];
+
+  const frameworks = [
+    { icon: "workspaces", name: "Jobs-to-be-Done" },
+    { icon: "filter_list", name: "RICE Score" },
+    { icon: "view_compact", name: "Lean Canvas" },
+    { icon: "layers", name: "Agile Epics" },
+  ];
+
   return (
-    <section className="py-space-24 px-space-6 bg-white border-y border-outline-variant">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-space-16 items-center">
-        <div className="lg:w-1/2">
-          <h2 className="font-display-lg text-display-lg mb-space-8">Tangible Deliverables</h2>
-          <div className="space-y-space-4">
-            <div className="flex items-center gap-space-4 p-space-4 rounded-lg bg-surface border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">check_circle</span>
-              <span className="font-heading-md">Product Requirement Documents (PRD)</span>
-            </div>
-            <div className="flex items-center gap-space-4 p-space-4 rounded-lg bg-surface border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">check_circle</span>
-              <span className="font-heading-md">Feature Prioritization Matrix</span>
-            </div>
-            <div className="flex items-center gap-space-4 p-space-4 rounded-lg bg-surface border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">check_circle</span>
-              <span className="font-heading-md">GTM Launch Playbook</span>
-            </div>
-            <div className="flex items-center gap-space-4 p-space-4 rounded-lg bg-surface border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">check_circle</span>
-              <span className="font-heading-md">Interactive Strategic Roadmap Deck</span>
-            </div>
-            <div className="flex items-center gap-space-4 p-space-4 rounded-lg bg-surface border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">check_circle</span>
-              <span className="font-heading-md">ROI &amp; Growth Forecast</span>
-            </div>
+    <section className="py-space-24 px-6 md:px-8 bg-white border-y border-slate-200/80">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="lg:w-1/2"
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-8">Tangible Deliverables</h2>
+          <div className="space-y-4">
+            {deliverables.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-indigo-400 transition-colors"
+              >
+                <span className="material-symbols-outlined text-indigo-600">check_circle</span>
+                <span className="font-semibold text-slate-900 text-sm sm:text-base">{item}</span>
+              </motion.div>
+            ))}
           </div>
-        </div>
-        <div className="lg:w-1/2 flex flex-wrap gap-space-4 justify-center">
-          <div className="flex flex-col items-center gap-2 p-space-8 rounded-2xl bg-accent-subtle/50 w-48 text-center border border-primary/10 hover:border-primary/30 hover:scale-105 transition-all">
-            <span className="material-symbols-outlined text-primary text-4xl">workspaces</span>
-            <span className="font-heading-md">Jobs-to-be-Done</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 p-space-8 rounded-2xl bg-accent-subtle/50 w-48 text-center border border-primary/10 hover:border-primary/30 hover:scale-105 transition-all">
-            <span className="material-symbols-outlined text-primary text-4xl">filter_list</span>
-            <span className="font-heading-md">RICE Score</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 p-space-8 rounded-2xl bg-accent-subtle/50 w-48 text-center border border-primary/10 hover:border-primary/30 hover:scale-105 transition-all">
-            <span className="material-symbols-outlined text-primary text-4xl">view_compact</span>
-            <span className="font-heading-md">Lean Canvas</span>
-          </div>
-          <div className="flex flex-col items-center gap-2 p-space-8 rounded-2xl bg-accent-subtle/50 w-48 text-center border border-primary/10 hover:border-primary/30 hover:scale-105 transition-all">
-            <span className="material-symbols-outlined text-primary text-4xl">layers</span>
-            <span className="font-heading-md">Agile Epics</span>
-          </div>
-        </div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="lg:w-1/2 flex flex-wrap gap-4 justify-center"
+        >
+          {frameworks.map((fw, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.06, y: -4 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex flex-col items-center gap-3 p-8 rounded-2xl bg-indigo-50/50 w-44 sm:w-48 text-center border border-indigo-100 shadow-sm hover:shadow-lg hover:border-indigo-300 transition-all cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-indigo-600 text-4xl">{fw.icon}</span>
+              <span className="font-bold text-slate-900 text-sm sm:text-base">{fw.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

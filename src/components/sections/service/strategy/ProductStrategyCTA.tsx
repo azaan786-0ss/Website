@@ -1,26 +1,45 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export function ProductStrategyCTA() {
   return (
-    <section className="py-space-24 px-space-6 bg-bg-secondary">
-      <div className="max-w-4xl mx-auto text-center bg-white p-space-16 rounded-[40px] border border-outline-variant shadow-xl relative overflow-hidden">
+    <section className="py-space-24 px-6 md:px-8 bg-slate-50/60">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.96 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-4xl mx-auto text-center bg-white p-8 sm:p-12 md:p-16 rounded-3xl border border-slate-200/80 shadow-xl relative overflow-hidden"
+      >
         <div className="relative z-10">
-          <h2 className="font-display-lg text-display-lg mb-space-6">
-            Turn your product vision into a <span className="text-primary">scalable roadmap.</span>
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-6 tracking-tight">
+            Turn your product vision into a <span className="text-indigo-600">scalable roadmap.</span>
           </h2>
-          <p className="text-text-secondary text-body-lg max-w-xl mx-auto mb-space-8">
+          <p className="text-slate-600 text-base sm:text-lg max-w-xl mx-auto mb-space-8 leading-relaxed">
             Stop guessing and start building with precision. Our strategists are ready to de-risk your next big move.
           </p>
           <Link to="/start-project">
-            <button className="bg-primary text-white px-space-12 py-space-6 rounded-2xl font-heading-lg hover:scale-105 transition-all shadow-xl shadow-primary/20">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-indigo-600 text-white px-8 sm:px-12 py-4 rounded-xl font-bold text-base sm:text-lg shadow-xl shadow-indigo-600/25 hover:bg-indigo-700 transition-all"
+            >
               Schedule a Discovery Call
-            </button>
+            </motion.button>
           </Link>
         </div>
         {/* Decorative blobs */}
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-20 -left-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" 
+        />
+        <motion.div 
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-20 -right-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" 
+        />
+      </motion.div>
     </section>
   );
 }

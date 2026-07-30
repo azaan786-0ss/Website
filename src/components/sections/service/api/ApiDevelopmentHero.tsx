@@ -1,54 +1,139 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export function ApiDevelopmentHero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
+  const metrics = [
+    { value: "< 50ms", label: "Latency Performance" },
+    { value: "10M+", label: "Daily Requests Handled" },
+    { value: "100%", label: "OpenAPI Documented" },
+    { value: "Zero-Trust", label: "Security Protocol" },
+  ];
+
   return (
-    <section className="relative px-space-6 max-w-7xl mx-auto pb-space-24 bg-[linear-gradient(to_right,#D8DAE0_1px,transparent_1px),linear-gradient(to_bottom,#D8DAE0_1px,transparent_1px)] bg-[length:40px_40px] bg-opacity-10 rounded-3xl overflow-hidden mt-space-12 pt-space-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface pointer-events-none"></div>
-      <div className="relative z-10 max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-700">
-        <p className="font-code text-code text-primary uppercase tracking-widest mb-space-4">Engineering &amp; Cloud / API Development</p>
-        <h1 className="font-display-xl-mobile md:font-display-xl text-on-surface mb-space-6 leading-tight">
-          Robust Integrations &amp; High-Performance Microservices Architecture
-        </h1>
-        <p className="font-body-lg text-body-lg text-text-secondary max-w-2xl mb-space-12">
-          We design, build, and secure enterprise-grade RESTful, GraphQL, and gRPC APIs that connect complex ecosystems, support high data throughput, and accelerate system integration.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-space-4 mb-space-16">
-          <Link to="/start-project">
-            <button className="bg-primary text-on-primary px-space-8 py-space-3 rounded-xl font-heading-md hover:shadow-[0_8px_30px_rgba(79,70,229,0.3)] transition-all">
-              Discuss API Architecture
-            </button>
-          </Link>
-          <button className="border border-outline-variant bg-surface px-space-8 py-space-3 rounded-xl font-heading-md hover:bg-surface-container-low transition-all">
-            Explore Integration Stack
-          </button>
-        </div>
-        
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-space-6 border-t border-outline-variant pt-space-8">
-          <div>
-            <p className="font-display-md text-display-md text-primary">&lt; 50ms</p>
-            <p className="font-caption text-caption text-text-secondary">Latency Performance</p>
+    <section className="relative pt-space-24 pb-space-24 px-6 md:px-8 max-w-[1280px] mx-auto overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[length:40px_40px] -z-10 opacity-60"></div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="lg:col-span-8"
+        >
+          <motion.span variants={itemVariants} className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold mb-space-6 shadow-xs">
+            <span className="material-symbols-outlined text-[18px] text-indigo-600">api</span>
+            Engineering &amp; Cloud / API Development
+          </motion.span>
+
+          <motion.h1 variants={itemVariants} className="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-space-6 text-slate-900 leading-tight tracking-tight">
+            Robust Integrations &amp; <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-indigo-800">High-Performance APIs</span>
+          </motion.h1>
+
+          <motion.p variants={itemVariants} className="font-body-lg text-base sm:text-lg text-slate-600 mb-space-10 max-w-2xl leading-relaxed">
+            We design, build, and secure enterprise-grade RESTful, GraphQL, and gRPC APIs that connect complex ecosystems, support high data throughput, and accelerate system integration.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-space-16">
+            <Link to="/start-project">
+              <motion.button 
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25"
+              >
+                Discuss API Architecture
+                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </motion.button>
+            </Link>
+            <motion.button 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="border border-slate-300 bg-white text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all"
+            >
+              Explore Integration Stack
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* Hero Visual Node Graphic */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="lg:col-span-4 hidden lg:flex justify-center"
+        >
+          <div className="relative w-full max-w-sm aspect-square bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between">
+            <div className="flex items-center justify-between text-xs font-mono text-slate-400 border-b border-slate-800 pb-3">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                API GATEWAY
+              </span>
+              <span className="text-emerald-400">200 OK</span>
+            </div>
+            
+            <div className="space-y-3 font-mono text-xs my-4">
+              <div className="bg-slate-800/80 p-3 rounded-lg border border-slate-700/60 text-slate-300 flex items-center justify-between">
+                <span className="text-indigo-400">POST /v1/auth/token</span>
+                <span className="text-slate-500">12ms</span>
+              </div>
+              <div className="bg-slate-800/80 p-3 rounded-lg border border-slate-700/60 text-slate-300 flex items-center justify-between">
+                <span className="text-emerald-400">GET /v2/data/stream</span>
+                <span className="text-slate-500">18ms</span>
+              </div>
+              <div className="bg-slate-800/80 p-3 rounded-lg border border-slate-700/60 text-slate-300 flex items-center justify-between">
+                <span className="text-amber-400">gRPC /events.Subscribe</span>
+                <span className="text-slate-500">4ms</span>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500">
+              <span>RATE LIMIT: 10k/sec</span>
+              <span>TLS v1.3</span>
+            </div>
           </div>
-          <div>
-            <p className="font-display-md text-display-md text-primary">10M+</p>
-            <p className="font-caption text-caption text-text-secondary">Daily Requests</p>
-          </div>
-          <div>
-            <p className="font-display-md text-display-md text-primary">100%</p>
-            <p className="font-caption text-caption text-text-secondary">Documented Specs</p>
-          </div>
-          <div>
-            <p className="font-display-md text-display-md text-primary">Zero-Trust</p>
-            <p className="font-caption text-caption text-text-secondary">Security Protocol</p>
-          </div>
-        </div>
+        </motion.div>
       </div>
-      
-      {/* Hero Image Background Mockup */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block w-1/3 h-2/3 opacity-20 lg:opacity-100 mix-blend-multiply animate-in fade-in duration-1000 delay-300">
-        <img className="w-full h-full object-contain" alt="A clean, minimalist 3D rendering of a futuristic server node network with glowing lines of data connecting abstract geometric hubs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Cmgq7MqErfIOeJmeyc2WOdHhMX7OJaTY6dMw0SccKH4rqvMxGeCvwGTv09rNXixivB7kDt47VE4MR7WYVLuXVJ-u8v88EJq1qO8a3wFn377ztY6MJVhUKnGBiu_mW2-8LhJFHguWCjUobscPRmCQSsQbLSlG_U3I2zAAs6rMflE0dCFZ2EG-XEOHJGpPL7roo7y_7uFoMmTEqYfcpkt1cTIKj8E3zbFhWwuSU7EP6w1trCGUirJpsQ" />
-      </div>
+
+      {/* Metrics Grid */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-space-12 pt-8 border-t border-slate-200/80"
+      >
+        {metrics.map((m, idx) => (
+          <motion.div 
+            key={idx}
+            whileHover={{ y: -4 }}
+            className="p-6 border border-slate-200/80 rounded-2xl bg-white shadow-xs hover:border-indigo-400 hover:shadow-xl transition-all"
+          >
+            <div className="font-display-md text-2xl sm:text-3xl font-extrabold text-indigo-600 mb-1">{m.value}</div>
+            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{m.label}</div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

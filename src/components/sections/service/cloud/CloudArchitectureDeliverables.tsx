@@ -1,78 +1,90 @@
-import React from "react";
+
+import { motion } from "framer-motion";
 
 export function CloudArchitectureDeliverables() {
+  const deliverables = [
+    {
+      title: "Production-Ready Terraform Codebase",
+      desc: "Clean, modular, and reusable IaC templates.",
+    },
+    {
+      title: "Interactive Topology Diagrams",
+      desc: "Visual mapping of all VPCs, subnets, and routing.",
+    },
+    {
+      title: "CI/CD Pipeline Configurations",
+      desc: "Fully automated build, test, and deploy workflows.",
+    },
+    {
+      title: "Disaster Recovery (DR) Plan",
+      desc: "Verified failover and recovery documentation.",
+    },
+  ];
+
+  const tools = [
+    { code: "AWS", name: "AWS" },
+    { code: "GCP", name: "Google Cloud" },
+    { code: "Dk", name: "Docker" },
+    { code: "K8s", name: "Kubernetes" },
+    { code: "Tf", name: "Terraform" },
+    { code: "Dd", name: "Datadog" },
+    { code: "GH", name: "GitHub Actions" },
+    { code: "Hm", name: "Helm" },
+  ];
+
   return (
-    <section className="py-space-32 bg-bg-secondary border-y border-border/50 overflow-hidden">
-      <div className="px-6 md:px-12 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-space-24 items-center">
-        <div>
-          <h2 className="font-display-lg text-display-md md:text-display-lg mb-space-8">Engineered Deliverables</h2>
-          <ul className="space-y-space-6">
-            <li className="flex items-start gap-4 group">
-              <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              <div>
-                <span className="font-heading-md block text-on-surface">Production-Ready Terraform Codebase</span>
-                <span className="text-text-secondary">Clean, modular, and reusable IaC templates.</span>
-              </div>
-            </li>
-            <li className="flex items-start gap-4 group">
-              <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              <div>
-                <span className="font-heading-md block text-on-surface">Interactive Topology Diagrams</span>
-                <span className="text-text-secondary">Visual mapping of all VPCs, subnets, and routing.</span>
-              </div>
-            </li>
-            <li className="flex items-start gap-4 group">
-              <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              <div>
-                <span className="font-heading-md block text-on-surface">CI/CD Pipeline Configurations</span>
-                <span className="text-text-secondary">Fully automated build, test, and deploy workflows.</span>
-              </div>
-            </li>
-            <li className="flex items-start gap-4 group">
-              <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              <div>
-                <span className="font-heading-md block text-on-surface">Disaster Recovery (DR) Plan</span>
-                <span className="text-text-secondary">Verified failover and recovery documentation.</span>
-              </div>
-            </li>
+    <section className="py-space-32 bg-slate-50/80 border-y border-slate-200/80 overflow-hidden">
+      <div className="px-6 md:px-8 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-8">Engineered Deliverables</h2>
+          <ul className="space-y-6">
+            {deliverables.map((item, idx) => (
+              <motion.li 
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="flex items-start gap-4 group"
+              >
+                <span className="material-symbols-outlined text-indigo-600 mt-1 text-[24px] group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                <div>
+                  <span className="font-bold text-slate-900 text-base sm:text-lg block mb-0.5">{item.title}</span>
+                  <span className="text-slate-600 text-sm">{item.desc}</span>
+                </div>
+              </motion.li>
+            ))}
           </ul>
-        </div>
-        <div className="bg-white p-space-12 rounded-2xl border border-border/60 shadow-xl group">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-8 text-center opacity-70 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">AWS</div>
-              <span className="text-caption">AWS</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">GCP</div>
-              <span className="text-caption">Google Cloud</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">Dk</div>
-              <span className="text-caption">Docker</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">K8s</div>
-              <span className="text-caption">Kubernetes</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">Tf</div>
-              <span className="text-caption">Terraform</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">Dd</div>
-              <span className="text-caption">Datadog</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">GH</div>
-              <span className="text-caption">GitHub Actions</span>
-            </div>
-            <div className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 bg-bg-secondary rounded-lg flex items-center justify-center font-bold text-primary shadow-inner">Hm</div>
-              <span className="text-caption">Helm</span>
-            </div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all"
+        >
+          <h4 className="font-caption text-xs uppercase font-bold text-slate-400 tracking-widest mb-6 text-center">Cloud &amp; DevOps Stack</h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            {tools.map((t, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ scale: 1.08, y: -4 }}
+                className="flex flex-col items-center gap-2 cursor-pointer group"
+              >
+                <div className="w-12 h-12 bg-slate-50 group-hover:bg-indigo-50 border border-slate-200 group-hover:border-indigo-300 rounded-xl flex items-center justify-center font-extrabold text-sm text-slate-800 group-hover:text-indigo-600 shadow-xs transition-all">
+                  {t.code}
+                </div>
+                <span className="text-xs font-semibold text-slate-500 group-hover:text-slate-900 transition-colors">{t.name}</span>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

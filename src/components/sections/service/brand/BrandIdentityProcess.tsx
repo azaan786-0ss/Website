@@ -1,40 +1,69 @@
+import { motion } from "framer-motion";
+
 export function BrandIdentityProcess() {
+  const steps = [
+    {
+      num: 1,
+      title: "Strategy & Immersion",
+      desc: "Audit of core values, deep audience profiling, and strategic moodboarding to align vision.",
+    },
+    {
+      num: 2,
+      title: "Concept Exploration",
+      desc: "Iterative logo concepts, typography pairing, and research-backed color psychology sessions.",
+    },
+    {
+      num: 3,
+      title: "System Refinement",
+      desc: "Developing comprehensive guidelines, collateral mockups, and digital application stress-tests.",
+    },
+    {
+      num: 4,
+      title: "Asset Delivery",
+      desc: "Deployment of a digital brand portal, vector master exports, and implementation of design tokens.",
+    },
+  ];
+
   return (
-    <section className="py-space-32 px-space-6 md:px-8 bg-white overflow-hidden">
+    <section className="py-space-32 px-6 md:px-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-space-24">
-          <h2 className="font-display-lg text-display-lg mb-space-4">Our Methodical Process</h2>
-          <p className="text-text-secondary max-w-xl mx-auto">How we bridge the gap between engineering rigor and creative vision.</p>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-space-20"
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">Our Methodical Process</h2>
+          <p className="text-slate-600 max-w-xl mx-auto text-base">How we bridge the gap between engineering rigor and creative vision.</p>
+        </motion.div>
+
         <div className="relative">
           {/* Progress Line */}
-          <div className="absolute top-8 left-0 w-full h-[2px] bg-border hidden lg:block"></div>
+          <div className="absolute top-8 left-0 w-full h-[2px] bg-slate-200 hidden lg:block"></div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-space-12 relative">
-            {/* Step 1 */}
-            <div className="relative bg-white z-10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center font-display-md text-display-md mb-space-8 ring-8 ring-accent-subtle group-hover:scale-110 transition-transform">1</div>
-              <h4 className="font-heading-lg text-heading-lg mb-space-4">Strategy &amp; Immersion</h4>
-              <p className="text-text-secondary font-body-md">Audit of core values, deep audience profiling, and strategic moodboarding to align vision.</p>
-            </div>
-            {/* Step 2 */}
-            <div className="relative bg-white z-10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center font-display-md text-display-md mb-space-8 ring-8 ring-accent-subtle">2</div>
-              <h4 className="font-heading-lg text-heading-lg mb-space-4">Concept Exploration</h4>
-              <p className="text-text-secondary font-body-md">Iterative logo concepts, typography pairing, and research-backed color psychology sessions.</p>
-            </div>
-            {/* Step 3 */}
-            <div className="relative bg-white z-10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center font-display-md text-display-md mb-space-8 ring-8 ring-accent-subtle">3</div>
-              <h4 className="font-heading-lg text-heading-lg mb-space-4">System Refinement</h4>
-              <p className="text-text-secondary font-body-md">Developing comprehensive guidelines, collateral mockups, and digital application stress-tests.</p>
-            </div>
-            {/* Step 4 */}
-            <div className="relative bg-white z-10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center font-display-md text-display-md mb-space-8 ring-8 ring-accent-subtle">4</div>
-              <h4 className="font-heading-lg text-heading-lg mb-space-4">Asset Delivery</h4>
-              <p className="text-text-secondary font-body-md">Deployment of a digital brand portal, vector master exports, and implementation of design tokens.</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {steps.map((step, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+                whileHover={{ y: -6 }}
+                className="relative z-10 bg-white p-6 rounded-2xl border border-slate-200/70 hover:border-indigo-500/40 hover:shadow-lg transition-all flex flex-col items-center text-center group"
+              >
+                <div className="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-xl mb-6 shadow-md shadow-indigo-600/30 group-hover:scale-110 transition-transform">
+                  {step.num}
+                </div>
+                <h4 className="font-heading-lg text-lg font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                  {step.title}
+                </h4>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,60 +1,91 @@
-import React from "react";
+
+import { motion } from "framer-motion";
 
 export function CloudArchitectureRoadmap() {
+  const steps = [
+    {
+      num: "Step 1",
+      title: "Cloud Audit & Risk Assessment",
+      desc: "In-depth evaluation of existing workloads, identifying security gaps and cost bottlenecks.",
+      alignLeft: true,
+    },
+    {
+      num: "Step 2",
+      title: "Architecture Blueprint & Topology",
+      desc: "Declarative IaC templates and VPC network design tailored for security and speed.",
+      alignLeft: false,
+    },
+    {
+      num: "Step 3",
+      title: "Automated Migration & Execution",
+      desc: "Phased, zero-downtime data migration and container orchestration deployment.",
+      alignLeft: true,
+    },
+    {
+      num: "Step 4",
+      title: "Continuous Observability & Tuning",
+      desc: "Real-time dashboards, FinOps controls, and proactive infrastructure scaling.",
+      alignLeft: false,
+    },
+  ];
+
   return (
-    <section className="py-space-32 bg-white">
-      <div className="px-6 md:px-12 max-w-[1280px] mx-auto">
-        <div className="text-center mb-space-16">
-          <h2 className="font-display-lg text-display-md md:text-display-lg mb-space-4">Modernization Roadmap</h2>
-          <p className="text-text-secondary max-w-xl mx-auto text-body-lg">
+    <section className="py-space-32 bg-white overflow-hidden">
+      <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-space-16"
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">Modernization Roadmap</h2>
+          <p className="text-slate-600 max-w-xl mx-auto text-base sm:text-lg">
             A proven engineering process to transition legacy stacks into high-performance cloud ecosystems.
           </p>
-        </div>
+        </motion.div>
+
         <div className="relative max-w-4xl mx-auto">
           {/* Progress Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-primary/20"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-indigo-200 -translate-x-1/2"></div>
           
-          <div className="space-y-space-24">
-            {/* Step 1 */}
-            <div className="relative flex flex-col md:flex-row items-start md:items-center group">
-              <div className="flex-1 md:text-right md:pr-space-12 order-2 md:order-1">
-                <h4 className="font-heading-lg text-heading-lg text-primary mb-2">Step 1</h4>
-                <h3 className="font-display-md text-display-md mb-2 group-hover:text-primary transition-colors">Cloud Audit &amp; Risk Assessment</h3>
-                <p className="text-text-secondary">In-depth evaluation of existing workloads, identifying security gaps and cost bottlenecks.</p>
-              </div>
-              <div className="relative z-10 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-sm order-1 md:order-2 mb-4 md:mb-0 group-hover:scale-125 transition-transform"></div>
-              <div className="flex-1 md:pl-space-12 order-3"></div>
-            </div>
-            {/* Step 2 */}
-            <div className="relative flex flex-col md:flex-row items-start md:items-center group">
-              <div className="flex-1 order-2 md:order-1 md:pr-space-12"></div>
-              <div className="relative z-10 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-sm order-1 md:order-2 mb-4 md:mb-0 group-hover:scale-125 transition-transform"></div>
-              <div className="flex-1 md:pl-space-12 order-3">
-                <h4 className="font-heading-lg text-heading-lg text-primary mb-2">Step 2</h4>
-                <h3 className="font-display-md text-display-md mb-2 group-hover:text-primary transition-colors">Architecture Blueprint &amp; Topology</h3>
-                <p className="text-text-secondary">Declarative IaC templates and VPC network design tailored for security and speed.</p>
-              </div>
-            </div>
-            {/* Step 3 */}
-            <div className="relative flex flex-col md:flex-row items-start md:items-center group">
-              <div className="flex-1 md:text-right md:pr-space-12 order-2 md:order-1">
-                <h4 className="font-heading-lg text-heading-lg text-primary mb-2">Step 3</h4>
-                <h3 className="font-display-md text-display-md mb-2 group-hover:text-primary transition-colors">Automated Migration &amp; Execution</h3>
-                <p className="text-text-secondary">Phased, zero-downtime data migration and container orchestration deployment.</p>
-              </div>
-              <div className="relative z-10 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-sm order-1 md:order-2 mb-4 md:mb-0 group-hover:scale-125 transition-transform"></div>
-              <div className="flex-1 md:pl-space-12 order-3"></div>
-            </div>
-            {/* Step 4 */}
-            <div className="relative flex flex-col md:flex-row items-start md:items-center group">
-              <div className="flex-1 order-2 md:order-1 md:pr-space-12"></div>
-              <div className="relative z-10 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-sm order-1 md:order-2 mb-4 md:mb-0 group-hover:scale-125 transition-transform"></div>
-              <div className="flex-1 md:pl-space-12 order-3">
-                <h4 className="font-heading-lg text-heading-lg text-primary mb-2">Step 4</h4>
-                <h3 className="font-display-md text-display-md mb-2 group-hover:text-primary transition-colors">Continuous Observability &amp; Tuning</h3>
-                <p className="text-text-secondary">Real-time dashboards, FinOps controls, and proactive infrastructure scaling.</p>
-              </div>
-            </div>
+          <div className="space-y-12 md:space-y-16">
+            {steps.map((stg, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.12 }}
+                className="relative flex flex-col md:flex-row items-center group"
+              >
+                {stg.alignLeft ? (
+                  <>
+                    <div className="flex-1 md:text-right md:pr-12 text-center mb-6 md:mb-0">
+                      <span className="text-indigo-600 font-bold text-xs uppercase tracking-wider mb-1 block">{stg.num}</span>
+                      <h3 className="font-bold text-slate-900 text-xl sm:text-2xl mb-2 group-hover:text-indigo-600 transition-colors">{stg.title}</h3>
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md md:ml-auto">{stg.desc}</p>
+                    </div>
+                    <div className="z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm border-4 border-white shadow-md group-hover:scale-110 transition-transform">
+                      0{idx + 1}
+                    </div>
+                    <div className="flex-1 md:pl-12 hidden md:block"></div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex-1 md:pr-12 hidden md:block"></div>
+                    <div className="z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm border-4 border-white shadow-md group-hover:scale-110 transition-transform">
+                      0{idx + 1}
+                    </div>
+                    <div className="flex-1 md:pl-12 text-center md:text-left mt-6 md:mt-0">
+                      <span className="text-indigo-600 font-bold text-xs uppercase tracking-wider mb-1 block">{stg.num}</span>
+                      <h3 className="font-bold text-slate-900 text-xl sm:text-2xl mb-2 group-hover:text-indigo-600 transition-colors">{stg.title}</h3>
+                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md">{stg.desc}</p>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

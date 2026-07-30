@@ -1,51 +1,99 @@
-import React from "react";
+
+import { motion } from "framer-motion";
 
 export function PerformanceOptimizationCapabilities() {
+  const capabilities = [
+    {
+      icon: "speed",
+      title: "Frontend Speed Tuning",
+      desc: "Eliminating render-blocking resources, implementing critical CSS, and optimizing asset delivery pipelines.",
+    },
+    {
+      icon: "database",
+      title: "Database Optimization",
+      desc: "Query refactoring, strategic indexing, and schema normalization to reduce I/O overhead and lock contention.",
+    },
+    {
+      icon: "memory",
+      title: "Server-Side Caching",
+      desc: "Multi-layer caching strategies using Redis and Memcached to minimize expensive compute operations.",
+    },
+    {
+      icon: "bolt",
+      title: "Load Testing",
+      desc: "Simulating extreme traffic patterns to identify failure points before they impact real users.",
+    },
+    {
+      icon: "code",
+      title: "Codebase Optimization",
+      desc: "Algorithmic improvements and removal of bloat to ensure lean, efficient execution cycles.",
+    },
+    {
+      icon: "search_insights",
+      title: "Memory Leak Profiling",
+      desc: "Deep forensic analysis to prevent silent resource exhaustion and application crashes.",
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
   return (
-    <section className="bg-bg-secondary py-space-32">
-      <div className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="mb-space-16">
-          <h2 className="font-display-md text-display-md mb-4 text-on-surface">Core Engineering Capabilities</h2>
-          <p className="text-text-secondary max-w-xl font-body-lg text-body-lg">Meticulous optimization across every layer of your technology stack.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-space-6">
-          {/* Capability 1 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>speed</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Frontend Speed Tuning</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Eliminating render-blocking resources, implementing critical CSS, and optimizing asset delivery pipelines.</p>
-          </div>
-          {/* Capability 2 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>database</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Database Optimization</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Query refactoring, strategic indexing, and schema normalization to reduce I/O overhead and lock contention.</p>
-          </div>
-          {/* Capability 3 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>memory</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Server-Side Caching</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Multi-layer caching strategies using Redis and Memcached to minimize expensive compute operations.</p>
-          </div>
-          {/* Capability 4 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Load Testing</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Simulating extreme traffic patterns to identify failure points before they impact real users.</p>
-          </div>
-          {/* Capability 5 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>code</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Codebase Optimization</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Algorithmic improvements and removal of bloat to ensure lean, efficient execution cycles.</p>
-          </div>
-          {/* Capability 6 */}
-          <div className="bg-white p-space-8 rounded-xl border border-outline-variant/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-            <span className="material-symbols-outlined text-primary text-4xl mb-space-4 group-hover:scale-110 transition-transform block" style={{ fontVariationSettings: "'FILL' 1" }}>search_insights</span>
-            <h3 className="font-heading-lg text-heading-lg mb-space-3 text-on-surface group-hover:text-primary transition-colors">Memory Leak Profiling</h3>
-            <p className="text-text-secondary font-body-md text-body-md">Deep forensic analysis to prevent silent resource exhaustion and application crashes.</p>
-          </div>
-        </div>
+    <section className="py-space-32 bg-slate-50/70 border-y border-slate-200/60">
+      <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-space-16"
+        >
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">Core Engineering Capabilities</h2>
+          <p className="font-body-lg text-slate-600 max-w-2xl mx-auto text-base sm:text-lg">
+            Meticulous optimization across every layer of your technology stack.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          {capabilities.map((item, idx) => (
+            <motion.div
+              key={idx}
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 group flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                  <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: "'FILL' 1" }}>{item.icon}</span>
+                </div>
+                <h3 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

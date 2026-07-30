@@ -1,33 +1,82 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   return (
-    <footer className="bg-bg-secondary dark:bg-bg-dark-secondary w-full py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="md:col-span-1">
-          <div className="font-display-md text-display-md text-on-surface dark:text-on-primary-fixed mb-4">
-            Nexus Strategy
+    <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12 w-full relative z-10 overflow-hidden">
+      {/* Background ambient light */}
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 md:gap-12 pb-12 border-b border-slate-900">
+          
+          {/* Brand block */}
+          <div className="lg:col-span-2 space-y-6">
+            <Link to="/" className="inline-block font-display-md text-xl md:text-2xl font-bold tracking-tighter text-white">
+              Nexus Strategy
+            </Link>
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+              Next-generation B2B engineering strategy and architecture consulting. Delivering unshakeable digital foundations.
+            </p>
+            
+            {/* Social Links */}
+            <div className="flex gap-4 pt-2">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-slate-900 text-slate-400 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition-all">
+                <span className="material-symbols-outlined text-[20px]">share</span>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-slate-900 text-slate-400 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition-all">
+                <span className="material-symbols-outlined text-[20px]">alternate_email</span>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-xl bg-slate-900 text-slate-400 hover:bg-indigo-600 hover:text-white flex items-center justify-center transition-all">
+                <span className="material-symbols-outlined text-[20px]">code</span>
+              </a>
+            </div>
           </div>
-          <p className="font-caption text-caption text-primary dark:text-inverse-primary">
-            © 2024 Nexus Strategy. Engineering Excellence for Global Leaders.
-          </p>
+
+          {/* Links Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:col-span-4 gap-8">
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">Services</h4>
+              <ul className="space-y-3">
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/services/web-design">Web Design</Link></li>
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/services/mobile-app">Mobile Apps</Link></li>
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/services/ai-solutions">AI Solutions</Link></li>
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/services/cloud-architecture">Cloud Architecture</Link></li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">Company</h4>
+              <ul className="space-y-3">
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/about">About Us</Link></li>
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Careers</a></li>
+                <li><Link className="text-sm hover:text-indigo-400 hover:underline transition-colors" to="/start-project">Contact</Link></li>
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Newsroom</a></li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">Legal</h4>
+              <ul className="space-y-3">
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Privacy Policy</a></li>
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Terms of Service</a></li>
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Security Standards</a></li>
+                <li><a className="text-sm hover:text-indigo-400 hover:underline transition-colors" href="#">Compliance</a></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="font-caption text-caption font-semibold text-on-surface">Legal</h4>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Privacy Policy</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Terms of Service</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Cookie Policy</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Security</a>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="font-caption text-caption font-semibold text-on-surface">Company</h4>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">About</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Careers</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Contact</a>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h4 className="font-caption text-caption font-semibold text-on-surface">Social</h4>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">LinkedIn</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">Twitter</a>
-          <a className="font-caption text-caption text-text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary hover:underline transition-all" href="#">GitHub</a>
+
+        {/* Bottom bar */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <div className="text-slate-500 flex items-center gap-2">
+            <span className="material-symbols-outlined text-[16px] text-indigo-500">verified</span>
+            © {new Date().getFullYear()} Nexus Strategy. Engineering Excellence for Global Leaders.
+          </div>
+          <div className="flex gap-6 text-slate-500">
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">United States (English)</span>
+            <span className="hover:text-slate-400 cursor-pointer transition-colors">Server Status: Normal</span>
+          </div>
         </div>
       </div>
     </footer>

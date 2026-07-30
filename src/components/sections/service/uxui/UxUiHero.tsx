@@ -1,67 +1,106 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export function UxUiHero() {
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const btn = e.currentTarget;
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      },
+    },
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const btn = e.currentTarget;
-    btn.style.transform = `translate(0, 0)`;
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    },
   };
+
+  const metrics = [
+    { value: "+45%", label: "Avg. Conversion Rate" },
+    { value: "120+", label: "Screens Designed" },
+    { value: "100%", label: "Accessible (WCAG AA)" },
+    { value: "< 4 Wks", label: "Avg. Delivery" },
+  ];
 
   return (
-    <section className="max-w-[1280px] mx-auto px-8 mb-space-32 pt-16">
-      <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-space-16">
-        <div className="bg-accent-subtle text-primary px-4 py-1 rounded-full font-caption text-caption mb-space-6 border border-primary/10">
+    <section className="max-w-[1280px] mx-auto px-6 md:px-8 mb-space-32 pt-16 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center text-center max-w-4xl mx-auto mb-space-16"
+      >
+        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full font-caption text-xs sm:text-sm font-semibold mb-space-6 border border-indigo-200/60 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
           Product &amp; Design / UX/UI Design
-        </div>
-        <h1 className="font-display-xl text-display-xl-mobile md:text-display-xl mb-space-6">
-          Crafting Intuitive, High-Converting <span className="text-primary">Digital Experiences</span>
-        </h1>
-        <p className="font-body-lg text-body-lg text-text-secondary mb-space-8 max-w-2xl">
+        </motion.div>
+
+        <motion.h1 variants={itemVariants} className="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-space-6 text-slate-900 leading-tight">
+          Crafting Intuitive, High-Converting{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800">
+            Digital Experiences
+          </span>
+        </motion.h1>
+
+        <motion.p variants={itemVariants} className="font-body-lg text-sm sm:text-base md:text-lg text-slate-600 mb-space-8 max-w-2xl leading-relaxed">
           We blend deep user research, strategic interaction design, and pixel-perfect UI to transform complex workflows into effortless web and mobile products.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-space-4">
-          <Link to="/start-project">
-            <button 
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              className="bg-primary text-on-primary px-space-8 py-space-4 rounded-lg font-semibold hover:opacity-90 transition-transform duration-100 flex items-center justify-center gap-2 w-full sm:w-auto"
+        </motion.p>
+
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+          <Link to="/start-project" className="w-full sm:w-auto">
+            <motion.button 
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-indigo-600/25"
             >
               Schedule a UX Audit
               <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-            </button>
+            </motion.button>
           </Link>
-          <button className="border border-outline text-on-surface px-space-8 py-space-4 rounded-lg font-semibold hover:bg-surface-container-low transition-all">
+          <motion.button 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="border border-slate-300 text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300 w-full sm:w-auto"
+          >
             View Case Studies
-          </button>
-        </div>
-      </div>
+          </motion.button>
+        </motion.div>
+      </motion.div>
+
       {/* Impact Metrics Bar */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-space-4 mt-space-16">
-        <div className="bg-white p-space-6 rounded-xl border border-border shadow-sm flex flex-col items-center text-center">
-          <span className="text-primary font-display-md text-display-md mb-2">+45%</span>
-          <span className="text-text-secondary font-caption text-caption uppercase tracking-wider">Avg. Conversion Rate</span>
-        </div>
-        <div className="bg-white p-space-6 rounded-xl border border-border shadow-sm flex flex-col items-center text-center">
-          <span className="text-primary font-display-md text-display-md mb-2">120+</span>
-          <span className="text-text-secondary font-caption text-caption uppercase tracking-wider">Screens Designed</span>
-        </div>
-        <div className="bg-white p-space-6 rounded-xl border border-border shadow-sm flex flex-col items-center text-center">
-          <span className="text-primary font-display-md text-display-md mb-2">100%</span>
-          <span className="text-text-secondary font-caption text-caption uppercase tracking-wider">Accessible (WCAG AA)</span>
-        </div>
-        <div className="bg-white p-space-6 rounded-xl border border-border shadow-sm flex flex-col items-center text-center">
-          <span className="text-primary font-display-md text-display-md mb-2">&lt; 4 Wks</span>
-          <span className="text-text-secondary font-caption text-caption uppercase tracking-wider">Avg. Delivery</span>
-        </div>
-      </div>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+      >
+        {metrics.map((item, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:shadow-indigo-500/10 transition-all duration-300 flex flex-col items-center text-center group"
+          >
+            <span className="text-indigo-600 font-display-md text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">
+              {item.value}
+            </span>
+            <span className="text-slate-500 font-caption text-xs sm:text-sm uppercase tracking-wider font-medium">
+              {item.label}
+            </span>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

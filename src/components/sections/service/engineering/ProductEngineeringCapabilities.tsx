@@ -1,37 +1,36 @@
-
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function ProductEngineeringCapabilities() {
   const capabilities = [
     {
-      icon: "rocket_launch",
-      title: "0-to-1 Rapid MVP Buildout",
-      desc: "Translating business strategy into robust, market-ready digital products with a focus on speed-to-market without compromising quality.",
+      icon: 'rocket_launch',
+      title: '0-to-1 Rapid MVP Buildout',
+      desc: 'Translating business strategy into robust, market-ready digital products with a focus on speed-to-market without compromising quality.',
     },
     {
-      icon: "architecture",
-      title: "High-Scale System Architecture",
-      desc: "Designing adaptable tech foundations capable of handling massive growth and extreme concurrency through cloud-native distributed patterns.",
+      icon: 'architecture',
+      title: 'High-Scale System Architecture',
+      desc: 'Designing adaptable tech foundations capable of handling massive growth and extreme concurrency through cloud-native distributed patterns.',
     },
     {
-      icon: "hub",
-      title: "Core Business Logic Integration",
-      desc: "Connecting complex workflows, payments, CRMs, and internal operations into a unified, high-integrity technical core.",
+      icon: 'hub',
+      title: 'Core Business Logic Integration',
+      desc: 'Connecting complex workflows, payments, CRMs, and internal operations into a unified, high-integrity technical core.',
     },
     {
-      icon: "security",
-      title: "Continuous Performance & Security",
-      desc: "Hardening platforms with proactive threat detection, automated compliance, and enterprise-grade data security protocols.",
+      icon: 'security',
+      title: 'Continuous Performance & Security',
+      desc: 'Hardening platforms with proactive threat detection, automated compliance, and enterprise-grade data security protocols.',
     },
     {
-      icon: "history_edu",
-      title: "Legacy Modernization",
-      desc: "Evolving initial prototypes and monolithic systems into maintainable, modern, and highly scalable microservices architectures.",
+      icon: 'history_edu',
+      title: 'Legacy Modernization',
+      desc: 'Evolving initial prototypes and monolithic systems into maintainable, modern, and highly scalable microservices architectures.',
     },
     {
-      icon: "settings_suggest",
-      title: "Tech Governance & Infrastructure",
-      desc: "Monitoring, cost optimization, CI/CD pipelines, and strategic ops support to ensure your technology remains an asset, not a liability.",
+      icon: 'settings_suggest',
+      title: 'Tech Governance & Infrastructure',
+      desc: 'Monitoring, cost optimization, CI/CD pipelines, and strategic ops support to ensure your technology remains an asset, not a liability.',
     },
   ];
 
@@ -57,7 +56,7 @@ export function ProductEngineeringCapabilities() {
   return (
     <section className="py-space-32 bg-white px-6 md:px-8">
       <div className="max-w-[1280px] mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,16 +64,21 @@ export function ProductEngineeringCapabilities() {
           className="flex flex-col md:flex-row justify-between items-end mb-space-16 gap-6"
         >
           <div className="max-w-2xl">
-            <h2 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Comprehensive Engineering Ecosystem</h2>
-            <p className="font-body-lg text-slate-600 text-base sm:text-lg">We bridge the gap between strategic business objectives and high-performance technical execution with a multi-disciplinary approach.</p>
+            <h2 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+              Comprehensive Engineering Ecosystem
+            </h2>
+            <p className="font-body-lg text-slate-600 text-base sm:text-lg">
+              We bridge the gap between strategic business objectives and high-performance technical
+              execution with a multi-disciplinary approach.
+            </p>
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {capabilities.map((item, idx) => (
@@ -92,9 +96,7 @@ export function ProductEngineeringCapabilities() {
                 <h3 className="font-heading-md text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>
           ))}

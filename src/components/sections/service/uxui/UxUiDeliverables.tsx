@@ -1,20 +1,20 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function UxUiDeliverables() {
   const deliverables = [
-    "Figma master design source files",
-    "Documented component library & tokens",
-    "Comprehensive UI Kit & Style Guide",
-    "Full-resolution interactive prototype",
-    "Designer-to-developer handoff documentation",
+    'Figma master design source files',
+    'Documented component library & tokens',
+    'Comprehensive UI Kit & Style Guide',
+    'Full-resolution interactive prototype',
+    'Designer-to-developer handoff documentation',
   ];
 
   const tools = [
-    { icon: "deployed_code", name: "Figma" },
-    { icon: "motion_sensor_active", name: "Principle" },
-    { icon: "web_asset", name: "Framer" },
-    { icon: "auto_stories", name: "Storybook" },
-    { icon: "play_circle", name: "Lottie" },
+    { icon: 'deployed_code', name: 'Figma' },
+    { icon: 'motion_sensor_active', name: 'Principle' },
+    { icon: 'web_asset', name: 'Framer' },
+    { icon: 'auto_stories', name: 'Storybook' },
+    { icon: 'play_circle', name: 'Lottie' },
   ];
 
   return (
@@ -39,7 +39,9 @@ export function UxUiDeliverables() {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 className="flex items-center gap-4 text-slate-700 text-sm sm:text-base font-medium"
               >
-                <span className="material-symbols-outlined text-emerald-500 text-[22px]">check_circle</span>
+                <span className="material-symbols-outlined text-emerald-500 text-[22px]">
+                  check_circle
+                </span>
                 <span>{item}</span>
               </motion.li>
             ))}
@@ -61,7 +63,7 @@ export function UxUiDeliverables() {
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.15, y: -4 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                transition={{ type: 'spring', stiffness: 300 }}
                 className="flex flex-col items-center gap-2 cursor-pointer group"
               >
                 <span className="material-symbols-outlined text-[42px] text-slate-600 group-hover:text-indigo-600 transition-colors">

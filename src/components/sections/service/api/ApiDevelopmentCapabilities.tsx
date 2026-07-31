@@ -1,37 +1,36 @@
-
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function ApiDevelopmentCapabilities() {
   const capabilities = [
     {
-      icon: "api",
-      title: "RESTful & GraphQL API Engineering",
-      desc: "Architecting intuitive, predictable, and resource-efficient interfaces for every frontend and client type.",
+      icon: 'api',
+      title: 'RESTful & GraphQL API Engineering',
+      desc: 'Architecting intuitive, predictable, and resource-efficient interfaces for every frontend and client type.',
     },
     {
-      icon: "hub",
-      title: "Microservices Architecture & Decoupling",
-      desc: "Breaking down monoliths into scalable, independent services that communicate via high-performance protocols.",
+      icon: 'hub',
+      title: 'Microservices Architecture & Decoupling',
+      desc: 'Breaking down monoliths into scalable, independent services that communicate via high-performance protocols.',
     },
     {
-      icon: "extension",
-      title: "Third-Party & Enterprise Integrations",
-      desc: "Seamlessly bridging SaaS platforms, legacy ERP systems, and modern cloud infrastructure.",
+      icon: 'extension',
+      title: 'Third-Party & Enterprise Integrations',
+      desc: 'Seamlessly bridging SaaS platforms, legacy ERP systems, and modern cloud infrastructure.',
     },
     {
-      icon: "encrypted",
-      title: "Security, Auth & Rate Limiting",
-      desc: "Implementing OAuth2, JWT, and mTLS alongside granular throttle policies to protect your data assets.",
+      icon: 'encrypted',
+      title: 'Security, Auth & Rate Limiting',
+      desc: 'Implementing OAuth2, JWT, and mTLS alongside granular throttle policies to protect your data assets.',
     },
     {
-      icon: "bolt",
-      title: "Real-Time Event Streaming & Webhooks",
-      desc: "Enabling reactive systems with Kafka, RabbitMQ, and instant webhook notifications for low-latency operations.",
+      icon: 'bolt',
+      title: 'Real-Time Event Streaming & Webhooks',
+      desc: 'Enabling reactive systems with Kafka, RabbitMQ, and instant webhook notifications for low-latency operations.',
     },
     {
-      icon: "terminal",
-      title: "Developer Portals & Interactive SDKs",
-      desc: "Empowering third-party developers with Swagger docs, sandbox environments, and auto-generated client libraries.",
+      icon: 'terminal',
+      title: 'Developer Portals & Interactive SDKs',
+      desc: 'Empowering third-party developers with Swagger docs, sandbox environments, and auto-generated client libraries.',
     },
   ];
 
@@ -57,20 +56,23 @@ export function ApiDevelopmentCapabilities() {
   return (
     <section className="py-space-32 bg-slate-50/70 border-y border-slate-200/60">
       <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-space-16"
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">Core Capabilities</h2>
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">
+            Core Capabilities
+          </h2>
           <p className="font-body-lg text-slate-600 max-w-2xl mx-auto text-base sm:text-lg">
-            End-to-end API lifecycle management tailored for scale, speed, and enterprise resilience.
+            End-to-end API lifecycle management tailored for scale, speed, and enterprise
+            resilience.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -86,9 +88,16 @@ export function ApiDevelopmentCapabilities() {
             >
               <div>
                 <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                  <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: "'FILL' 1" }}>{item.icon}</span>
+                  <span
+                    className="material-symbols-outlined text-[24px]"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    {item.icon}
+                  </span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
+                <h3 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-indigo-600 transition-colors">
+                  {item.title}
+                </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>

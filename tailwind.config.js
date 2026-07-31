@@ -116,11 +116,16 @@ export default {
           '28%': { transform: 'scale(1)' },
           '42%': { transform: 'scale(1.15)' },
           '70%': { transform: 'scale(1)' },
+        },
+        'shine': {
+          '0%': { 'background-position': '100%' },
+          '100%': { 'background-position': '-100%' }
         }
       },
       animation: {
         'logo-loop': 'logo-loop 30s linear infinite',
-        'heartbeat': 'heartbeat 1.5s ease-in-out infinite'
+        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+        'shine': 'shine 5s linear infinite'
       }
     },
   },

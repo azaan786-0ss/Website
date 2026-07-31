@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { Navbar } from "../components/layout/Navbar";
-import { Footer } from "../components/layout/Footer";
-import { AboutHeroSection } from "../components/sections/about/AboutHeroSection";
-import { WhyWeExistSection } from "../components/sections/about/WhyWeExistSection";
-import { AboutTimeline } from "../components/sections/about/AboutTimeline";
-import { PrinciplesSection } from "../components/sections/about/PrinciplesSection";
-import { AboutFinalCTA } from "../components/sections/about/AboutFinalCTA";
+import { useEffect } from 'react';
+import { Navbar } from '../components/layout/Navbar';
+import { Footer } from '../components/layout/Footer';
+import { AboutHeroSection } from '../components/sections/about/AboutHeroSection';
+import { WhyWeExistSection } from '../components/sections/about/WhyWeExistSection';
+import { AboutTimeline } from '../components/sections/about/AboutTimeline';
+import { PrinciplesSection } from '../components/sections/about/PrinciplesSection';
+import { AboutFinalCTA } from '../components/sections/about/AboutFinalCTA';
 
 export function About() {
   useEffect(() => {

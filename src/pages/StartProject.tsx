@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Navbar } from "../components/layout/Navbar";
-import { Footer } from "../components/layout/Footer";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Navbar } from '../components/layout/Navbar';
+import { Footer } from '../components/layout/Footer';
 
 export function StartProject() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    projectType: "",
-    projectStage: "",
-    budget: "",
-    timeline: "",
-    details: "",
+    name: '',
+    email: '',
+    company: '',
+    projectType: '',
+    projectStage: '',
+    budget: '',
+    timeline: '',
+    details: '',
   });
 
   useEffect(() => {
@@ -47,22 +47,22 @@ export function StartProject() {
 
   const timelineSteps = [
     {
-      step: "01",
-      title: "Requirements Review",
-      desc: "We analyze your project specifications and technical requirements within 24 hours.",
-      icon: "mail",
+      step: '01',
+      title: 'Requirements Review',
+      desc: 'We analyze your project specifications and technical requirements within 24 hours.',
+      icon: 'mail',
     },
     {
-      step: "02",
-      title: "Discovery Call",
-      desc: "A focused 30-minute session with senior architects to explore your timeline & system goals.",
-      icon: "calendar_today",
+      step: '02',
+      title: 'Discovery Call',
+      desc: 'A focused 30-minute session with senior architects to explore your timeline & system goals.',
+      icon: 'calendar_today',
     },
     {
-      step: "03",
-      title: "Technical Proposal",
-      desc: "Receive a comprehensive architectural blueprint, milestone roadmap, and fixed investment model.",
-      icon: "architecture",
+      step: '03',
+      title: 'Technical Proposal',
+      desc: 'Receive a comprehensive architectural blueprint, milestone roadmap, and fixed investment model.',
+      icon: 'architecture',
     },
   ];
 
@@ -90,10 +90,14 @@ export function StartProject() {
                 INITIATE PARTNERSHIP
               </span>
               <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-                Let's build <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800">something extraordinary.</span>
+                Let's build{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800">
+                  something extraordinary.
+                </span>
               </h1>
               <p className="font-body-lg text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                No obligation. 30-minute discovery call with senior engineers. We respond within one business day.
+                No obligation. 30-minute discovery call with senior engineers. We respond within one
+                business day.
               </p>
             </motion.div>
 
@@ -109,9 +113,12 @@ export function StartProject() {
                     <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200/60 shadow-xs">
                       <span className="material-symbols-outlined text-[36px]">check_circle</span>
                     </div>
-                    <h3 className="font-display-md text-2xl sm:text-3xl font-bold text-slate-900">Inquiry Received!</h3>
+                    <h3 className="font-display-md text-2xl sm:text-3xl font-bold text-slate-900">
+                      Inquiry Received!
+                    </h3>
                     <p className="text-slate-600 max-w-md mx-auto text-base leading-relaxed">
-                      Thank you for reaching out. Our engineering team is currently reviewing your project details and will be in touch within 24 hours.
+                      Thank you for reaching out. Our engineering team is currently reviewing your
+                      project details and will be in touch within 24 hours.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -128,7 +135,10 @@ export function StartProject() {
                     {/* Name & Work Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="name"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Full Name <span className="text-indigo-600">*</span>
                         </label>
                         <input
@@ -144,7 +154,10 @@ export function StartProject() {
                       </div>
 
                       <div className="space-y-2">
-                        <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Work Email <span className="text-indigo-600">*</span>
                         </label>
                         <input
@@ -162,7 +175,10 @@ export function StartProject() {
 
                     {/* Company */}
                     <div className="space-y-2">
-                      <label htmlFor="company" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                      <label
+                        htmlFor="company"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      >
                         Company Name <span className="text-indigo-600">*</span>
                       </label>
                       <input
@@ -180,7 +196,10 @@ export function StartProject() {
                     {/* Project Type & Stage */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label htmlFor="projectType" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="projectType"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Project Type
                         </label>
                         <div className="relative">
@@ -188,7 +207,9 @@ export function StartProject() {
                             id="projectType"
                             name="projectType"
                             value={formData.projectType}
-                            onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                            onChange={(e) =>
+                              setFormData({ ...formData, projectType: e.target.value })
+                            }
                             className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none appearance-none cursor-pointer"
                           >
                             <option value="">Select project type...</option>
@@ -206,7 +227,10 @@ export function StartProject() {
                       </div>
 
                       <div className="space-y-2">
-                        <label htmlFor="projectStage" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="projectStage"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Project Stage
                         </label>
                         <div className="relative">
@@ -214,7 +238,9 @@ export function StartProject() {
                             id="projectStage"
                             name="projectStage"
                             value={formData.projectStage}
-                            onChange={(e) => setFormData({ ...formData, projectStage: e.target.value })}
+                            onChange={(e) =>
+                              setFormData({ ...formData, projectStage: e.target.value })
+                            }
                             className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none appearance-none cursor-pointer"
                           >
                             <option value="">Select project stage...</option>
@@ -233,7 +259,10 @@ export function StartProject() {
                     {/* Budget & Timeline */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label htmlFor="budget" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="budget"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Budget Band
                         </label>
                         <div className="relative">
@@ -257,7 +286,10 @@ export function StartProject() {
                       </div>
 
                       <div className="space-y-2">
-                        <label htmlFor="timeline" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                        <label
+                          htmlFor="timeline"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                        >
                           Target Timeline
                         </label>
                         <div className="relative">
@@ -283,7 +315,10 @@ export function StartProject() {
 
                     {/* Details */}
                     <div className="space-y-2">
-                      <label htmlFor="details" className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                      <label
+                        htmlFor="details"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      >
                         Project Overview (Optional)
                       </label>
                       <textarea
@@ -336,20 +371,18 @@ export function StartProject() {
                 {timelineSteps.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-5 relative z-10 group">
                     <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 shadow-xs">
-                      <span className="material-symbols-outlined text-[22px]">
-                        {item.icon}
-                      </span>
+                      <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
                     </div>
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">{item.step}</span>
+                        <span className="text-xs font-bold text-indigo-600 uppercase tracking-wider">
+                          {item.step}
+                        </span>
                         <h3 className="font-bold text-base text-slate-900 group-hover:text-indigo-600 transition-colors">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        {item.desc}
-                      </p>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -366,7 +399,9 @@ export function StartProject() {
               </div>
               <div className="space-y-0.5">
                 <div className="text-sm font-bold text-white">Strict Confidentiality</div>
-                <div className="text-xs text-slate-400">All submissions are protected under mutual non-disclosure standards.</div>
+                <div className="text-xs text-slate-400">
+                  All submissions are protected under mutual non-disclosure standards.
+                </div>
               </div>
             </motion.div>
           </div>

@@ -1,36 +1,36 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function BrandIdentityCapabilities() {
   const capabilities = [
     {
-      icon: "psychology",
-      title: "Brand Positioning & Voice",
-      desc: "Definition of core mission, unique tone of voice, and comprehensive messaging architecture for unified communication.",
+      icon: 'psychology',
+      title: 'Brand Positioning & Voice',
+      desc: 'Definition of core mission, unique tone of voice, and comprehensive messaging architecture for unified communication.',
     },
     {
-      icon: "grid_view",
-      title: "Logo & Icon Systems",
-      desc: "Scalable vector logos, mark variations, favicons, and custom icon sets optimized for all digital environments.",
+      icon: 'grid_view',
+      title: 'Logo & Icon Systems',
+      desc: 'Scalable vector logos, mark variations, favicons, and custom icon sets optimized for all digital environments.',
     },
     {
-      icon: "palette",
-      title: "Color & Typography",
-      desc: "WCAG-compliant accessible color palettes and meticulous web typography scales designed for long-term scalability.",
+      icon: 'palette',
+      title: 'Color & Typography',
+      desc: 'WCAG-compliant accessible color palettes and meticulous web typography scales designed for long-term scalability.',
     },
     {
-      icon: "menu_book",
-      title: "Digital Brand Guidelines",
-      desc: "Interactive web-based brand portals featuring live documentation and dynamic asset downloads for global teams.",
+      icon: 'menu_book',
+      title: 'Digital Brand Guidelines',
+      desc: 'Interactive web-based brand portals featuring live documentation and dynamic asset downloads for global teams.',
     },
     {
-      icon: "auto_awesome_motion",
-      title: "Marketing & Social Kits",
-      desc: "Modular templates for social media, executive pitch decks, and high-impact digital advertising assets.",
+      icon: 'auto_awesome_motion',
+      title: 'Marketing & Social Kits',
+      desc: 'Modular templates for social media, executive pitch decks, and high-impact digital advertising assets.',
     },
     {
-      icon: "integration_instructions",
-      title: "Product Integration",
-      desc: "Seamless translation of visual brand identity directly into functional UI design systems and component libraries.",
+      icon: 'integration_instructions',
+      title: 'Product Integration',
+      desc: 'Seamless translation of visual brand identity directly into functional UI design systems and component libraries.',
     },
   ];
 
@@ -56,22 +56,24 @@ export function BrandIdentityCapabilities() {
   return (
     <section className="py-space-32 bg-slate-50/70 px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mb-space-16"
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">Core Capabilities</h2>
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">
+            Core Capabilities
+          </h2>
           <div className="w-24 h-1.5 bg-indigo-600 rounded-full"></div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {capabilities.map((item, idx) => (
@@ -89,9 +91,7 @@ export function BrandIdentityCapabilities() {
                 <h3 className="font-heading-lg text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>
           ))}

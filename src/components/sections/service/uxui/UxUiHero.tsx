@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { motion, type Variants } from 'framer-motion';
+import { SplitText } from '../../../ui/SplitText';
 
 export function UxUiHero() {
-  const containerVariants = {
+  const titleText = 'Crafting Intuitive, High-Converting Digital Experiences';
+
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -13,52 +16,69 @@ export function UxUiHero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   const metrics = [
-    { value: "+45%", label: "Avg. Conversion Rate" },
-    { value: "120+", label: "Screens Designed" },
-    { value: "100%", label: "Accessible (WCAG AA)" },
-    { value: "< 4 Wks", label: "Avg. Delivery" },
+    { value: '+45%', label: 'Avg. Conversion Rate' },
+    { value: '120+', label: 'Screens Designed' },
+    { value: '100%', label: 'Accessible (WCAG AA)' },
+    { value: '< 4 Wks', label: 'Avg. Delivery' },
   ];
 
   return (
-    <section className="max-w-[1280px] mx-auto px-6 md:px-8 mb-space-32 pt-16 relative overflow-hidden">
+    <section className="max-w-[1280px] mx-auto px-6 md:px-8 mb-16 pt-6 sm:pt-10 relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <motion.div 
+      {/* Left-Aligned Breadcrumb Back Navigation */}
+      <div className="w-full flex items-center justify-start text-left mb-6 relative z-20">
+        <div className="flex items-center space-x-2 text-slate-500 font-caption text-xs sm:text-sm">
+          <Link className="hover:text-indigo-600 transition-colors" to="/">
+            Home
+          </Link>
+          <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+          <Link className="hover:text-indigo-600 transition-colors" to="/services">
+            Services
+          </Link>
+          <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+          <span className="text-slate-900 font-medium">UX/UI Design</span>
+        </div>
+      </div>
+
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex flex-col items-center text-center max-w-4xl mx-auto mb-space-16"
+        className="flex flex-col items-center text-center max-w-4xl mx-auto mb-16"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full font-caption text-xs sm:text-sm font-semibold mb-space-6 border border-indigo-200/60 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-          Product &amp; Design / UX/UI Design
-        </motion.div>
-
-        <motion.h1 variants={itemVariants} className="font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-space-6 text-slate-900 leading-tight">
-          Crafting Intuitive, High-Converting{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800">
-            Digital Experiences
-          </span>
+        <motion.h1
+          variants={itemVariants}
+          className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#6366f1,55%,#0f172a)] bg-[length:200%_100%] font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-slate-900 leading-tight"
+        >
+          <SplitText text={titleText} />
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="font-body-lg text-sm sm:text-base md:text-lg text-slate-600 mb-space-8 max-w-2xl leading-relaxed">
-          We blend deep user research, strategic interaction design, and pixel-perfect UI to transform complex workflows into effortless web and mobile products.
+        <motion.p
+          variants={itemVariants}
+          className="font-body-lg text-sm sm:text-base md:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed"
+        >
+          We blend deep user research, strategic interaction design, and pixel-perfect UI to
+          transform complex workflows into effortless web and mobile products.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
+        >
           <Link to="/start-project" className="w-full sm:w-auto">
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-indigo-600/25"
@@ -67,7 +87,7 @@ export function UxUiHero() {
               <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
             </motion.button>
           </Link>
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="border border-slate-300 text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300 w-full sm:w-auto"
@@ -78,7 +98,7 @@ export function UxUiHero() {
       </motion.div>
 
       {/* Impact Metrics Bar */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

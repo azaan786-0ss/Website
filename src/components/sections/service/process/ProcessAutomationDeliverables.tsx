@@ -1,53 +1,110 @@
+import { motion } from 'framer-motion';
 
 export function ProcessAutomationDeliverables() {
+  const deliverables = [
+    'Production-Ready Custom Workflow Scripts & Middleware',
+    'Custom AI Agent & Document Parsing Models',
+    'Comprehensive Operational Flowcharts & API Maps',
+    'Real-Time Workflow Execution & Error Monitoring Dashboard',
+    'Team Standard Operating Procedures (SOP) & Admin Guides',
+  ];
+
+  const techStack = [
+    'Python',
+    'Node.js',
+    'n8n',
+    'Make',
+    'Temporal',
+    'Airflow',
+    'OpenAI API',
+    'LangChain',
+    'UiPath',
+    'PostgreSQL',
+  ];
+
   return (
-    <section className="py-24 bg-bg-secondary">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+    <section className="py-20 md:py-28 px-6 md:px-8 max-w-[1280px] mx-auto relative z-10">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Left Column: Deliverables Checklist */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-6 space-y-8"
+        >
           <div>
-            <h2 className="font-heading-lg text-heading-lg mb-10 text-on-surface">Production Deliverables</h2>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4 group">
-                <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <span className="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Production-Ready Custom Workflow Scripts &amp; Middleware</span>
-              </li>
-              <li className="flex items-start gap-4 group">
-                <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <span className="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Custom AI Agent &amp; Document Parsing Models</span>
-              </li>
-              <li className="flex items-start gap-4 group">
-                <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <span className="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Comprehensive Operational Flowcharts &amp; API Maps</span>
-              </li>
-              <li className="flex items-start gap-4 group">
-                <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <span className="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Real-Time Workflow Execution &amp; Error Monitoring Dashboard</span>
-              </li>
-              <li className="flex items-start gap-4 group">
-                <span className="material-symbols-outlined text-success group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <span className="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Team Standard Operating Procedures (SOP) &amp; Admin Guides</span>
-              </li>
-            </ul>
+            <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
+              <span className="material-symbols-outlined text-[18px] text-indigo-600">
+                inventory_2
+              </span>
+              SYSTEM HANDOFF
+            </span>
+            <h2 className="font-display-lg text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Production Deliverables
+            </h2>
           </div>
-          <div className="bg-white p-10 rounded-2xl border border-border shadow-sm hover:shadow-[0_4px_24px_rgba(79,70,229,0.06)] hover:border-primary/20 transition-all duration-500 group">
-            <h3 className="font-heading-md text-heading-md mb-8 text-on-surface">Integrated Tech Ecosystem</h3>
-            <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[0ms]">Python</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[50ms]">Node.js</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[100ms]">n8n</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[150ms]">Make</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[200ms]">Temporal</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[250ms]">Airflow</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[300ms]">OpenAI API</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[350ms]">LangChain</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[400ms]">UiPath</span>
-              <span className="px-4 py-2 bg-surface-container text-on-surface rounded font-code text-sm group-hover:bg-primary/10 transition-colors delay-[450ms]">PostgreSQL</span>
-            </div>
-            <div className="mt-12 p-6 border-t border-dashed border-border group-hover:border-primary/30 transition-colors duration-500">
-              <p className="text-sm italic text-text-secondary">"Our stack is chosen for reliability and scalability, ensuring that your automated infrastructure grows with your business volumes."</p>
-            </div>
+
+          <ul className="space-y-4">
+            {deliverables.map((item, idx) => (
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="flex items-start gap-4 p-4 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs hover:border-indigo-300 transition-colors group"
+              >
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-[20px]">check</span>
+                </div>
+                <span className="font-body-md text-sm sm:text-base font-semibold text-slate-800 pt-1">
+                  {item}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+
+        {/* Right Column: Tech Ecosystem Card */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 space-y-8 relative overflow-hidden"
+        >
+          {/* Subtle Glow */}
+          <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+
+          <div>
+            <h3 className="font-display-md text-2xl font-bold text-slate-900 mb-2">
+              Integrated Tech Ecosystem
+            </h3>
+            <p className="font-body-md text-sm text-slate-600">
+              We leverage modern, battle-tested open standards and enterprise automation tooling.
+            </p>
           </div>
-        </div>
+
+          <div className="flex flex-wrap gap-3">
+            {techStack.map((tech, idx) => (
+              <motion.span
+                key={idx}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="px-4 py-2 bg-slate-50 border border-slate-200 text-slate-700 font-mono text-xs sm:text-sm font-semibold rounded-xl hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 transition-all duration-200 cursor-default shadow-xs"
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+
+          <div className="pt-6 border-t border-dashed border-slate-200">
+            <p className="text-sm italic text-slate-500 leading-relaxed">
+              "Our stack is chosen for maximum uptime reliability and elastic scale, ensuring your
+              automated infrastructure grows seamlessly with business volume."
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

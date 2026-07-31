@@ -1,36 +1,36 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export function ProductStrategyCapabilities() {
   const capabilities = [
     {
-      icon: "analytics",
-      title: "Market & Discovery",
-      desc: "Benchmarking, market positioning, and gap analysis to find your unfair advantage.",
+      icon: 'analytics',
+      title: 'Market & Discovery',
+      desc: 'Benchmarking, market positioning, and gap analysis to find your unfair advantage.',
     },
     {
-      icon: "view_kanban",
-      title: "MVP Scoping",
-      desc: "Feature prioritization, scope management, and phase planning for initial launch.",
+      icon: 'view_kanban',
+      title: 'MVP Scoping',
+      desc: 'Feature prioritization, scope management, and phase planning for initial launch.',
     },
     {
-      icon: "route",
-      title: "User Journey Mapping",
-      desc: "Customer touchpoint analysis and friction elimination for seamless experiences.",
+      icon: 'route',
+      title: 'User Journey Mapping',
+      desc: 'Customer touchpoint analysis and friction elimination for seamless experiences.',
     },
     {
-      icon: "payments",
-      title: "Monetization Models",
-      desc: "Value metric definition and SaaS pricing strategy optimized for LTV.",
+      icon: 'payments',
+      title: 'Monetization Models',
+      desc: 'Value metric definition and SaaS pricing strategy optimized for LTV.',
     },
     {
-      icon: "insights",
-      title: "Growth Frameworks",
-      desc: "North Star metric setup and retention analytics strategy for sustainable growth.",
+      icon: 'insights',
+      title: 'Growth Frameworks',
+      desc: 'North Star metric setup and retention analytics strategy for sustainable growth.',
     },
     {
-      icon: "rocket_launch",
-      title: "Lifecycle Management",
-      desc: "Scaling strategy from seed stage through enterprise-level expansion.",
+      icon: 'rocket_launch',
+      title: 'Lifecycle Management',
+      desc: 'Scaling strategy from seed stage through enterprise-level expansion.',
     },
   ];
 
@@ -56,22 +56,26 @@ export function ProductStrategyCapabilities() {
   return (
     <section className="py-space-24 px-6 md:px-8 bg-slate-50/60 border-y border-slate-200/80">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mb-space-12 text-center md:text-left"
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">Core Capabilities</h2>
-          <p className="text-slate-600 mt-2 text-base">Comprehensive strategic support across the product lifecycle.</p>
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
+            Core Capabilities
+          </h2>
+          <p className="text-slate-600 mt-2 text-base">
+            Comprehensive strategic support across the product lifecycle.
+          </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {capabilities.map((item, idx) => (
@@ -89,9 +93,7 @@ export function ProductStrategyCapabilities() {
                 <h3 className="font-heading-lg text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>
           ))}

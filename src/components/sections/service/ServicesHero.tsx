@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   SiFramer,
   SiVercel,
@@ -59,25 +59,7 @@ export function ServicesHero() {
   const text3Opacity = useTransform(scrollYProgress, [0.6, 0.7, 1, 1], [0, 1, 1, 1]);
   const text3Y = useTransform(scrollYProgress, [0.6, 0.7, 1, 1], [50, 0, 0, 0]);
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
-  };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
 
   return (
     <section ref={containerRef} className="relative h-[400vh] w-full bg-white border-b border-slate-200/50">

@@ -1,107 +1,244 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import type { MotionValue } from 'framer-motion';
+import { useRef } from 'react';
+
+interface CapabilityItem {
+  id: string;
+  icon: string;
+  title: string;
+  desc: string;
+  image: string;
+}
+
+const CapabilityPanel = ({ 
+  item, 
+  idx, 
+  totalItems,
+  scrollYProgress 
+}: { 
+  item: CapabilityItem; 
+  idx: number; 
+  totalItems: number;
+  scrollYProgress: MotionValue<number>;
+}) => {
+  const step = 1 / (totalItems - 1);
+  const targetProgress = idx * step;
+  
+  const start = Math.max(0, targetProgress - step * 0.5);
+  const mid = targetProgress;
+  const end = Math.min(1, targetProgress + step * 0.5);
+
+  const inputRange = idx === 0 
+    ? [0, mid, end] 
+    : idx === totalItems - 1 
+    ? [start, mid, 1] 
+    : [start, mid, end];
+
+  // Subtle scale transition for focal depth (always 100% visible opacity)
+  const scale = useTransform(
+    scrollYProgress, 
+    inputRange, 
+    idx === 0 ? [1, 1, 0.95] : idx === totalItems - 1 ? [0.95, 1, 1] : [0.95, 1, 0.95]
+  );
+
+  return (
+    <motion.div 
+      style={{ scale }}
+      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-950/50"
+    >
+      {/* Left Side: Content */}
+      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-slate-900/95 backdrop-blur-md">
+        <div className="max-w-md w-full">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-500/20 shadow-inner">
+            <span className="material-symbols-outlined text-[26px] sm:text-[30px]">{item.icon}</span>
+          </div>
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-400/80 mb-2 block">
+            Phase 0{idx + 1}
+          </span>
+          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 sm:mb-4 leading-tight">
+            {item.title}
+          </h3>
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
+            {item.desc}
+          </p>
+        </div>
+      </div>
+
+      {/* Right Side: Visual */}
+      <div className="w-full lg:w-1/2 h-[45%] lg:h-full relative overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 bg-slate-950/20 z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-transparent to-transparent z-10 hidden lg:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 block lg:hidden"></div>
+        
+        <img 
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        />
+      </div>
+    </motion.div>
+  );
+};
+
+const IndicatorDot = ({ 
+  scrollYProgress, 
+  i, 
+  totalItems 
+}: { 
+  scrollYProgress: MotionValue<number>; 
+  i: number; 
+  totalItems: number;
+}) => {
+  const step = 1 / (totalItems - 1);
+  const target = i * step;
+
+  const start = Math.max(0, target - step * 0.4);
+  const end = Math.min(1, target + step * 0.4);
+
+  const opacity = useTransform(
+    scrollYProgress,
+    i === 0 
+      ? [0, step * 0.5] 
+      : i === totalItems - 1 
+      ? [1 - step * 0.5, 1] 
+      : [start, target, end],
+    i === 0 
+      ? [1, 0.3] 
+      : i === totalItems - 1 
+      ? [0.3, 1] 
+      : [0.3, 1, 0.3]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    i === 0 
+      ? [0, step * 0.5] 
+      : i === totalItems - 1 
+      ? [1 - step * 0.5, 1] 
+      : [start, target, end],
+    i === 0 
+      ? [1.3, 1] 
+      : i === totalItems - 1 
+      ? [1, 1.3] 
+      : [1, 1.3, 1]
+  );
+
+  return (
+    <motion.div 
+      style={{ opacity, scale }}
+      className="w-3 h-3 rounded-full bg-indigo-500 transition-all"
+    />
+  );
+};
 
 export function ProductEngineeringCapabilities() {
-  const capabilities = [
+  const capabilities: CapabilityItem[] = [
     {
+      id: 'mvp',
       icon: 'rocket_launch',
       title: '0-to-1 Rapid MVP Buildout',
       desc: 'Translating business strategy into robust, market-ready digital products with a focus on speed-to-market without compromising quality.',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200'
     },
     {
+      id: 'architecture',
       icon: 'architecture',
       title: 'High-Scale System Architecture',
       desc: 'Designing adaptable tech foundations capable of handling massive growth and extreme concurrency through cloud-native distributed patterns.',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
     },
     {
+      id: 'integration',
       icon: 'hub',
       title: 'Core Business Logic Integration',
       desc: 'Connecting complex workflows, payments, CRMs, and internal operations into a unified, high-integrity technical core.',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200'
     },
     {
+      id: 'security',
       icon: 'security',
       title: 'Continuous Performance & Security',
       desc: 'Hardening platforms with proactive threat detection, automated compliance, and enterprise-grade data security protocols.',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200'
     },
     {
+      id: 'legacy',
       icon: 'history_edu',
       title: 'Legacy Modernization',
       desc: 'Evolving initial prototypes and monolithic systems into maintainable, modern, and highly scalable microservices architectures.',
+      image: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=1200'
     },
     {
+      id: 'infrastructure',
       icon: 'settings_suggest',
       title: 'Tech Governance & Infrastructure',
       desc: 'Monitoring, cost optimization, CI/CD pipelines, and strategic ops support to ensure your technology remains an asset, not a liability.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const targetRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"]
+  });
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
+  const maxTranslate = -((capabilities.length - 1) / capabilities.length) * 100;
+  const xNum = useTransform(scrollYProgress, [0, 1], [0, maxTranslate]);
+  const x = useTransform(xNum, (v) => `${v}%`);
 
   return (
-    <section className="py-space-32 bg-white px-6 md:px-8">
-      <div className="max-w-[1280px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-end mb-space-16 gap-6"
-        >
-          <div className="max-w-2xl">
-            <h2 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-              Comprehensive Engineering Ecosystem
+    <section ref={targetRef} className="relative h-[500vh] bg-slate-950">
+      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950">
+        
+        {/* Floating Section Title - Below Fixed Navbar */}
+        <div className="px-6 md:px-12 z-20 pointer-events-none flex justify-between items-end">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-1">
+              Core Capabilities
+            </span>
+            <h2 className="font-heading-lg text-2xl md:text-3xl font-extrabold text-white">
+              Engineering Ecosystem
             </h2>
-            <p className="font-body-lg text-slate-600 text-base sm:text-lg">
-              We bridge the gap between strategic business objectives and high-performance technical
-              execution with a multi-disciplinary approach.
-            </p>
           </div>
-        </motion.div>
+          <div className="hidden sm:block text-slate-500 text-xs tracking-wider uppercase font-semibold">
+            Scroll to explore →
+          </div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        >
-          {capabilities.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="group p-8 rounded-2xl border border-slate-200/80 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 bg-slate-50/50 flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
-                  <span className="material-symbols-outlined text-[24px]">{item.icon}</span>
-                </div>
-                <h3 className="font-heading-md text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+        {/* Horizontal Scrolling Track */}
+        <div className="flex-1 flex items-center overflow-hidden my-auto">
+          <motion.div style={{ x }} className="flex w-[600vw] items-center text-white flex-nowrap">
+            {capabilities.map((item, idx) => (
+              <div key={item.id} className="w-screen shrink-0 flex justify-center items-center px-4 md:px-8">
+                <CapabilityPanel 
+                  item={item} 
+                  idx={idx} 
+                  totalItems={capabilities.length}
+                  scrollYProgress={scrollYProgress} 
+                />
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
+        
+        {/* Progress Indicator Dots */}
+        <div className="z-20 flex justify-center items-center">
+          <div className="flex items-center gap-4 bg-slate-900/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-800 shadow-xl">
+            {capabilities.map((_, i) => (
+              <IndicatorDot 
+                key={i} 
+                scrollYProgress={scrollYProgress} 
+                i={i} 
+                totalItems={capabilities.length} 
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
+

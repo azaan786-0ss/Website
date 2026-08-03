@@ -1,4 +1,45 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
+const CapabilityCard = ({ item, idx, total }: { item: any; idx: number; total: number }) => {
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start 15%', 'end 15%'],
+  });
+
+  const isLast = idx === total - 1;
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, isLast ? 1 : 0.92]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, isLast ? 1 : 0.3]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, isLast ? 0 : -40]);
+
+  return (
+    <div ref={targetRef} className="w-full relative" style={{ zIndex: idx + 1 }}>
+      <motion.div
+        className="sticky top-[15vh] group bg-white p-8 sm:p-10 rounded-[32px] border border-slate-200 shadow-2xl flex flex-col sm:flex-row gap-6 sm:gap-8 items-start origin-top"
+        style={{
+          scale,
+          opacity,
+          y,
+        }}
+      >
+        <div className="w-16 h-16 shrink-0 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white group-hover:-rotate-3 transition-all duration-300 shadow-sm">
+          <span className="material-symbols-outlined text-[32px]" style={{ fontVariationSettings: "'FILL' 1" }}>{item.icon}</span>
+        </div>
+        <div className="flex-1 pt-1">
+          <h3 className="font-heading-lg text-xl sm:text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+            {item.title}
+          </h3>
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+            {item.desc}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 export function ApiDevelopmentCapabilities() {
   const capabilities = [
@@ -34,75 +75,31 @@ export function ApiDevelopmentCapabilities() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
-
   return (
-    <section className="py-space-32 bg-slate-50/70 border-y border-slate-200/60">
-      <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
+    <section className="py-space-32 bg-slate-50/70 px-6 md:px-8">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-space-16"
+          className="mb-space-16"
         >
           <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">
             Core Capabilities
           </h2>
-          <p className="font-body-lg text-slate-600 max-w-2xl mx-auto text-base sm:text-lg">
+          <div className="w-24 h-1.5 bg-indigo-600 rounded-full mb-6"></div>
+          <p className="font-body-lg text-slate-600 max-w-2xl text-base sm:text-lg">
             End-to-end API lifecycle management tailored for scale, speed, and enterprise
             resilience.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        >
+        <div className="flex flex-col max-w-4xl mx-auto w-full gap-8 pb-[10vh]">
           {capabilities.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={cardVariants}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                  <span
-                    className="material-symbols-outlined text-[24px]"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    {item.icon}
-                  </span>
-                </div>
-                <h3 className="font-bold text-slate-900 text-xl mb-3 group-hover:text-indigo-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
+            <CapabilityCard key={idx} item={item} idx={idx} total={capabilities.length} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

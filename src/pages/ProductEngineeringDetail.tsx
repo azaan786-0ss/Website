@@ -13,7 +13,7 @@ export function ProductEngineeringDetail() {
   }, []);
 
   return (
-    <div className="bg-[#FAFAFC] text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-white min-h-screen font-body-md flex flex-col">
+    <div className="bg-[#FAFAFC] text-on-surface antialiased overflow-x-clip selection:bg-primary-container selection:text-white min-h-screen font-body-md flex flex-col">
       {/* Global Page Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>

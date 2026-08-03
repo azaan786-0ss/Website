@@ -8,7 +8,7 @@ import { ProductStrategyCTA } from '../components/sections/service/strategy/Prod
 
 export function ProductStrategyDetail() {
   return (
-    <div className="bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-white min-h-screen relative font-body-md">
+    <div className="bg-surface text-on-surface antialiased overflow-x-clip selection:bg-primary-container selection:text-white min-h-screen relative font-body-md">
       {/* Global Page Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>

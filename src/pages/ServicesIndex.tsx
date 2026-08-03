@@ -3,6 +3,7 @@ import { Footer } from '../components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SplitText } from '../components/ui/SplitText';
+import { ServicesHero } from '../components/sections/service/ServicesHero';
 
 export function ServicesIndex() {
   const containerVariants = {
@@ -88,7 +89,7 @@ export function ServicesIndex() {
   ];
 
   return (
-    <div className="bg-slate-50 text-slate-900 font-body-md antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen flex flex-col pt-20">
+    <div className="bg-slate-50 text-slate-900 font-body-md antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen flex flex-col">
       {/* Global Page Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>
@@ -96,9 +97,10 @@ export function ServicesIndex() {
       <Navbar />
 
       <main className="flex-grow relative z-10">
-        {/* Hero Section */}
-        <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 sm:py-20 relative overflow-hidden">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
+        <ServicesHero />
+
+        {/* Our Services Title Section */}
+        <section className="max-w-[1280px] mx-auto px-6 md:px-8 pt-16 pb-8 relative z-10 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,10 +116,90 @@ export function ServicesIndex() {
             <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
               Our Services
             </h1>
-            <p className="font-body-lg text-lg text-slate-600 max-w-2xl leading-relaxed">
+            <p className="font-body-lg text-lg text-slate-600 max-w-2xl leading-relaxed mx-auto">
               Full-stack capabilities tailored for ambitious founders. From robust cloud and product
               engineering to data analytics and design systems.
             </p>
+          </motion.div>
+        </section>
+
+        {/* Rich Content Section Below Hero */}
+        <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 sm:py-20 relative bg-white z-20 rounded-3xl shadow-xl shadow-slate-200/50 mb-16 border border-slate-100">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-slate-900 font-display-xl text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight"
+            >
+              <SplitText text="Transforming Ideas Into Digital Reality" />
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-body-lg text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed"
+            >
+              We craft distinctive brand identities, robust cloud architectures, and scalable digital products tailored for ambitious founders.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-4 mb-16 sm:mb-20"
+            >
+              <Link to="/start-project">
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all flex items-center gap-2"
+                >
+                  Start a Project
+                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </motion.button>
+              </Link>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 border border-slate-300 text-slate-800 rounded-xl font-semibold hover:bg-slate-50 transition-all shadow-sm"
+              >
+                View Case Studies
+              </motion.button>
+            </motion.div>
+          </div>
+
+          {/* Impact Metrics Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-200/60 w-full max-w-4xl mx-auto"
+          >
+            {[
+              { value: '10+', label: 'Years Experience' },
+              { value: '50+', label: 'Products Launched' },
+              { value: '100%', label: 'Client Satisfaction' },
+              { value: '24/7', label: 'Support & Maintenance' },
+            ].map((m, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -4 }}
+                className="bg-white/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-indigo-400 hover:shadow-xl transition-all group"
+              >
+                <div className="text-indigo-600 font-display-md text-3xl sm:text-4xl font-extrabold mb-1 group-hover:scale-105 transition-transform">
+                  {m.value}
+                </div>
+                <div className="font-caption text-xs sm:text-sm text-slate-500 uppercase font-semibold tracking-wider">
+                  {m.label}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </section>
 

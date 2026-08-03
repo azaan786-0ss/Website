@@ -43,7 +43,7 @@ export function MobileServiceHero() {
           </motion.div>
           <motion.h1
             variants={itemVariants}
-            className={`animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#1b1b24,45%,#fff,55%,#1b1b24)] dark:bg-[linear-gradient(110deg,#fff,45%,#000,55%,#fff)] bg-[length:200%_100%] font-display-xl-mobile text-3xl sm:text-4xl md:text-5xl xl:font-display-xl xl:text-display-xl mb-6 md:mb-8 leading-tight`}
+            className={`text-slate-900 dark:text-white font-display-xl-mobile text-3xl sm:text-4xl md:text-5xl xl:font-display-xl xl:text-display-xl mb-6 md:mb-8 leading-tight`}
           >
             <SplitText text={text} />
           </motion.h1>

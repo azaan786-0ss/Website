@@ -1,11 +1,9 @@
+import homeData from '../../data/Home.json';
+
+const { trustBar } = homeData;
+
 export function TrustBar() {
-  const items = [
-    { icon: "code", text: "Built with React" },
-    { icon: "cloud", text: "AWS Certified" },
-    { icon: "database", text: "Postgres Optimized" },
-    { icon: "lock", text: "SOC2 Compliant" },
-    { icon: "speed", text: "Edge Deployed" },
-  ];
+  const items = trustBar.items;
 
   return (
     <section className="border-y border-outline-variant/30 bg-transparent py-space-8 overflow-hidden">

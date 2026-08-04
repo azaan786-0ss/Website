@@ -100,7 +100,7 @@ export function ServicesIndex() {
         <ServicesHero />
 
         {/* Our Services Title Section */}
-        <section className="max-w-[1280px] mx-auto px-6 md:px-8 pt-16 pb-8 relative z-10 flex flex-col items-center text-center">
+        <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 pt-16 pb-8 relative z-10 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export function ServicesIndex() {
         </section>
 
         {/* Rich Content Section Below Hero */}
-        <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 sm:py-20 relative bg-white z-20 rounded-3xl shadow-xl shadow-slate-200/50 mb-16 border border-slate-100">
+        <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 py-16 sm:py-20 xl:py-24 relative bg-white z-20 rounded-3xl shadow-xl shadow-slate-200/50 mb-16 xl:mb-24 border border-slate-100">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -151,13 +151,13 @@ export function ServicesIndex() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-4 mb-16 sm:mb-20"
+              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16 sm:mb-20 w-full sm:w-auto px-4 sm:px-0"
             >
-              <Link to="/start-project">
+              <Link to="/start-project" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all flex items-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2"
                 >
                   Start a Project
                   <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -166,7 +166,7 @@ export function ServicesIndex() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 border border-slate-300 text-slate-800 rounded-xl font-semibold hover:bg-slate-50 transition-all shadow-sm"
+                className="w-full sm:w-auto px-8 py-4 border border-slate-300 text-slate-800 rounded-xl font-semibold hover:bg-slate-50 transition-all shadow-sm flex items-center justify-center"
               >
                 View Case Studies
               </motion.button>
@@ -179,7 +179,7 @@ export function ServicesIndex() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-200/60 w-full max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 xl:gap-8 pt-8 xl:pt-12 border-t border-slate-200/60 w-full max-w-4xl xl:max-w-5xl mx-auto"
           >
             {[
               { value: '10+', label: 'Years Experience' },
@@ -204,7 +204,7 @@ export function ServicesIndex() {
         </section>
 
         {/* Service Groups */}
-        <section className="max-w-[1280px] mx-auto px-6 md:px-8 pb-24 space-y-16">
+        <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 pb-24 xl:pb-32 space-y-16 xl:space-y-24">
           {/* Group 1: Product & Design */}
           <motion.div
             variants={containerVariants}
@@ -222,7 +222,7 @@ export function ServicesIndex() {
                 <SplitText text="Product & Design" />
               </span>
             </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
               {productServices.map((service, idx) => (
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
@@ -266,7 +266,7 @@ export function ServicesIndex() {
                 <SplitText text="Engineering & Cloud" />
               </span>
             </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
               {engineeringServices.map((service, idx) => (
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
@@ -310,7 +310,7 @@ export function ServicesIndex() {
                 <SplitText text="Growth & Ops" />
               </span>
             </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
               {growthServices.map((service, idx) => (
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
@@ -339,26 +339,26 @@ export function ServicesIndex() {
         </section>
 
         {/* CTA Band */}
-        <section className="bg-indigo-600 py-16 text-white overflow-hidden relative">
+        <section className="bg-indigo-600 py-16 xl:py-24 text-white overflow-hidden relative">
           <motion.div
             animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute -top-24 right-10 w-96 h-96 bg-white/20 rounded-full blur-3xl pointer-events-none"
           />
-          <div className="max-w-[1280px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-            <div className="text-center md:text-left">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <div className="text-center md:text-left w-full md:w-auto">
               <h2 className="font-display-md text-2xl sm:text-3xl font-extrabold mb-2">
                 Ready to start a specific project?
               </h2>
-              <p className="text-indigo-100 text-sm sm:text-base max-w-xl">
+              <p className="text-indigo-100 text-sm sm:text-base max-w-xl mx-auto md:mx-0">
                 Let's discuss how our engineering rigor can accelerate your growth.
               </p>
             </div>
-            <Link to="/start-project">
+            <Link to="/start-project" className="w-full md:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-white text-indigo-600 px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-indigo-900/20 hover:shadow-2xl transition-all"
+                className="w-full md:w-auto bg-white text-indigo-600 px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-indigo-900/20 hover:shadow-2xl transition-all flex items-center justify-center"
               >
                 Contact us
               </motion.button>

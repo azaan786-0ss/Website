@@ -21,7 +21,7 @@ export function WhyWeExistSection() {
   };
 
   return (
-    <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1100px] mx-auto">
+    <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1400px] mx-auto">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -30,9 +30,6 @@ export function WhyWeExistSection() {
         className="flex flex-col md:flex-row gap-12 md:gap-24 items-start"
       >
         <motion.div variants={itemVariants} className="md:w-1/3 shrink-0">
-          <span className="inline-flex items-center gap-2 py-1 px-3.5 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs font-semibold mb-6">
-            OUR ORIGIN STORY
-          </span>
           <h2 className="font-display-lg text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Why We Exist.
           </h2>

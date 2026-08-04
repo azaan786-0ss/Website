@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import React, { useRef, useState } from "react";
 
 interface PrincipleItem {
   number: string;
@@ -7,38 +7,30 @@ interface PrincipleItem {
   title: string;
   desc: string;
   icon: string;
-  className: string;
-  iconClass: string;
+  containerClass: string;
+  tagClass: string;
+  iconContainerClass: string;
   titleClass: string;
   descClass: string;
   renderVisual?: () => React.ReactNode;
 }
 
 export function PrinciplesSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const principles: PrincipleItem[] = [
     {
       number: "01",
       tag: "FOUNDATIONAL STRATEGY",
       title: "Architecture First",
-      desc: "Immediate execution without structural planning is technical debt in disguise. We architect resilient, modular foundations engineered for long-term scalability and effortless maintainability.",
+      desc: "Immediate execution without structural planning is technical debt in disguise. We architect resilient foundations for long-term scalability.",
       icon: "architecture",
-      className: "md:col-span-2 lg:col-span-2 row-span-2 bg-slate-950 text-white border-slate-800 relative overflow-hidden group min-h-[380px] flex flex-col justify-between p-8 sm:p-10",
-      iconClass: "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shadow-inner",
-      titleClass: "text-white text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight",
-      descClass: "text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl",
-      renderVisual: () => (
-        <>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-600/20 transition-all duration-700"></div>
-          <div className="absolute -bottom-10 -right-6 text-[180px] font-black text-slate-800/20 select-none pointer-events-none leading-none tracking-tighter">
-            01
-          </div>
-          {/* Subtle architectural schematic visual */}
-          <div className="absolute bottom-6 right-8 hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 backdrop-blur-md text-xs font-mono text-indigo-300 pointer-events-none">
-            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-            BLUEPRINT // VERIFIED
-          </div>
-        </>
-      ),
+      containerClass: "bg-indigo-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-indigo-100",
     },
     {
       number: "02",
@@ -46,15 +38,11 @@ export function PrinciplesSection() {
       title: "Data Over Dogma",
       desc: "Decisions are dictated by real user telemetry and performance benchmarks, not subjective opinions or fleeting industry hypes.",
       icon: "analytics",
-      className: "col-span-1 bg-white border-slate-200/80 hover:border-indigo-300 relative overflow-hidden group p-6 sm:p-8 flex flex-col justify-between",
-      iconClass: "bg-indigo-50 text-indigo-600 border border-indigo-100",
-      titleClass: "text-slate-900 text-xl font-bold",
-      descClass: "text-slate-600 text-sm leading-relaxed",
-      renderVisual: () => (
-        <div className="absolute top-4 right-6 text-6xl font-black text-slate-100/80 select-none pointer-events-none font-mono">
-          02
-        </div>
-      ),
+      containerClass: "bg-blue-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-blue-100",
     },
     {
       number: "03",
@@ -62,15 +50,11 @@ export function PrinciplesSection() {
       title: "Radical Transparency",
       desc: "Uncompromising clarity across project roadmaps, code ownership, and pricing. Full visibility with zero obfuscation.",
       icon: "handshake",
-      className: "col-span-1 bg-indigo-50/40 border-indigo-100/80 hover:border-indigo-300 relative overflow-hidden group p-6 sm:p-8 flex flex-col justify-between",
-      iconClass: "bg-indigo-100 text-indigo-700",
-      titleClass: "text-indigo-950 text-xl font-bold",
-      descClass: "text-indigo-900/70 text-sm leading-relaxed",
-      renderVisual: () => (
-        <div className="absolute top-4 right-6 text-6xl font-black text-indigo-100/60 select-none pointer-events-none font-mono">
-          03
-        </div>
-      ),
+      containerClass: "bg-violet-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-violet-100",
     },
     {
       number: "04",
@@ -78,15 +62,11 @@ export function PrinciplesSection() {
       title: "Performance as Feature",
       desc: "Sub-second load times and zero-lag interactions are non-negotiable standards baked directly into our codebases.",
       icon: "speed",
-      className: "col-span-1 bg-rose-50/30 border-rose-100/80 hover:border-rose-300 relative overflow-hidden group p-6 sm:p-8 flex flex-col justify-between",
-      iconClass: "bg-rose-100 text-rose-700",
-      titleClass: "text-slate-900 text-xl font-bold",
-      descClass: "text-slate-600 text-sm leading-relaxed",
-      renderVisual: () => (
-        <div className="absolute top-4 right-6 text-6xl font-black text-rose-100/50 select-none pointer-events-none font-mono">
-          04
-        </div>
-      ),
+      containerClass: "bg-rose-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-rose-100",
     },
     {
       number: "05",
@@ -94,15 +74,11 @@ export function PrinciplesSection() {
       title: "Continuous Evolution",
       desc: "Software systems must adapt seamlessly to market shifts. We build decoupled, change-ready architectures that grow with your ambitions.",
       icon: "update",
-      className: "col-span-1 md:col-span-2 lg:col-span-2 bg-sky-50/40 border-sky-100/80 hover:border-sky-300 relative overflow-hidden group p-6 sm:p-8 flex flex-col justify-between",
-      iconClass: "bg-sky-100 text-sky-700",
-      titleClass: "text-sky-950 text-xl md:text-2xl font-bold",
-      descClass: "text-sky-900/70 text-sm md:text-base leading-relaxed max-w-xl",
-      renderVisual: () => (
-        <div className="absolute top-4 right-6 text-7xl font-black text-sky-100/60 select-none pointer-events-none font-mono">
-          05
-        </div>
-      ),
+      containerClass: "bg-amber-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-amber-100",
     },
     {
       number: "06",
@@ -110,100 +86,122 @@ export function PrinciplesSection() {
       title: "Security by Design",
       desc: "Threat modeling, zero-trust protocols, and rigorous data encryption implemented from line one of code.",
       icon: "shield_lock",
-      className: "col-span-1 md:col-span-2 lg:col-span-3 bg-emerald-50/40 border-emerald-100 hover:border-emerald-300 relative overflow-hidden group p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6",
-      iconClass: "bg-emerald-100 text-emerald-700",
-      titleClass: "text-emerald-950 text-xl sm:text-2xl font-bold",
-      descClass: "text-emerald-900/70 text-sm sm:text-base leading-relaxed max-w-2xl",
-      renderVisual: () => (
-        <div className="flex items-center gap-3 bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-emerald-200/60 shadow-xs">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span className="text-xs font-mono font-bold text-emerald-900 tracking-wider">
-            SOC2 & ZERO-TRUST COMPLIANT
-          </span>
-        </div>
-      ),
+      containerClass: "bg-emerald-600",
+      tagClass: "bg-white/20 text-white",
+      iconContainerClass: "bg-white/10 text-white",
+      titleClass: "text-white",
+      descClass: "text-emerald-100",
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
+  // Map scroll progress to the active index
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24, scale: 0.98 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const cardsCount = principles.length;
+    // Calculate which card should be active based on scroll progress (0 to 1)
+    const rawIndex = latest * cardsCount;
+    // Math.min ensures we don't go out of bounds at exactly 1.0 scroll progress
+    const index = Math.min(Math.floor(rawIndex), cardsCount - 1);
+    setActiveIndex(index);
+  });
 
   return (
-    <section className="py-20 md:py-32 px-6 md:px-8 max-w-[1280px] mx-auto relative">
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-        <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs font-bold tracking-widest uppercase mb-4 shadow-xs">
-          <span className="material-symbols-outlined text-[16px] text-indigo-600">auto_awesome</span>
-          OPERATING PHILOSOPHY
-        </span>
-        <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-          Engineering Operating Principles
-        </h2>
-        <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-          The non-negotiable technical standards that govern how we architect software, make decisions, and deliver value.
-        </p>
-      </div>
-
-      {/* Editorial Magazine Bento Grid */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(200px,auto)] gap-5 sm:gap-6"
-      >
-        {principles.map((item, idx) => (
-          <motion.div
-            key={idx}
-            variants={itemVariants}
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className={`rounded-3xl border shadow-sm hover:shadow-xl transition-all duration-300 ${item.className}`}
-          >
-            {item.renderVisual && item.renderVisual()}
+    // Outer container needs to be very tall to allow scrolling. 
+    // 100vh per card = 600vh total height.
+    <section ref={containerRef} className="relative h-[600vh] bg-slate-950">
+      
+      {/* Sticky Inner Viewport */}
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Static Column: Header & Context */}
+          <div className="lg:col-span-5 relative z-10">
+            <h2 className="font-display-lg text-4xl sm:text-5xl md:text-[3.5rem] font-extrabold text-white tracking-tight leading-[1.1]">
+              Engineering<br className="hidden lg:block" />
+              <span className="lg:hidden"> </span>
+              Operating<br className="hidden lg:block" />
+              <span className="lg:hidden"> </span>
+              <span className="text-indigo-400">Principles</span>
+            </h2>
+            <p className="text-slate-400 text-lg sm:text-xl mt-6 leading-relaxed max-w-md">
+              The non-negotiable technical standards that govern how we architect software, make decisions, and deliver value at enterprise scale.
+            </p>
             
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-6">
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-xs ${item.iconClass}`}>
-                  <span className="material-symbols-outlined text-[26px]">
-                    {item.icon}
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-slate-500 dark:text-slate-400">
-                  {item.tag}
-                </span>
-              </div>
-              
-              <h3 className={`mb-3 transition-colors ${item.titleClass}`}>
-                {item.title}
-              </h3>
-              
-              <p className={`leading-relaxed ${item.descClass}`}>
-                {item.desc}
-              </p>
+            {/* Scroll Progress Indicator */}
+            <div className="hidden lg:flex items-center gap-3 mt-12">
+              {principles.map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                    i === activeIndex 
+                      ? 'w-12 bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]' 
+                      : i < activeIndex 
+                        ? 'w-4 bg-indigo-900/50' 
+                        : 'w-4 bg-slate-800'
+                  }`} 
+                />
+              ))}
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
+            
+            <div className="hidden lg:flex items-center gap-4 mt-6 opacity-60">
+              <span className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">Scroll to explore</span>
+              <div className="w-12 h-px bg-slate-800"></div>
+            </div>
+          </div>
+
+          {/* Right Dynamic Column: The Cards */}
+          <div className="lg:col-span-7 relative h-[400px] sm:h-[450px] w-full">
+            <AnimatePresence mode="popLayout">
+              {principles.map((item, index) => (
+                index === activeIndex && (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 40, scale: 0.98, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: -40, scale: 1.02, filter: 'blur(10px)' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className={`absolute inset-0 overflow-hidden rounded-[2rem] shadow-2xl sm:p-10 p-8 transition-colors duration-300 ${item.containerClass} group`}
+                  >
+                    <div className="relative z-10 flex flex-col h-full justify-between">
+                      {/* Top section: Icon */}
+                      <div className="flex items-center justify-end">
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110 ${item.iconContainerClass}`}>
+                          <span className="material-symbols-outlined text-[28px]">
+                            {item.icon}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom section: Text content */}
+                      <div>
+                        <span className={`inline-block text-[10px] font-mono font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-6 shadow-sm ${item.tagClass}`}>
+                          {item.tag}
+                        </span>
+                        
+                        <h3 className={`text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 ${item.titleClass}`}>
+                          {item.title}
+                        </h3>
+                        
+                        <p className={`text-base sm:text-lg leading-relaxed font-medium ${item.descClass} max-w-lg`}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }
+
+
+

@@ -125,7 +125,7 @@ export function ServicesHero() {
         </div>
 
         {/* Left-Aligned Breadcrumb Navigation */}
-        <div className="absolute top-6 sm:top-10 left-6 md:left-8 z-20 max-w-[1280px] w-full mx-auto right-6 md:right-8">
+        <div className="absolute top-6 sm:top-10 left-6 md:left-8 xl:left-12 z-20 max-w-[1400px] w-full mx-auto right-6 md:right-8 xl:right-12">
           <div className="flex items-center space-x-2 text-slate-500 font-caption text-xs sm:text-sm">
             <Link className="hover:text-indigo-600 transition-colors" to="/">
               Home

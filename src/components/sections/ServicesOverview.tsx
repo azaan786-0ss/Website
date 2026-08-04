@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
+import homeData from '../../data/Home.json';
+
+const { servicesOverview } = homeData;
 
 export function ServicesOverview() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -34,42 +37,30 @@ export function ServicesOverview() {
         }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="mb-space-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <h2 className="font-display-md text-display-md mb-space-4">Engineering Capabilities</h2>
-            <p className="font-body-lg text-body-lg text-secondary">A unified approach to digital product creation, spanning robust architecture to polished interfaces.</p>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
+        <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl xl:max-w-3xl">
+            <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-4 text-on-surface dark:text-white">{servicesOverview.title}</h2>
+            <p className="font-body-lg text-base sm:text-lg xl:text-xl text-secondary dark:text-secondary-fixed-dim leading-relaxed">{servicesOverview.subtitle}</p>
           </div>
           <Link 
             to="/services" 
             className="inline-flex items-center font-heading-md text-base font-semibold text-primary hover:text-primary-container transition-colors group flex-shrink-0 pb-1 border-b border-transparent hover:border-primary/30"
           >
-            View All Services
+            {servicesOverview.linkText}
             <span className="material-symbols-outlined ml-1.5 text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-6">
-          <Link to="/services/web-design" className="block p-space-8 rounded-lg border border-border bg-bg-primary hover:border-primary hover:shadow-[0_2px_8px_rgba(17,19,24,0.06)] transition-all group cursor-pointer">
-            <div className="w-12 h-12 rounded-DEFAULT bg-accent-subtle flex items-center justify-center mb-space-6 group-hover:bg-primary group-hover:text-on-primary transition-colors text-primary">
-              <span className="material-symbols-outlined">devices</span>
-            </div>
-            <h3 className="font-heading-md text-heading-md mb-space-2">Web Design & Development</h3>
-            <p className="font-body-md text-body-md text-secondary">High-performance web applications built on modern frameworks (React, Next.js) ensuring scalability and speed.</p>
-          </Link>
-          <Link to="/services/mobile-app" className="block p-space-8 rounded-lg border border-border bg-bg-primary hover:border-primary hover:shadow-[0_2px_8px_rgba(17,19,24,0.06)] transition-all group cursor-pointer">
-            <div className="w-12 h-12 rounded-DEFAULT bg-accent-subtle flex items-center justify-center mb-space-6 group-hover:bg-primary group-hover:text-on-primary transition-colors text-primary">
-              <span className="material-symbols-outlined">smartphone</span>
-            </div>
-            <h3 className="font-heading-md text-heading-md mb-space-2">Mobile App Development</h3>
-            <p className="font-body-md text-body-md text-secondary">Native and cross-platform mobile solutions designed for intuitive user experiences and hardware integration.</p>
-          </Link>
-          <Link to="/services/ai-solutions" className="block p-space-8 rounded-lg border border-border bg-bg-primary hover:border-primary hover:shadow-[0_2px_8px_rgba(17,19,24,0.06)] transition-all group cursor-pointer">
-            <div className="w-12 h-12 rounded-DEFAULT bg-accent-subtle flex items-center justify-center mb-space-6 group-hover:bg-primary group-hover:text-on-primary transition-colors text-primary">
-              <span className="material-symbols-outlined">smart_toy</span>
-            </div>
-            <h3 className="font-heading-md text-heading-md mb-space-2">AI Solutions</h3>
-            <p className="font-body-md text-body-md text-secondary">Integrating machine learning models and LLMs to automate processes and unlock new product capabilities.</p>
-          </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-6 xl:gap-8">
+          {servicesOverview.services.map((service, idx) => (
+            <Link key={idx} to={service.link} className="block p-space-8 rounded-lg border border-border bg-bg-primary hover:border-primary hover:shadow-[0_2px_8px_rgba(17,19,24,0.06)] transition-all group cursor-pointer">
+              <div className="w-12 h-12 rounded-DEFAULT bg-accent-subtle flex items-center justify-center mb-space-6 group-hover:bg-primary group-hover:text-on-primary transition-colors text-primary">
+                <span className="material-symbols-outlined">{service.icon}</span>
+              </div>
+              <h3 className="font-heading-md text-heading-md mb-space-2">{service.title}</h3>
+              <p className="font-body-md text-body-md text-secondary">{service.description}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

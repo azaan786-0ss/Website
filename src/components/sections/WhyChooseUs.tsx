@@ -1,6 +1,9 @@
 import { TrueFocus } from "../ui/TrueFocus";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import homeData from '../../data/Home.json';
+
+const { whyChooseUs } = homeData;
 
 // --- RIGOR CONSOLE (CI/CD Terminal Simulator) ---
 function RigorConsole() {
@@ -41,7 +44,7 @@ function RigorConsole() {
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
         </div>
-        <div className="text-white/40 text-[9px]">terminal ~ testrunner</div>
+        <div className="text-white/40 text-[9px]">{whyChooseUs.rigorConsole.terminalName}</div>
         <div className="w-4"></div>
       </div>
       <div className="flex-grow space-y-1.5 text-green-400 overflow-y-auto max-h-[220px] scrollbar-thin">
@@ -65,16 +68,16 @@ function RigorConsole() {
       <div className="border-t border-white/5 pt-3 mt-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></div>
-          <span className="text-white/60 text-[9px]">CI Pipeline Online</span>
+          <span className="text-white/60 text-[9px]">{whyChooseUs.rigorConsole.pipelineStatus}</span>
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right">
-            <div className="text-[9px] text-white/40 font-semibold">Coverage</div>
-            <div className="text-emerald-400 font-bold text-[10px]">99.8%</div>
+            <div className="text-[9px] text-white/40 font-semibold">{whyChooseUs.rigorConsole.coverageLabel}</div>
+            <div className="text-emerald-400 font-bold text-[10px]">{whyChooseUs.rigorConsole.coverageValue}</div>
           </div>
           <div className="text-right">
-            <div className="text-[9px] text-white/40 font-semibold">Build Time</div>
-            <div className="text-emerald-400 font-bold text-[10px]">42s</div>
+            <div className="text-[9px] text-white/40 font-semibold">{whyChooseUs.rigorConsole.buildTimeLabel}</div>
+            <div className="text-emerald-400 font-bold text-[10px]">{whyChooseUs.rigorConsole.buildTimeValue}</div>
           </div>
         </div>
       </div>
@@ -95,10 +98,10 @@ function DesignConsole() {
       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]"></div>
       
       <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-3 relative z-10">
-        <div className="text-white/60 text-xs font-semibold">Workspace Inspector</div>
+        <div className="text-white/60 text-xs font-semibold">{whyChooseUs.designConsole.title}</div>
         <div className="flex items-center gap-1.5 text-white/40 text-[9px]">
           <span className="material-symbols-outlined text-[12px]">grid_on</span>
-          Grid Align
+          {whyChooseUs.designConsole.gridAlign}
         </div>
       </div>
 
@@ -119,7 +122,7 @@ function DesignConsole() {
 
           {/* Figma-like Padding Indicator */}
           <div className="absolute top-0 left-0 bg-rose-500/10 border border-rose-500/30 w-full h-4 flex items-center justify-center pointer-events-none">
-            <span className="text-[7px] text-rose-500 font-semibold">padding: 16px</span>
+            <span className="text-[7px] text-rose-500 font-semibold">{whyChooseUs.designConsole.padding}</span>
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
@@ -139,16 +142,16 @@ function DesignConsole() {
             transition={{ duration: 0.3 }}
           >
             <div className="text-center">
-              <div className="text-xs font-semibold text-white">Pixel-Perfect Render</div>
-              <div className="text-[9px] text-primary-fixed mt-1">✓ Constraints Aligned</div>
+              <div className="text-xs font-semibold text-white">{whyChooseUs.designConsole.renderTitle}</div>
+              <div className="text-[9px] text-primary-fixed mt-1">{whyChooseUs.designConsole.renderStatus}</div>
             </div>
           </motion.div>
         </div>
       </div>
 
       <div className="border-t border-white/5 pt-3 mt-3 flex items-center justify-between text-[9px] text-white/40 relative z-10">
-        <div>Inspect Mode</div>
-        <div className="text-sky-400 font-semibold">Hover to Render Card</div>
+        <div>{whyChooseUs.designConsole.inspectMode}</div>
+        <div className="text-sky-400 font-semibold">{whyChooseUs.designConsole.hoverHint}</div>
       </div>
     </div>
   );
@@ -159,10 +162,10 @@ function StackConsole() {
   return (
     <div className="w-full h-full bg-zinc-950 border border-white/10 rounded-xl p-4 flex flex-col justify-between relative overflow-hidden">
       <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-3">
-        <div className="text-white/60 text-xs font-semibold">Architectural Telemetry</div>
+        <div className="text-white/60 text-xs font-semibold">{whyChooseUs.stackConsole.title}</div>
         <div className="flex items-center gap-1.5 text-white/40 text-[9px]">
           <span className="material-symbols-outlined text-[12px]">hub</span>
-          Node Topology
+          {whyChooseUs.stackConsole.topology}
         </div>
       </div>
 
@@ -172,7 +175,7 @@ function StackConsole() {
           <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
             <span className="material-symbols-outlined text-[20px] text-indigo-400">devices</span>
           </div>
-          <span className="text-[9px] text-white/70 mt-2 font-medium">Web Client</span>
+          <span className="text-[9px] text-white/70 mt-2 font-medium">{whyChooseUs.stackConsole.client}</span>
         </div>
 
         {/* Dynamic Connectors */}
@@ -213,7 +216,7 @@ function StackConsole() {
           <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center animate-pulse">
             <span className="material-symbols-outlined text-[20px] text-purple-400">dns</span>
           </div>
-          <span className="text-[9px] text-white/70 mt-2 font-medium">Node API</span>
+          <span className="text-[9px] text-white/70 mt-2 font-medium">{whyChooseUs.stackConsole.api}</span>
         </div>
 
         {/* Layer 3: Database */}
@@ -221,13 +224,13 @@ function StackConsole() {
           <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
             <span className="material-symbols-outlined text-[20px] text-emerald-400">database</span>
           </div>
-          <span className="text-[9px] text-white/70 mt-2 font-medium">Postgres DB</span>
+          <span className="text-[9px] text-white/70 mt-2 font-medium">{whyChooseUs.stackConsole.db}</span>
         </div>
       </div>
 
       <div className="border-t border-white/5 pt-3 mt-3 flex items-center justify-between text-[9px] text-white/40">
-        <div>Data Stream</div>
-        <div className="text-purple-400 font-semibold">Latency: 0.4ms</div>
+        <div>{whyChooseUs.stackConsole.dataStream}</div>
+        <div className="text-purple-400 font-semibold">{whyChooseUs.stackConsole.latency}</div>
       </div>
     </div>
   );
@@ -238,10 +241,10 @@ function PartnershipConsole() {
   return (
     <div className="w-full h-full bg-zinc-950 border border-white/10 rounded-xl p-4 flex flex-col justify-between relative overflow-hidden">
       <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-3">
-        <div className="text-white/60 text-xs font-semibold">Velocity Dashboard</div>
+        <div className="text-white/60 text-xs font-semibold">{whyChooseUs.partnershipConsole.title}</div>
         <div className="flex items-center gap-1.5 text-white/40 text-[9px]">
           <span className="material-symbols-outlined text-[12px]">insights</span>
-          Sprint Speed
+          {whyChooseUs.partnershipConsole.speed}
         </div>
       </div>
 
@@ -249,17 +252,17 @@ function PartnershipConsole() {
         <div className="flex items-center justify-between bg-white/5 p-2 rounded border border-white/5">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[14px] text-sky-400">sync</span>
-            <span className="text-[9px] text-white/80">Linear 2-way sync</span>
+            <span className="text-[9px] text-white/80">{whyChooseUs.partnershipConsole.syncLabel}</span>
           </div>
-          <span className="text-[8px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 font-semibold">Connected</span>
+          <span className="text-[8px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-400 font-semibold">{whyChooseUs.partnershipConsole.syncStatus}</span>
         </div>
         
         <div className="flex items-center justify-between bg-white/5 p-2 rounded border border-white/5">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[14px] text-emerald-400">deployed_code</span>
-            <span className="text-[9px] text-white/80">Continuous Delivery</span>
+            <span className="text-[9px] text-white/80">{whyChooseUs.partnershipConsole.deliveryLabel}</span>
           </div>
-          <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold">Active</span>
+          <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold">{whyChooseUs.partnershipConsole.deliveryStatus}</span>
         </div>
 
         {/* Mini Line Chart / Speed graph */}
@@ -275,13 +278,13 @@ function PartnershipConsole() {
               transition={{ duration: 1.5 }}
             />
           </svg>
-          <div className="absolute top-1 left-2 text-[7px] text-white/30 font-semibold">Sprint Velocity</div>
+          <div className="absolute top-1 left-2 text-[7px] text-white/30 font-semibold">{whyChooseUs.partnershipConsole.velocity}</div>
         </div>
       </div>
 
       <div className="border-t border-white/5 pt-3 mt-3 flex items-center justify-between text-[9px] text-white/40">
-        <div>Release Freq</div>
-        <div className="text-indigo-400 font-semibold">Daily Deploys</div>
+        <div>{whyChooseUs.partnershipConsole.releaseFreq}</div>
+        <div className="text-indigo-400 font-semibold">{whyChooseUs.partnershipConsole.deployStatus}</div>
       </div>
     </div>
   );
@@ -291,32 +294,7 @@ function PartnershipConsole() {
 export function WhyChooseUs() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const advantages = [
-    {
-      id: 0,
-      icon: "architecture",
-      title: "Engineering Rigor",
-      description: "We don't cut corners. Code quality, test coverage, and scalable architecture are baseline requirements.",
-    },
-    {
-      id: 1,
-      icon: "palette",
-      title: "Design Craft",
-      description: "Pixel-perfect execution. We bridge the gap between Figma mockups and production reality.",
-    },
-    {
-      id: 2,
-      icon: "layers",
-      title: "Full-stack Capability",
-      description: "From database schema design to complex frontend state management, we handle the entire stack.",
-    },
-    {
-      id: 3,
-      icon: "handshake",
-      title: "Long-term Partnership",
-      description: "We operate as an extension of your team, providing ongoing support and strategic technical guidance.",
-    }
-  ];
+  const advantages = whyChooseUs.advantages;
 
   const getConsole = () => {
     switch (activeTab) {
@@ -333,13 +311,13 @@ export function WhyChooseUs() {
       {/* Subtle top border gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
       
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="mb-space-24 text-center max-w-3xl mx-auto">
-          <h2 className="font-display-lg text-display-lg lg:text-display-xl mb-space-6 flex justify-center">
-            <TrueFocus sentence="The Nexus Advantage" />
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
+        <div className="mb-16 md:mb-24 text-center max-w-3xl xl:max-w-4xl mx-auto">
+          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-4 md:mb-6 flex justify-center text-on-surface dark:text-white">
+            <TrueFocus sentence={whyChooseUs.titleSentence} />
           </h2>
-          <p className="font-heading-md text-heading-md text-secondary">
-            Why technical leaders choose us as their <span className="text-primary font-medium">engineering partner.</span>
+          <p className="font-body-lg text-base sm:text-lg xl:text-xl text-secondary dark:text-secondary-fixed-dim leading-relaxed">
+            {whyChooseUs.subtitle1}<span className="text-primary font-medium">{whyChooseUs.subtitleHighlight}</span>
           </p>
         </div>
         
@@ -373,7 +351,7 @@ export function WhyChooseUs() {
         </div>
 
         {/* Desktop View (Premium Split Console UI) */}
-        <div className="hidden lg:grid grid-cols-12 gap-8 items-center">
+        <div className="hidden lg:grid grid-cols-12 gap-8 xl:gap-16 items-center">
           {/* Left Column: Vertical Control Tabs */}
           <div className="col-span-5 flex flex-col gap-4">
             {advantages.map((adv) => {
@@ -383,7 +361,7 @@ export function WhyChooseUs() {
                   key={adv.id}
                   onMouseEnter={() => setActiveTab(adv.id)}
                   onClick={() => setActiveTab(adv.id)}
-                  className={`group relative rounded-xl p-5 border cursor-pointer transition-all duration-300 flex items-start gap-4 select-none
+                  className={`group relative rounded-xl p-5 border cursor-pointer transition-all duration-300 flex items-start gap-4 xl:gap-6 select-none
                     ${isActive 
                       ? 'bg-bg-primary border-primary/40 shadow-[0_4px_20px_-4px_rgba(99,102,241,0.12)]' 
                       : 'bg-transparent border-transparent hover:bg-bg-primary/50 hover:border-outline-variant/30'}`}
@@ -398,21 +376,21 @@ export function WhyChooseUs() {
                   )}
 
                   {/* Icon badge */}
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-300 flex-shrink-0
+                  <div className={`w-10 h-10 xl:w-12 xl:h-12 rounded-lg flex items-center justify-center transition-colors duration-300 flex-shrink-0
                     ${isActive 
                       ? 'bg-primary/10 text-primary' 
                       : 'bg-neutral-100 dark:bg-zinc-800 text-secondary'}`}
                   >
-                    <span className="material-symbols-outlined text-[20px]">{adv.icon}</span>
+                    <span className="material-symbols-outlined text-[20px] xl:text-[24px]">{adv.icon}</span>
                   </div>
 
                   <div>
-                    <h4 className={`font-heading-md text-base font-semibold transition-colors duration-300
+                    <h4 className={`font-heading-md text-base xl:text-lg font-semibold transition-colors duration-300
                       ${isActive ? 'text-primary' : 'text-on-surface'}`}
                     >
                       {adv.title}
                     </h4>
-                    <p className="font-body-md text-xs text-secondary mt-1.5 leading-relaxed">
+                    <p className="font-body-md text-xs xl:text-sm text-secondary mt-1.5 leading-relaxed">
                       {adv.description}
                     </p>
                   </div>
@@ -422,7 +400,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Right Column: Console/Visualization Workspace */}
-          <div className="col-span-7 h-[380px] rounded-2xl bg-zinc-900 border border-white/15 p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          <div className="col-span-7 h-[380px] xl:h-[460px] rounded-2xl bg-zinc-900 border border-white/15 p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
             {/* Top workspace bar */}
             <div className="flex items-center justify-between text-[10px] text-white/40 pb-3 border-b border-white/5 mb-4">
               <div className="flex items-center gap-2">

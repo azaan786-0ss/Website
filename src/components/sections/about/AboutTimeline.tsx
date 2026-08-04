@@ -54,11 +54,8 @@ export function AboutTimeline() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1280px] mx-auto relative">
+    <section className="py-16 md:py-24 px-6 md:px-8 max-w-[1400px] mx-auto relative">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="inline-flex items-center gap-2 py-1 px-3.5 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs font-semibold mb-4">
-          METHODOLOGY
-        </span>
         <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
           The Engineering Process
         </h2>

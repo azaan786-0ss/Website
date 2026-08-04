@@ -10,6 +10,9 @@ import {
   Activity
 } from "lucide-react";
 import { SoftBlurIn } from "../ui/soft-blur-in";
+import homeData from '../../data/Home.json';
+
+const { processTimeline } = homeData;
 
 interface StepItem {
   title: string;
@@ -20,48 +23,18 @@ interface StepItem {
   icon: typeof Compass;
 }
 
-const steps: StepItem[] = [
-  {
-    title: "Discover & Architect",
-    desc: "We run a deep technical discovery phase. Before writing code, we document schema designs, API contracts, and infrastructure requirements to prevent structural risk.",
-    tag: "#Strategy",
-    artifacts: ["System Architecture Schema", "OpenAPI Spec Contracts", "Infrastructure Estimations"],
-    duration: "Weeks 1–2",
-    icon: Compass
-  },
-  {
-    title: "Design & Prototype",
-    desc: "We craft custom, high-fidelity user experiences and interactive UI layouts, validating features early using live prototypes to ensure visual alignment.",
-    tag: "#UX/UI Design",
-    artifacts: ["Figma Design Workspace", "Interactive User Prototypes", "Design System Components"],
-    duration: "Weeks 3–5",
-    icon: Palette
-  },
-  {
-    title: "Build & Iterate",
-    desc: "Our high-velocity agile sprints push features to staging environments daily. You track progress in real-time, providing feedback during bi-weekly demo reviews.",
-    tag: "#Engineering",
-    artifacts: ["Production Git Codebase", "Daily Deployment Previews", "Automated QA Test Suite"],
-    duration: "Weeks 6–12",
-    icon: Code2
-  },
-  {
-    title: "Launch & Scale",
-    desc: "We perform automated load testing and penetration scans. Production deployment is handled with zero-downtime, fully orchestrated cloud infrastructure.",
-    tag: "#Deployment",
-    artifacts: ["Live Production Release", "Dockerized Containers / K8s", "Performance Metrics Audit"],
-    duration: "Weeks 13–14",
-    icon: Rocket
-  },
-  {
-    title: "Support & Optimize",
-    desc: "We establish proactive health monitoring, regular security patches, performance tuning, and agile SLA sprints to continually evolve and scale your product.",
-    tag: "#Optimization",
-    artifacts: ["24/7 Monitoring Dashboard", "Agile Feature Support SLA", "Monthly Performance Review"],
-    duration: "Ongoing SLA",
-    icon: HeartHandshake
-  }
-];
+const iconMap: Record<string, typeof Compass> = {
+  Compass,
+  Palette,
+  Code2,
+  Rocket,
+  HeartHandshake
+};
+
+const steps: StepItem[] = processTimeline.steps.map(step => ({
+  ...step,
+  icon: iconMap[step.icon] || Compass
+}));
 
 export function ProcessTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -135,24 +108,24 @@ export function ProcessTimeline() {
         <div className="absolute top-1/3 left-0 -translate-x-1/2 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-0 translate-x-1/2 w-[35rem] h-[35rem] bg-accent-subtle/20 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 w-full">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 w-full">
           
           {/* Section Header */}
-          <div className="max-w-3xl mb-8 lg:mb-10">
+          <div className="max-w-3xl xl:max-w-4xl mb-8 lg:mb-10 xl:mb-14">
             <SoftBlurIn delay={0.1}>
-              <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-on-surface dark:text-white mb-3 lg:mb-4">
-                Our Engineering <span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">Methodology</span>
+              <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-on-surface dark:text-white mb-3 lg:mb-4">
+                {processTimeline.title1}<span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">{processTimeline.titleHighlight}</span>
               </h2>
             </SoftBlurIn>
             <SoftBlurIn delay={0.25}>
-              <p className="font-body-lg text-base lg:text-lg text-text-secondary dark:text-secondary-fixed-dim leading-relaxed hidden sm:block">
-                We've refined our execution framework over hundreds of production deployments. We bring software to life through structured phases that prioritize clarity, performance, and scalability.
+              <p className="font-body-lg text-base lg:text-lg xl:text-xl text-text-secondary dark:text-secondary-fixed-dim leading-relaxed hidden sm:block">
+                {processTimeline.subtitle}
               </p>
             </SoftBlurIn>
           </div>
 
           {/* Interactive Layout Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-20 items-start lg:items-center h-full">
             
             {/* Left Column: Board with Gauge (Desktop only) */}
             <div className="hidden lg:block lg:col-span-5 relative bg-gradient-to-br from-bg-secondary/80 to-bg-primary dark:from-bg-dark-secondary dark:to-bg-dark-primary p-6 lg:p-7 rounded-3xl border border-outline-variant/40 shadow-xl overflow-hidden group">
@@ -194,7 +167,7 @@ export function ProcessTimeline() {
                       {Math.round(scrollProgress * 100)}%
                     </span>
                     <span className="text-[10px] font-bold text-text-secondary uppercase tracking-widest mt-0.5">
-                      Completed
+                      {processTimeline.gaugeCompleted}
                     </span>
                   </div>
                 </div>
@@ -204,7 +177,7 @@ export function ProcessTimeline() {
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                      Active Phase Sync
+                      {processTimeline.activePhaseSync}
                     </span>
                   </div>
                   <h3 className="font-display-md text-base font-bold text-on-surface dark:text-white mb-2">
@@ -218,7 +191,7 @@ export function ProcessTimeline() {
                   <div className="text-left border-t border-outline-variant/20 pt-3 mt-1">
                     <span className="text-[11px] font-bold text-on-surface dark:text-white flex items-center gap-1.5 mb-2">
                       <FileCheck className="w-3.5 h-3.5 text-primary" />
-                      Key Artifacts:
+                      {processTimeline.keyArtifacts}
                     </span>
                     <ul className="space-y-1.5">
                       {activeStep.artifacts.map((artifact, aIdx) => (
@@ -234,7 +207,7 @@ export function ProcessTimeline() {
                 <div className="flex items-center gap-2 mt-4 text-[11px] text-text-secondary">
                   <div className="flex items-center gap-1.5">
                     <Activity className="w-3.5 h-3.5 text-emerald-500" />
-                    <span>100% Agile Transparency</span>
+                    <span>{processTimeline.agileTransparency}</span>
                   </div>
                 </div>
 
@@ -326,7 +299,7 @@ export function ProcessTimeline() {
                         <div className="block lg:hidden border-t border-outline-variant/20 pt-4">
                           <span className="text-xs font-bold text-on-surface dark:text-white flex items-center gap-1.5 mb-2">
                             <FileCheck className="w-3.5 h-3.5 text-primary" />
-                            Key Deliverables:
+                            {processTimeline.keyDeliverables}
                           </span>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {step.artifacts.map((artifact, aIdx) => (

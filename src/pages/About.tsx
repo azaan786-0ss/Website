@@ -20,7 +20,7 @@ export function About() {
       </div>
 
       <Navbar />
-      <main className="relative z-10 overflow-hidden">
+      <main className="relative z-10 overflow-x-clip">
         <AboutHeroSection />
         <WhyWeExistSection />
         <AboutTimeline />

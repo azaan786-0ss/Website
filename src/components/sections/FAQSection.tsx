@@ -14,6 +14,9 @@ import {
   X
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import homeData from '../../data/Home.json';
+
+const { faqSection } = homeData;
 
 type CategoryId = "all" | "process" | "pricing" | "tech" | "partnership";
 
@@ -28,96 +31,23 @@ interface FAQItem {
   icon: typeof Clock;
 }
 
-const faqs: FAQItem[] = [
-  {
-    id: "faq-1",
-    category: "process",
-    categoryLabel: "Process & Delivery",
-    number: "01",
-    question: "How long does a typical software project take from discovery to launch?",
-    answer: "Timelines vary based on complexity, but a modern MVP (Minimum Viable Product) typically spans 12 to 16 weeks. We utilize 2-week agile sprint cycles with continuous integration, allowing you to view progress and test feature builds in real-time.",
-    highlights: ["12-16 week MVP roadmap", "Bi-weekly sprint demos", "Continuous deployment preview"],
-    icon: Clock
-  },
-  {
-    id: "faq-2",
-    category: "pricing",
-    categoryLabel: "Pricing & Billing",
-    number: "02",
-    question: "How do you estimate project costs and structure billing?",
-    answer: "We offer both fixed-scope milestone pricing for defined MVPs and dedicated sprint team velocity billing for evolving platforms. Following a thorough technical discovery sprint, we provide a transparent cost breakdown with zero hidden overheads.",
-    highlights: ["Fixed milestone or sprint pricing", "Detailed technical estimate", "No hidden overages"],
-    icon: DollarSign
-  },
-  {
-    id: "faq-3",
-    category: "partnership",
-    categoryLabel: "Partnership & Scale",
-    number: "03",
-    question: "Do you work with high-growth startups as well as enterprises?",
-    answer: "Yes, our engineering model scales seamlessly. We partner with Series A+ startups requiring rapid, high-quality development to reach market fit, as well as Fortune 500 enterprises modernizing core legacy systems and cloud infrastructure.",
-    highlights: ["Series A+ startup speed", "Enterprise SLA & governance", "Flexible engagement models"],
-    icon: Layers
-  },
-  {
-    id: "faq-4",
-    category: "tech",
-    categoryLabel: "Tech & Security",
-    number: "04",
-    question: "Which modern tech stacks and cloud architectures do you specialize in?",
-    answer: "Our core stack emphasizes high performance and security: React, Next.js, and TypeScript on the frontend; Go, Node.js, and Python for services; paired with AWS/Azure serverless and Kubernetes orchestration.",
-    highlights: ["React, Next.js, TypeScript", "Go & Python microservices", "AWS / Azure Cloud Infrastructure"],
-    icon: ShieldCheck
-  },
-  {
-    id: "faq-5",
-    category: "process",
-    categoryLabel: "Process & Delivery",
-    number: "05",
-    question: "Can your engineers seamlessly integrate into our existing internal team?",
-    answer: "Absolutely. Through our co-engineering model, our senior architects and developers embed directly into your Slack, Jira, and Git workflows. We emphasize pair programming, code reviews, and active knowledge transfer.",
-    highlights: ["Embedded co-engineering", "Jira & Git workflow sync", "Hands-on knowledge transfer"],
-    icon: Clock
-  },
-  {
-    id: "faq-6",
-    category: "partnership",
-    categoryLabel: "Partnership & Scale",
-    number: "06",
-    question: "What happens after product launch? Do you provide ongoing support?",
-    answer: "Launch is just day one. We offer proactive maintenance, 24/7 uptime monitoring, performance optimization, and dedicated SLA contracts for continuous feature rollouts and infrastructure scalability.",
-    highlights: ["Proactive 24/7 monitoring", "Dedicated SLA contracts", "Iterative feature evolution"],
-    icon: Layers
-  },
-  {
-    id: "faq-7",
-    category: "tech",
-    categoryLabel: "Tech & Security",
-    number: "07",
-    question: "How do you protect IP and handle Non-Disclosure Agreements?",
-    answer: "Intellectual property protection is legally enforced from day zero. We sign comprehensive bilateral NDAs before initial technical discovery, and 100% of code, documentation, and IP assets are transferred to your ownership.",
-    highlights: ["Pre-discussion bilateral NDA", "100% Client IP ownership", "SOC2 compliance alignment"],
-    icon: ShieldCheck
-  },
-  {
-    id: "faq-8",
-    category: "tech",
-    categoryLabel: "Tech & Security",
-    number: "08",
-    question: "What automated QA and security testing protocols do you enforce?",
-    answer: "We implement a Zero-Trust CI/CD pipeline. Every commit undergoes automated unit testing, end-to-end integration tests, SAST security vulnerability scanning, and peer code reviews prior to staging deployment.",
-    highlights: ["Automated CI/CD security scans", "Peer-reviewed pull requests", "Zero-Trust architecture"],
-    icon: ShieldCheck
-  }
-];
+const iconMap: Record<string, typeof Clock> = {
+  Clock,
+  DollarSign,
+  Layers,
+  ShieldCheck
+};
 
-const categories: { id: CategoryId; label: string }[] = [
-  { id: "all", label: "All Questions" },
-  { id: "process", label: "Process & Delivery" },
-  { id: "pricing", label: "Pricing & Billing" },
-  { id: "tech", label: "Tech & Security" },
-  { id: "partnership", label: "Partnership" }
-];
+const faqs: FAQItem[] = faqSection.faqs.map(faq => ({
+  ...faq,
+  category: faq.category as CategoryId,
+  icon: iconMap[faq.icon] || Clock
+}));
+
+const categories: { id: CategoryId; label: string }[] = faqSection.categories.map(cat => ({
+  id: cat.id as CategoryId,
+  label: cat.label
+}));
 
 export function FAQSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -146,28 +76,28 @@ export function FAQSection() {
       <div className="absolute top-1/4 left-0 -translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 translate-x-1/3 w-[30rem] h-[30rem] bg-tertiary/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-on-surface dark:text-white mb-6 leading-tight">
-          Frequently Asked <span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">Questions</span>
+        <div className="flex flex-col items-center text-center max-w-3xl xl:max-w-4xl mx-auto mb-16 xl:mb-20">
+          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-on-surface dark:text-white mb-6 leading-tight">
+          {faqSection.title1}<span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">{faqSection.titleHighlight}</span>
         </h2>
 
-        <p className="font-body-lg text-lg text-text-secondary dark:text-secondary-fixed-dim leading-relaxed">
-          Everything you need to know about our engineering methodology, delivery timelines, pricing transparency, and long-term security.
+        <p className="font-body-lg text-lg xl:text-xl text-text-secondary dark:text-secondary-fixed-dim leading-relaxed">
+          {faqSection.subtitle}
         </p>
 
         {/* Search Bar */}
-        <div className="w-full max-w-xl mt-8 relative">
+        <div className="w-full max-w-xl xl:max-w-2xl mt-8 xl:mt-10 relative">
           <div className="relative flex items-center">
             <Search className="absolute left-4 w-5 h-5 text-text-secondary pointer-events-none" />
             <input
               type="text"
-              placeholder="Search questions or keywords (e.g., NDA, MVP, Security)..."
+              placeholder={faqSection.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-10 py-3.5 bg-bg-secondary dark:bg-bg-dark-secondary/80 border border-outline-variant/40 rounded-2xl font-body-md text-on-surface dark:text-white placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
+              className="w-full pl-12 pr-10 py-3.5 xl:py-4 bg-bg-secondary dark:bg-bg-dark-secondary/80 border border-outline-variant/40 rounded-2xl font-body-md text-on-surface dark:text-white placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
             />
             {searchQuery && (
               <button
@@ -181,7 +111,7 @@ export function FAQSection() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-6 xl:mt-8">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat.id;
             const count = cat.id === "all"
@@ -211,7 +141,7 @@ export function FAQSection() {
       </div>
 
       {/* Main Grid: Left Help Card & Right Accordion */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-start">
 
         {/* Left Column: Interactive Advisor Card */}
         <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-28">
@@ -227,39 +157,33 @@ export function FAQSection() {
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                    Advisors Online
+                    {faqSection.advisorCard.online}
                   </span>
                 </div>
                 <h3 className="font-heading-md text-lg font-bold text-on-surface dark:text-white">
-                  Have custom questions?
+                  {faqSection.advisorCard.title}
                 </h3>
               </div>
             </div>
 
             <p className="font-body-md text-sm text-text-secondary dark:text-secondary-fixed-dim mb-8 leading-relaxed">
-              Can't find the exact answer for your architecture or security constraints? Talk directly with our lead solution architects.
+              {faqSection.advisorCard.desc}
             </p>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-2.5 text-xs text-on-surface dark:text-secondary-fixed-dim font-medium">
-                <CheckCircle2 className="w-4 h-4 text-primary" />
-                <span>Free 30-min Technical Architecture Audit</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs text-on-surface dark:text-secondary-fixed-dim font-medium">
-                <CheckCircle2 className="w-4 h-4 text-primary" />
-                <span>Custom NDA signed before discovery call</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs text-on-surface dark:text-secondary-fixed-dim font-medium">
-                <CheckCircle2 className="w-4 h-4 text-primary" />
-                <span>Direct response within 2 business hours</span>
-              </div>
+              {faqSection.advisorCard.bullets.map((bullet, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 text-xs text-on-surface dark:text-secondary-fixed-dim font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>{bullet}</span>
+                </div>
+              ))}
             </div>
 
             <Link
               to="/start-project"
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary/90 text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-lg shadow-primary/25 hover:-translate-y-0.5 group/btn"
             >
-              <span>Book 1-on-1 Consultation</span>
+              <span>{faqSection.advisorCard.cta}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
             </Link>
           </div>
@@ -269,7 +193,7 @@ export function FAQSection() {
             <div className="flex items-center gap-3">
               <HelpCircle className="w-5 h-5 text-primary" />
               <span className="text-sm font-medium text-on-surface dark:text-white">
-                Showing {filteredFaqs.length} of {faqs.length} answers
+                {faqSection.showingAnswers.replace('{filtered}', filteredFaqs.length.toString()).replace('{total}', faqs.length.toString())}
               </span>
             </div>
             {filteredFaqs.length !== faqs.length && (
@@ -280,7 +204,7 @@ export function FAQSection() {
                 }}
                 className="text-xs font-semibold text-primary hover:underline"
               >
-                Reset filters
+                {faqSection.resetFilters}
               </button>
             )}
           </div>
@@ -292,10 +216,10 @@ export function FAQSection() {
             <div className="p-12 text-center rounded-3xl bg-bg-secondary/40 dark:bg-bg-dark-secondary/40 border border-dashed border-outline-variant/50">
               <HelpCircle className="w-12 h-12 text-text-secondary mx-auto mb-4 opacity-50" />
               <h4 className="font-heading-md text-lg font-semibold text-on-surface dark:text-white mb-2">
-                No matching questions found
+                {faqSection.noMatchTitle}
               </h4>
               <p className="text-sm text-text-secondary dark:text-secondary-fixed-dim max-w-md mx-auto mb-6">
-                We couldn't find any questions matching "{searchQuery}". Try searching with different keywords or talk to an advisor.
+                {faqSection.noMatchDesc.replace('{query}', searchQuery)}
               </p>
               <button
                 onClick={() => {
@@ -304,7 +228,7 @@ export function FAQSection() {
                 }}
                 className="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary/90 transition-colors shadow-md"
               >
-                Clear Search Filter
+                {faqSection.clearSearchFilter}
               </button>
             </div>
           ) : (
@@ -376,7 +300,7 @@ export function FAQSection() {
                       <div className="flex flex-wrap items-center gap-2 pt-2">
                         <span className="text-xs font-semibold text-on-surface dark:text-white mr-1 flex items-center gap-1">
                           <IconComponent className="w-3.5 h-3.5 text-primary" />
-                          Highlights:
+                          {faqSection.highlightsLabel}
                         </span>
                         {faq.highlights.map((highlight, hIdx) => (
                           <span

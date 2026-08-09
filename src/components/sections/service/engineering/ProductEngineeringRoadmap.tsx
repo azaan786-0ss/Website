@@ -45,10 +45,10 @@ export function ProductEngineeringRoadmap() {
         </motion.div>
 
         <div className="relative">
-          {/* Roadmap Line (Hidden on Mobile) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-indigo-500 to-transparent -translate-x-1/2"></div>
+          {/* Roadmap Line (Left-stem on mobile/tablet, centered on desktop) */}
+          <div className="absolute left-6 sm:left-8 lg:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-indigo-500/20 via-indigo-500 to-indigo-500/20 -translate-x-1/2"></div>
 
-          <div className="space-y-12 lg:space-y-16">
+          <div className="space-y-10 sm:space-y-12 lg:space-y-16">
             {stages.map((stg, idx) => (
               <motion.div
                 key={idx}
@@ -56,40 +56,40 @@ export function ProductEngineeringRoadmap() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="relative flex flex-col lg:flex-row items-center group"
+                className="relative flex flex-row lg:flex-row items-start lg:items-center group"
               >
                 {stg.alignLeft ? (
                   <>
-                    <div className="flex-1 lg:pr-12 text-center lg:text-right mb-6 lg:mb-0">
-                      <span className="text-indigo-600 font-bold text-sm tracking-wider uppercase mb-1 block">
+                    <div className="order-2 lg:order-1 flex-1 pl-4 sm:pl-6 lg:pl-0 lg:pr-12 text-left lg:text-right">
+                      <span className="text-indigo-600 font-bold text-xs sm:text-sm tracking-wider uppercase mb-1 block">
                         {stg.stage}
                       </span>
-                      <div className="font-display-md text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                      <div className="font-display-md text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 mb-2 sm:mb-3 group-hover:text-indigo-600 transition-colors">
                         {stg.title}
                       </div>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg lg:ml-auto">
+                      <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg lg:ml-auto">
                         {stg.desc}
                       </p>
                     </div>
-                    <div className="z-10 w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-lg border-4 border-white shadow-lg shadow-indigo-600/30 group-hover:scale-110 transition-transform">
+                    <div className="order-1 lg:order-2 z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-sm sm:text-lg border-4 border-white shadow-lg shadow-indigo-600/30 shrink-0 group-hover:scale-110 transition-transform">
                       {stg.num}
                     </div>
-                    <div className="flex-1 lg:pl-12 hidden lg:block"></div>
+                    <div className="order-3 lg:order-3 flex-1 lg:pl-12 hidden lg:block"></div>
                   </>
                 ) : (
                   <>
-                    <div className="flex-1 lg:pr-12 hidden lg:block"></div>
-                    <div className="z-10 w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-lg border-4 border-white shadow-lg shadow-indigo-600/30 group-hover:scale-110 transition-transform">
+                    <div className="order-3 lg:order-1 flex-1 lg:pr-12 hidden lg:block"></div>
+                    <div className="order-1 lg:order-2 z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-sm sm:text-lg border-4 border-white shadow-lg shadow-indigo-600/30 shrink-0 group-hover:scale-110 transition-transform">
                       {stg.num}
                     </div>
-                    <div className="flex-1 lg:pl-12 text-center lg:text-left mt-6 lg:mt-0">
-                      <span className="text-indigo-600 font-bold text-sm tracking-wider uppercase mb-1 block">
+                    <div className="order-2 lg:order-3 flex-1 pl-4 sm:pl-6 lg:pl-12 text-left">
+                      <span className="text-indigo-600 font-bold text-xs sm:text-sm tracking-wider uppercase mb-1 block">
                         {stg.stage}
                       </span>
-                      <div className="font-display-md text-xl sm:text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                      <div className="font-display-md text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 mb-2 sm:mb-3 group-hover:text-indigo-600 transition-colors">
                         {stg.title}
                       </div>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg">
+                      <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-lg">
                         {stg.desc}
                       </p>
                     </div>

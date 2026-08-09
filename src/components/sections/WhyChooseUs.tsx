@@ -407,7 +407,7 @@ export function WhyChooseUs() {
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
                 <span>WORKSPACE PREVIEW</span>
               </div>
-              <div className="font-mono text-[9px]">nexus_engine_core_v1.0</div>
+              <div className="font-mono text-[9px]">ironstack_engine_core_v1.0</div>
             </div>
 
             {/* Core Visualization Display */}

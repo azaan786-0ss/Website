@@ -65,7 +65,7 @@ export function UxUiProcess() {
           className="mb-space-16 text-center md:text-left"
         >
           <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-2">
-            The Nexus Process
+            The IronStack Systems Process
           </h2>
           <p className="text-slate-600 text-base">
             A meticulous, four-phase engineering approach to creative problem solving.

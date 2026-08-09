@@ -66,7 +66,7 @@ export function ProductStrategyRoadmap() {
           className="md:sticky md:top-32 md:w-1/3"
         >
           <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
-            The Nexus Roadmap Process
+            The IronStack Systems Roadmap Process
           </h2>
           <p className="text-slate-600 mt-space-4 text-sm sm:text-base leading-relaxed">
             A proven 4-phase methodology designed to turn concepts into market-ready leaders.
@@ -76,7 +76,7 @@ export function ProductStrategyRoadmap() {
         <div className="md:w-2/3 space-y-6 relative" ref={sectionRef}>
           {/* Vertical Progress Line */}
           <div
-            className="absolute left-6 top-8 bottom-8 w-[2px] z-0 hidden lg:block rounded-full transition-all duration-75"
+            className="absolute left-8 sm:left-10 top-8 bottom-8 w-[2px] z-0 block rounded-full transition-all duration-75"
             style={{
               background: `linear-gradient(to bottom, #4f46e5 ${scrollProgress}%, #e2e8f0 ${scrollProgress}%)`,
             }}

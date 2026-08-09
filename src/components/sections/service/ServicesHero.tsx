@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useReducedMotion, type Variants } from 'framer-motion';
 import {
   SiFramer,
   SiVercel,
@@ -41,100 +41,194 @@ export function ServicesHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ['start start', 'end start'],
   });
 
+  const prefersReducedMotion = useReducedMotion();
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  
   const iconsOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
   const iconsScale = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.9]);
 
-  // Text 1: 0% to 35%
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.25, 0.35], [0, 1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.1, 0.25, 0.35], [50, 0, 0, -50]);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  // Text 2: 30% to 65%
-  const text2Opacity = useTransform(scrollYProgress, [0.3, 0.4, 0.55, 0.65], [0, 1, 1, 0]);
-  const text2Y = useTransform(scrollYProgress, [0.3, 0.4, 0.55, 0.65], [50, 0, 0, -50]);
+  const springConfig = { damping: 25, stiffness: 150 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
 
-  // Text 3: 60% to 100%
-  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.7, 1, 1], [0, 1, 1, 1]);
-  const text3Y = useTransform(scrollYProgress, [0.6, 0.7, 1, 1], [50, 0, 0, 0]);
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+    if (!prefersReducedMotion) {
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, [mouseX, mouseY, prefersReducedMotion]);
 
+  const badgeVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
+  const lineVariants: Variants = {
+    hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: 'blur(0px)',
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    },
+  };
+
+  const fadeVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+  };
+
+  const buttonVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] w-full bg-white border-b border-slate-200/50">
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        
-        {/* Decorative Background Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none z-0" />
-
-        {/* Floating Icons Layer */}
-        <motion.div 
-          style={{ opacity: iconsOpacity, scale: iconsScale }}
-          className="absolute inset-0 pointer-events-none z-0"
+    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden">
+      
+      {!prefersReducedMotion && (
+        <motion.div
+          className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+          style={{ opacity: 0.5 }}
         >
-          {brandIcons.map((item, idx) => (
+          <motion.div
+            className="absolute w-[800px] h-[800px] rounded-full will-change-transform"
+            style={{
+              x: cursorX,
+              y: cursorY,
+              translateX: '-50%',
+              translateY: '-50%',
+              background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0) 60%)',
+            }}
+          />
+        </motion.div>
+      )}
+
+      {/* Floating Icons Layer */}
+      <motion.div 
+        style={{ opacity: iconsOpacity, scale: iconsScale }}
+        className="absolute inset-0 pointer-events-none z-0"
+      >
+        {brandIcons.map((item, idx) => (
+          <motion.div
+            key={idx}
+            className="absolute z-0 flex items-center justify-center"
+            initial={{ top: '50%', left: '50%', x: '-50%', y: '-50%', scale: 0, opacity: 0 }}
+            animate={{ top: item.top, left: item.left, x: '-50%', y: '-50%', scale: 1, opacity: 0.5 }}
+            transition={{
+              duration: 2.8,
+              delay: item.delay * 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
             <motion.div
-              key={idx}
-              className="absolute z-0 flex items-center justify-center"
-              initial={{ top: '50%', left: '50%', x: '-50%', y: '-50%', scale: 0, opacity: 0 }}
-              animate={{ top: item.top, left: item.left, x: '-50%', y: '-50%', scale: 1, opacity: 0.5 }}
+              className="drop-shadow-sm"
+              style={{ color: item.color }}
+              animate={{ y: [0, -15, 0] }}
               transition={{
-                duration: 2.8,
-                delay: item.delay * 0.8,
-                ease: [0.22, 1, 0.36, 1],
+                duration: item.duration,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: (item.delay * 0.8) + 2.8,
               }}
             >
-              <motion.div
-                className="drop-shadow-sm"
-                style={{ color: item.color }}
-                animate={{ y: [0, -15, 0] }}
-                transition={{
-                  duration: item.duration,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                  delay: (item.delay * 0.8) + 2.8,
-                }}
-              >
-                <item.Icon size={item.size} />
-              </motion.div>
+              <item.Icon size={item.size} />
             </motion.div>
-          ))}
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div 
+        className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto px-6 md:px-8 xl:px-12 w-full"
+        style={{ y: yParallax }}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+      >
+        <motion.div variants={badgeVariants} className="mb-8">
+          <div className="group relative inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50/50 text-indigo-700 border border-indigo-200/50 rounded-full font-caption text-xs sm:text-sm font-semibold shadow-sm hover:bg-indigo-50 hover:border-indigo-300 hover:shadow-indigo-500/10 transition-all duration-300 cursor-default overflow-hidden">
+            <div className="absolute inset-0 bg-white/40 group-hover:bg-transparent transition-colors duration-300" />
+            <span className="material-symbols-outlined text-[18px] text-indigo-600 group-hover:rotate-12 transition-transform duration-300 relative z-10">
+              workspaces
+            </span>
+            <span className="relative z-10">OUR EXPERTISE</span>
+          </div>
         </motion.div>
 
-        {/* Scroll Sequence Text Elements */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 px-6">
-          <motion.h2
-            style={{ opacity: text1Opacity, y: text1Y }}
-            className="absolute text-3xl sm:text-4xl md:text-5xl font-display-xl font-extrabold text-slate-900 text-center max-w-3xl leading-tight"
-          >
-            We build digital products that scale.
-          </motion.h2>
-          <motion.h2
-            style={{ opacity: text2Opacity, y: text2Y }}
-            className="absolute text-3xl sm:text-4xl md:text-5xl font-display-xl font-extrabold text-slate-900 text-center max-w-3xl leading-tight"
-          >
-            From intuitive interfaces to robust cloud architectures.
-          </motion.h2>
-          <motion.h2
-            style={{ opacity: text3Opacity, y: text3Y }}
-            className="absolute text-3xl sm:text-4xl md:text-5xl font-display-xl font-extrabold text-slate-900 text-center max-w-3xl leading-tight text-indigo-600"
-          >
-            Full-stack capabilities tailored for ambitious founders.
-          </motion.h2>
-        </div>
+        <h1 className="font-display-xl text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.05] max-w-4xl mx-auto cursor-default group">
+          <motion.div variants={lineVariants} className="overflow-hidden pb-1">
+            <span className="block bg-clip-text text-transparent bg-slate-900 group-hover:bg-[linear-gradient(110deg,#0f172a,35%,#6366f1,50%,#0f172a)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700">
+              Engineering Digital Products
+            </span>
+          </motion.div>
+          <motion.div variants={lineVariants} className="overflow-hidden pb-2">
+            <span className="block bg-clip-text text-transparent bg-slate-900 group-hover:bg-[linear-gradient(110deg,#0f172a,55%,#6366f1,70%,#0f172a)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700 delay-100">
+              That Scale With Your Business
+            </span>
+          </motion.div>
+        </h1>
 
-        {/* Left-Aligned Breadcrumb Navigation */}
-        <div className="absolute top-6 sm:top-10 left-6 md:left-8 xl:left-12 z-20 max-w-[1400px] w-full mx-auto right-6 md:right-8 xl:right-12">
-          <div className="flex items-center space-x-2 text-slate-500 font-caption text-xs sm:text-sm">
-            <Link className="hover:text-indigo-600 transition-colors" to="/">
-              Home
-            </Link>
-            <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-            <span className="text-slate-900 font-medium">Services</span>
-          </div>
-        </div>
-      </div>
+        <motion.p 
+          variants={fadeVariants}
+          className="font-body-lg text-lg sm:text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          We craft distinctive brand identities, robust cloud architectures, and scalable digital products tailored for ambitious founders.
+        </motion.p>
+
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+        >
+          <Link to="/start-project" className="w-full sm:w-auto">
+            <motion.button
+              variants={buttonVariants}
+              className="group relative w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-2xl font-semibold shadow-lg hover:shadow-2xl hover:shadow-slate-900/20 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10 text-[15px]">Start a Project</span>
+              <span className="relative z-10 material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform duration-300">
+                arrow_forward
+              </span>
+            </motion.button>
+          </Link>
+          
+          <motion.button
+            variants={buttonVariants}
+            className="w-full sm:w-auto px-8 py-4 border border-slate-200 text-slate-700 bg-white/50 backdrop-blur-sm rounded-2xl font-semibold hover:bg-white hover:border-slate-300 hover:text-slate-900 hover:shadow-lg hover:shadow-slate-200/50 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center text-[15px]"
+          >
+            View Case Studies
+          </motion.button>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

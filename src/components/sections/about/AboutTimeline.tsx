@@ -63,7 +63,7 @@ export function AboutTimeline() {
 
       <div className="max-w-4xl mx-auto relative">
         {/* Vertical line indicator */}
-        <div className="absolute left-6 md:left-1/2 top-4 bottom-4 w-0.5 bg-indigo-100 -translate-x-1/2 hidden md:block" />
+        <div className="absolute left-5 sm:left-6 md:left-1/2 top-4 bottom-4 w-0.5 bg-indigo-200 -translate-x-1/2 block" />
 
         <motion.div 
           variants={containerVariants}
@@ -78,13 +78,16 @@ export function AboutTimeline() {
               <motion.div 
                 key={idx}
                 variants={itemVariants}
-                className={`flex flex-col md:flex-row items-start ${isEven ? "md:flex-row-reverse" : ""} group`}
+                className={`relative flex flex-col md:flex-row items-start ${isEven ? "md:flex-row-reverse" : ""} group`}
               >
+                {/* Mobile timeline node indicator */}
+                <div className="md:hidden absolute left-5 sm:left-6 top-6 -translate-x-1/2 z-10 w-4 h-4 rounded-full bg-white border-2 border-indigo-600 shadow-sm" />
+
                 {/* Content Card */}
-                <div className="w-full md:w-[calc(50%-2.5rem)]">
+                <div className="w-full pl-8 sm:pl-10 md:pl-0 md:w-[calc(50%-2.5rem)]">
                   <motion.div 
                     whileHover={{ y: -4 }}
-                    className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 relative"
+                    className="bg-white p-5 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 relative"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <span className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
@@ -94,10 +97,10 @@ export function AboutTimeline() {
                         {step.icon}
                       </span>
                     </div>
-                    <h3 className="font-bold text-xl text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-bold text-lg sm:text-xl text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
                       {step.desc}
                     </p>
                   </motion.div>

@@ -43,8 +43,9 @@ export function BrandIdentityProcess() {
         </motion.div>
 
         <div className="relative">
-          {/* Progress Line */}
+          {/* Progress Line: Horizontal on Desktop, Vertical on Mobile */}
           <div className="absolute top-8 left-0 w-full h-[2px] bg-slate-200 hidden lg:block"></div>
+          <div className="absolute top-8 bottom-8 left-1/2 w-[2px] bg-slate-200 -translate-x-1/2 block sm:hidden"></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             {steps.map((step, idx) => (

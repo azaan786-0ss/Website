@@ -37,7 +37,7 @@ export function WhyWeExistSection() {
 
         <motion.div variants={itemVariants} className="md:w-2/3 space-y-8">
           <p className="font-display-md text-xl sm:text-2xl text-slate-900 font-medium leading-relaxed">
-            Nexus Strategy was born from a frustration with the ephemeral nature of modern digital agencies. Too often, we saw brilliant ideas hampered by fragile execution and short-term thinking.
+            IronStack Systems was born from a frustration with the ephemeral nature of modern digital agencies. Too often, we saw brilliant ideas hampered by fragile execution and short-term thinking.
           </p>
           
           <div className="w-12 h-1 bg-indigo-600 rounded-full" />

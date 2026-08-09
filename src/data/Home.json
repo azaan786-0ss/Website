@@ -6,9 +6,18 @@
     "cta1": "Start a Project",
     "cta2": "Explore Services",
     "trustMetrics": [
-      { "icon": "Zap", "label": "99.9% Uptime SLA" },
-      { "icon": "ShieldCheck", "label": "Enterprise Security" },
-      { "icon": "Cpu", "label": "AI & Full-Stack Rigor" }
+      {
+        "icon": "Zap",
+        "label": "99.9% Uptime SLA"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Enterprise Security"
+      },
+      {
+        "icon": "Cpu",
+        "label": "AI & Full-Stack Rigor"
+      }
     ],
     "widget1": {
       "title": "System Health",
@@ -22,11 +31,26 @@
   },
   "trustBar": {
     "items": [
-      { "icon": "code", "text": "Built with React" },
-      { "icon": "cloud", "text": "AWS Certified" },
-      { "icon": "database", "text": "Postgres Optimized" },
-      { "icon": "lock", "text": "SOC2 Compliant" },
-      { "icon": "speed", "text": "Edge Deployed" }
+      {
+        "icon": "code",
+        "text": "Built with React"
+      },
+      {
+        "icon": "cloud",
+        "text": "AWS Certified"
+      },
+      {
+        "icon": "database",
+        "text": "Postgres Optimized"
+      },
+      {
+        "icon": "lock",
+        "text": "SOC2 Compliant"
+      },
+      {
+        "icon": "speed",
+        "text": "Edge Deployed"
+      }
     ]
   },
   "servicesOverview": {
@@ -55,7 +79,7 @@
     ]
   },
   "whyChooseUs": {
-    "titleSentence": "The Nexus Advantage",
+    "titleSentence": "The IronStack Systems Advantage",
     "subtitle1": "Why technical leaders choose us as their ",
     "subtitleHighlight": "engineering partner.",
     "advantages": [
@@ -136,7 +160,11 @@
         "title": "Discover & Architect",
         "desc": "We run a deep technical discovery phase. Before writing code, we document schema designs, API contracts, and infrastructure requirements to prevent structural risk.",
         "tag": "#Strategy",
-        "artifacts": ["System Architecture Schema", "OpenAPI Spec Contracts", "Infrastructure Estimations"],
+        "artifacts": [
+          "System Architecture Schema",
+          "OpenAPI Spec Contracts",
+          "Infrastructure Estimations"
+        ],
         "duration": "Weeks 1–2",
         "icon": "Compass"
       },
@@ -144,7 +172,11 @@
         "title": "Design & Prototype",
         "desc": "We craft custom, high-fidelity user experiences and interactive UI layouts, validating features early using live prototypes to ensure visual alignment.",
         "tag": "#UX/UI Design",
-        "artifacts": ["Figma Design Workspace", "Interactive User Prototypes", "Design System Components"],
+        "artifacts": [
+          "Figma Design Workspace",
+          "Interactive User Prototypes",
+          "Design System Components"
+        ],
         "duration": "Weeks 3–5",
         "icon": "Palette"
       },
@@ -152,7 +184,11 @@
         "title": "Build & Iterate",
         "desc": "Our high-velocity agile sprints push features to staging environments daily. You track progress in real-time, providing feedback during bi-weekly demo reviews.",
         "tag": "#Engineering",
-        "artifacts": ["Production Git Codebase", "Daily Deployment Previews", "Automated QA Test Suite"],
+        "artifacts": [
+          "Production Git Codebase",
+          "Daily Deployment Previews",
+          "Automated QA Test Suite"
+        ],
         "duration": "Weeks 6–12",
         "icon": "Code2"
       },
@@ -160,7 +196,11 @@
         "title": "Launch & Scale",
         "desc": "We perform automated load testing and penetration scans. Production deployment is handled with zero-downtime, fully orchestrated cloud infrastructure.",
         "tag": "#Deployment",
-        "artifacts": ["Live Production Release", "Dockerized Containers / K8s", "Performance Metrics Audit"],
+        "artifacts": [
+          "Live Production Release",
+          "Dockerized Containers / K8s",
+          "Performance Metrics Audit"
+        ],
         "duration": "Weeks 13–14",
         "icon": "Rocket"
       },
@@ -168,7 +208,11 @@
         "title": "Support & Optimize",
         "desc": "We establish proactive health monitoring, regular security patches, performance tuning, and agile SLA sprints to continually evolve and scale your product.",
         "tag": "#Optimization",
-        "artifacts": ["24/7 Monitoring Dashboard", "Agile Feature Support SLA", "Monthly Performance Review"],
+        "artifacts": [
+          "24/7 Monitoring Dashboard",
+          "Agile Feature Support SLA",
+          "Monthly Performance Review"
+        ],
         "duration": "Ongoing SLA",
         "icon": "HeartHandshake"
       }
@@ -197,11 +241,26 @@
       "cta": "Book 1-on-1 Consultation"
     },
     "categories": [
-      { "id": "all", "label": "All Questions" },
-      { "id": "process", "label": "Process & Delivery" },
-      { "id": "pricing", "label": "Pricing & Billing" },
-      { "id": "tech", "label": "Tech & Security" },
-      { "id": "partnership", "label": "Partnership" }
+      {
+        "id": "all",
+        "label": "All Questions"
+      },
+      {
+        "id": "process",
+        "label": "Process & Delivery"
+      },
+      {
+        "id": "pricing",
+        "label": "Pricing & Billing"
+      },
+      {
+        "id": "tech",
+        "label": "Tech & Security"
+      },
+      {
+        "id": "partnership",
+        "label": "Partnership"
+      }
     ],
     "faqs": [
       {
@@ -211,7 +270,11 @@
         "number": "01",
         "question": "How long does a typical software project take from discovery to launch?",
         "answer": "Timelines vary based on complexity, but a modern MVP (Minimum Viable Product) typically spans 12 to 16 weeks. We utilize 2-week agile sprint cycles with continuous integration, allowing you to view progress and test feature builds in real-time.",
-        "highlights": ["12-16 week MVP roadmap", "Bi-weekly sprint demos", "Continuous deployment preview"],
+        "highlights": [
+          "12-16 week MVP roadmap",
+          "Bi-weekly sprint demos",
+          "Continuous deployment preview"
+        ],
         "icon": "Clock"
       },
       {
@@ -221,74 +284,88 @@
         "number": "02",
         "question": "How do you estimate project costs and structure billing?",
         "answer": "We offer both fixed-scope milestone pricing for defined MVPs and dedicated sprint team velocity billing for evolving platforms. Following a thorough technical discovery sprint, we provide a transparent cost breakdown with zero hidden overheads.",
-        "highlights": ["Fixed milestone or sprint pricing", "Detailed technical estimate", "No hidden overages"],
+        "highlights": [
+          "Fixed milestone or sprint pricing",
+          "Detailed technical estimate",
+          "No hidden overages"
+        ],
         "icon": "DollarSign"
       },
       {
         "id": "faq-3",
-        "category": "partnership",
-        "categoryLabel": "Partnership & Scale",
-        "number": "03",
-        "question": "Do you work with high-growth startups as well as enterprises?",
-        "answer": "Yes, our engineering model scales seamlessly. We partner with Series A+ startups requiring rapid, high-quality development to reach market fit, as well as Fortune 500 enterprises modernizing core legacy systems and cloud infrastructure.",
-        "highlights": ["Series A+ startup speed", "Enterprise SLA & governance", "Flexible engagement models"],
-        "icon": "Layers"
-      },
-      {
-        "id": "faq-4",
         "category": "tech",
         "categoryLabel": "Tech & Security",
-        "number": "04",
+        "number": "03",
         "question": "Which modern tech stacks and cloud architectures do you specialize in?",
         "answer": "Our core stack emphasizes high performance and security: React, Next.js, and TypeScript on the frontend; Go, Node.js, and Python for services; paired with AWS/Azure serverless and Kubernetes orchestration.",
-        "highlights": ["React, Next.js, TypeScript", "Go & Python microservices", "AWS / Azure Cloud Infrastructure"],
+        "highlights": [
+          "React, Next.js, TypeScript",
+          "Go & Python microservices",
+          "AWS / Azure Cloud Infrastructure"
+        ],
         "icon": "ShieldCheck"
       },
       {
-        "id": "faq-5",
+        "id": "faq-4",
         "category": "process",
         "categoryLabel": "Process & Delivery",
-        "number": "05",
+        "number": "04",
         "question": "Can your engineers seamlessly integrate into our existing internal team?",
         "answer": "Absolutely. Through our co-engineering model, our senior architects and developers embed directly into your Slack, Jira, and Git workflows. We emphasize pair programming, code reviews, and active knowledge transfer.",
-        "highlights": ["Embedded co-engineering", "Jira & Git workflow sync", "Hands-on knowledge transfer"],
+        "highlights": [
+          "Embedded co-engineering",
+          "Jira & Git workflow sync",
+          "Hands-on knowledge transfer"
+        ],
         "icon": "Clock"
       },
       {
-        "id": "faq-6",
+        "id": "faq-5",
         "category": "partnership",
         "categoryLabel": "Partnership & Scale",
-        "number": "06",
+        "number": "05",
         "question": "What happens after product launch? Do you provide ongoing support?",
         "answer": "Launch is just day one. We offer proactive maintenance, 24/7 uptime monitoring, performance optimization, and dedicated SLA contracts for continuous feature rollouts and infrastructure scalability.",
-        "highlights": ["Proactive 24/7 monitoring", "Dedicated SLA contracts", "Iterative feature evolution"],
+        "highlights": [
+          "Proactive 24/7 monitoring",
+          "Dedicated SLA contracts",
+          "Iterative feature evolution"
+        ],
         "icon": "Layers"
+      },
+      {
+        "id": "faq-6",
+        "category": "tech",
+        "categoryLabel": "Tech & Security",
+        "number": "06",
+        "question": "How do you protect IP and handle Non-Disclosure Agreements?",
+        "answer": "Intellectual property protection is legally enforced from day zero. We sign comprehensive bilateral NDAs before initial technical discovery, and 100% of code, documentation, and IP assets are transferred to your ownership.",
+        "highlights": [
+          "Pre-discussion bilateral NDA",
+          "100% Client IP ownership",
+          "SOC2 compliance alignment"
+        ],
+        "icon": "ShieldCheck"
       },
       {
         "id": "faq-7",
         "category": "tech",
         "categoryLabel": "Tech & Security",
         "number": "07",
-        "question": "How do you protect IP and handle Non-Disclosure Agreements?",
-        "answer": "Intellectual property protection is legally enforced from day zero. We sign comprehensive bilateral NDAs before initial technical discovery, and 100% of code, documentation, and IP assets are transferred to your ownership.",
-        "highlights": ["Pre-discussion bilateral NDA", "100% Client IP ownership", "SOC2 compliance alignment"],
-        "icon": "ShieldCheck"
-      },
-      {
-        "id": "faq-8",
-        "category": "tech",
-        "categoryLabel": "Tech & Security",
-        "number": "08",
         "question": "What automated QA and security testing protocols do you enforce?",
         "answer": "We implement a Zero-Trust CI/CD pipeline. Every commit undergoes automated unit testing, end-to-end integration tests, SAST security vulnerability scanning, and peer code reviews prior to staging deployment.",
-        "highlights": ["Automated CI/CD security scans", "Peer-reviewed pull requests", "Zero-Trust architecture"],
+        "highlights": [
+          "Automated CI/CD security scans",
+          "Peer-reviewed pull requests",
+          "Zero-Trust architecture"
+        ],
         "icon": "ShieldCheck"
       }
     ]
   },
   "finalCTA": {
     "title": "Let's build something.",
-    "subtitle": "Ready to elevate your engineering output? Partner with Nexus Strategy for your next major technical initiative.",
+    "subtitle": "Ready to elevate your engineering output? Partner with IronStack Systems for your next major technical initiative.",
     "cta": "Start a Project"
   }
 }

@@ -218,11 +218,11 @@ export function ProcessTimeline() {
             <div className="lg:col-span-7 relative lg:h-[360px]">
               
               {/* Mobile Vertical Visual connector line */}
-              <div className="lg:hidden absolute left-6 md:left-8 top-4 bottom-4 w-[2px] bg-outline-variant/30 dark:bg-outline-variant/10 rounded-full" />
+              <div className="lg:hidden absolute left-[27px] md:left-[39px] top-4 bottom-4 w-[2px] bg-outline-variant/30 dark:bg-outline-variant/10 rounded-full" />
               
               {/* Mobile Neon active progress traveler line */}
               <div 
-                className="lg:hidden absolute left-6 md:left-8 top-4 w-[2px] bg-primary rounded-full transition-all duration-100 ease-out origin-top shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+                className="lg:hidden absolute left-[27px] md:left-[39px] top-4 w-[2px] bg-primary rounded-full transition-all duration-100 ease-out origin-top shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                 style={{ height: `${scrollProgress * 98}%` }}
               />
 

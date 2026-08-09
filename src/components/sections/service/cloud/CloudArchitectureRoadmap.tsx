@@ -49,9 +49,9 @@ export function CloudArchitectureRoadmap() {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Progress Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-indigo-200 -translate-x-1/2"></div>
+          <div className="absolute left-5 sm:left-6 md:left-1/2 top-4 bottom-4 w-[2px] bg-indigo-200 -translate-x-1/2"></div>
 
-          <div className="space-y-12 md:space-y-16">
+          <div className="space-y-10 sm:space-y-12 md:space-y-16">
             {steps.map((stg, idx) => (
               <motion.div
                 key={idx}
@@ -59,40 +59,40 @@ export function CloudArchitectureRoadmap() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.12 }}
-                className="relative flex flex-col md:flex-row items-center group"
+                className="relative flex flex-row md:flex-row items-start md:items-center group"
               >
                 {stg.alignLeft ? (
                   <>
-                    <div className="flex-1 md:text-right md:pr-12 text-center mb-6 md:mb-0">
+                    <div className="order-2 md:order-1 flex-1 pl-4 sm:pl-6 md:pl-0 md:pr-12 text-left md:text-right">
                       <span className="text-indigo-600 font-bold text-xs uppercase tracking-wider mb-1 block">
                         {stg.num}
                       </span>
-                      <h3 className="font-bold text-slate-900 text-xl sm:text-2xl mb-2 group-hover:text-indigo-600 transition-colors">
+                      <h3 className="font-bold text-slate-900 text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2 group-hover:text-indigo-600 transition-colors">
                         {stg.title}
                       </h3>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md md:ml-auto">
+                      <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-md md:ml-auto">
                         {stg.desc}
                       </p>
                     </div>
-                    <div className="z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm border-4 border-white shadow-md group-hover:scale-110 transition-transform">
+                    <div className="order-1 md:order-2 z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm border-4 border-white shadow-md shrink-0 group-hover:scale-110 transition-transform">
                       0{idx + 1}
                     </div>
-                    <div className="flex-1 md:pl-12 hidden md:block"></div>
+                    <div className="order-3 md:order-3 flex-1 md:pl-12 hidden md:block"></div>
                   </>
                 ) : (
                   <>
-                    <div className="flex-1 md:pr-12 hidden md:block"></div>
-                    <div className="z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm border-4 border-white shadow-md group-hover:scale-110 transition-transform">
+                    <div className="order-3 md:order-1 flex-1 md:pr-12 hidden md:block"></div>
+                    <div className="order-1 md:order-2 z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm border-4 border-white shadow-md shrink-0 group-hover:scale-110 transition-transform">
                       0{idx + 1}
                     </div>
-                    <div className="flex-1 md:pl-12 text-center md:text-left mt-6 md:mt-0">
+                    <div className="order-2 md:order-3 flex-1 pl-4 sm:pl-6 md:pl-12 text-left">
                       <span className="text-indigo-600 font-bold text-xs uppercase tracking-wider mb-1 block">
                         {stg.num}
                       </span>
-                      <h3 className="font-bold text-slate-900 text-xl sm:text-2xl mb-2 group-hover:text-indigo-600 transition-colors">
+                      <h3 className="font-bold text-slate-900 text-lg sm:text-xl md:text-2xl mb-1.5 sm:mb-2 group-hover:text-indigo-600 transition-colors">
                         {stg.title}
                       </h3>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md">
+                      <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-md">
                         {stg.desc}
                       </p>
                     </div>

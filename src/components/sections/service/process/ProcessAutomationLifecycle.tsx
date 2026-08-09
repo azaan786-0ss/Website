@@ -89,7 +89,7 @@ export function ProcessAutomationLifecycle() {
           className="lg:col-span-7 relative space-y-8"
         >
           {/* Vertical Connecting Line */}
-          <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-indigo-100 hidden sm:block z-0" />
+          <div className="absolute left-10 sm:left-12 top-6 bottom-6 w-0.5 bg-indigo-100 block z-0" />
 
           {steps.map((item, idx) => (
             <motion.div

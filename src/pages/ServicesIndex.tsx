@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SplitText } from '../components/ui/SplitText';
 import { ServicesHero } from '../components/sections/service/ServicesHero';
+import { TrustSection } from '../components/sections/TrustSection';
 
 export function ServicesIndex() {
   const containerVariants = {
@@ -99,109 +100,13 @@ export function ServicesIndex() {
       <main className="flex-grow relative z-10">
         <ServicesHero />
 
-        {/* Our Services Title Section */}
-        <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 pt-16 pb-8 relative z-10 flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
-          >
-            <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
-              <span className="material-symbols-outlined text-[18px] text-indigo-600">
-                workspaces
-              </span>
-              OUR EXPERTISE
-            </span>
-            <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
-              Our Services
-            </h1>
-            <p className="font-body-lg text-lg text-slate-600 max-w-2xl leading-relaxed mx-auto">
-              Full-stack capabilities tailored for ambitious founders. From robust cloud and product
-              engineering to data analytics and design systems.
-            </p>
-          </motion.div>
-        </section>
-
-        {/* Rich Content Section Below Hero */}
-        <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 py-16 sm:py-20 xl:py-24 relative bg-white z-20 rounded-3xl shadow-xl shadow-slate-200/50 mb-16 xl:mb-24 border border-slate-100">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-slate-900 font-display-xl text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight"
-            >
-              <SplitText text="Transforming Ideas Into Digital Reality" />
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-body-lg text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed"
-            >
-              We craft distinctive brand identities, robust cloud architectures, and scalable digital products tailored for ambitious founders.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-16 sm:mb-20 w-full sm:w-auto px-4 sm:px-0"
-            >
-              <Link to="/start-project" className="w-full sm:w-auto">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2"
-                >
-                  Start a Project
-                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-                </motion.button>
-              </Link>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto px-8 py-4 border border-slate-300 text-slate-800 rounded-xl font-semibold hover:bg-slate-50 transition-all shadow-sm flex items-center justify-center"
-              >
-                View Case Studies
-              </motion.button>
-            </motion.div>
+        {/* Thin divider and Trust Section */}
+        <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-20">
+          <hr className="border-slate-200" />
+          <div className="py-16 sm:py-20">
+            <TrustSection />
           </div>
-
-          {/* Impact Metrics Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 xl:gap-8 pt-8 xl:pt-12 border-t border-slate-200/60 w-full max-w-4xl xl:max-w-5xl mx-auto"
-          >
-            {[
-              { value: '10+', label: 'Years Experience' },
-              { value: '50+', label: 'Products Launched' },
-              { value: '100%', label: 'Client Satisfaction' },
-              { value: '24/7', label: 'Support & Maintenance' },
-            ].map((m, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -4 }}
-                className="bg-white/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-indigo-400 hover:shadow-xl transition-all group"
-              >
-                <div className="text-indigo-600 font-display-md text-3xl sm:text-4xl font-extrabold mb-1 group-hover:scale-105 transition-transform">
-                  {m.value}
-                </div>
-                <div className="font-caption text-xs sm:text-sm text-slate-500 uppercase font-semibold tracking-wider">
-                  {m.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
+        </div>
 
         {/* Service Groups */}
         <section className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 pb-24 xl:pb-32 space-y-16 xl:space-y-24">

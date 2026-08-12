@@ -24,7 +24,7 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { name: "sanaulla-home", to: "/" },
+    { name: "Home", to: "/" },
     { name: "Services", to: "/services" },
     { name: "About", to: "/about" },
   ];

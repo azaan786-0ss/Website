@@ -144,8 +144,7 @@ export function StartProject() {
                       Inquiry Received!
                     </h3>
                     <p className="text-slate-600 max-w-md mx-auto text-base md:text-lg leading-relaxed">
-                      {status?.message ||
-                        'Thank you for reaching out. Our engineering team is currently reviewing your project details and will be in touch within 24 hours.'}
+                      Thank you for reaching out. Our engineering team is currently reviewing your project details and will be in touch within 24 hours.
                     </p>
                     <button
                       onClick={() => {

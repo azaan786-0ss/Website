@@ -27,10 +27,14 @@ export async function submitInquiry(payload: InquiryPayload): Promise<InquiryRes
 
     const result = (await response.json()) as InquiryResponse
 
-    if (!response.ok || !result.success) {
+    if (!result.success) {
+      return result
+    }
+
+    if (!response.ok) {
       return {
         success: false,
-        error: !result.success ? result.error : 'Unable to submit your inquiry. Please try again.',
+        error: 'Unable to submit your inquiry. Please try again.',
       }
     }
 

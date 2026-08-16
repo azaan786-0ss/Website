@@ -1,26 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
+import { submitInquiry } from '@/lib/inquiry';
 
 export function StartProject() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
+    fullName: '',
+    workEmail: '',
+    companyName: '',
     projectType: '',
-    timeline: '',
-    details: '',
+    targetTimeline: '',
+    projectOverview: '',
   });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus(null);
+
+    const form = new FormData(event.currentTarget);
+    const payload = {
+      fullName: String(form.get('fullName') ?? '').trim(),
+      workEmail: String(form.get('workEmail') ?? '').trim(),
+      companyName: String(form.get('companyName') ?? '').trim(),
+      projectType: String(form.get('projectType') ?? '').trim(),
+      targetTimeline: String(form.get('targetTimeline') ?? '').trim(),
+      projectOverview: String(form.get('projectOverview') ?? '').trim(),
+    };
+
+    setIsSubmitting(true);
+    const result = await submitInquiry(payload);
+    setIsSubmitting(false);
+
+    if (result.success === true) {
+      setStatus({ type: 'success', message: result.message });
+      setIsSubmitted(true);
+      setFormData({
+        fullName: '',
+        workEmail: '',
+        companyName: '',
+        projectType: '',
+        targetTimeline: '',
+        projectOverview: '',
+      });
+      event.currentTarget.reset();
+    } else {
+      setStatus({ type: 'error', message: result.error });
+    }
   };
 
   const containerVariants = {
@@ -111,11 +144,14 @@ export function StartProject() {
                       Inquiry Received!
                     </h3>
                     <p className="text-slate-600 max-w-md mx-auto text-base md:text-lg leading-relaxed">
-                      Thank you for reaching out. Our engineering team is currently reviewing your
-                      project details and will be in touch within 24 hours.
+                      {status?.message ||
+                        'Thank you for reaching out. Our engineering team is currently reviewing your project details and will be in touch within 24 hours.'}
                     </p>
                     <button
-                      onClick={() => setIsSubmitted(false)}
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setStatus(null);
+                      }}
                       className="px-6 py-3 md:px-8 md:py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm md:text-base transition-colors"
                     >
                       Send Another Inquiry
@@ -130,18 +166,18 @@ export function StartProject() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                       <div className="space-y-2 md:space-y-3">
                         <label
-                          htmlFor="name"
+                          htmlFor="fullName"
                           className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
                         >
                           Full Name <span className="text-indigo-600">*</span>
                         </label>
                         <input
                           type="text"
-                          id="name"
-                          name="name"
+                          id="fullName"
+                          name="fullName"
                           required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          value={formData.fullName}
+                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           placeholder="Alex Morgan"
                           className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
                         />
@@ -149,18 +185,18 @@ export function StartProject() {
 
                       <div className="space-y-2 md:space-y-3">
                         <label
-                          htmlFor="email"
+                          htmlFor="workEmail"
                           className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
                         >
                           Work Email <span className="text-indigo-600">*</span>
                         </label>
                         <input
                           type="email"
-                          id="email"
-                          name="email"
+                          id="workEmail"
+                          name="workEmail"
                           required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          value={formData.workEmail}
+                          onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                           placeholder="alex@company.com"
                           className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
                         />
@@ -170,18 +206,18 @@ export function StartProject() {
                     {/* Company */}
                     <div className="space-y-2 md:space-y-3">
                       <label
-                        htmlFor="company"
+                        htmlFor="companyName"
                         className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
                       >
                         Company Name <span className="text-indigo-600">*</span>
                       </label>
                       <input
                         type="text"
-                        id="company"
-                        name="company"
+                        id="companyName"
+                        name="companyName"
                         required
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        value={formData.companyName}
+                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="Acme Technologies Inc."
                         className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
                       />
@@ -222,17 +258,17 @@ export function StartProject() {
 
                       <div className="space-y-2 md:space-y-3">
                         <label
-                          htmlFor="timeline"
+                          htmlFor="targetTimeline"
                           className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
                         >
                           Target Timeline
                         </label>
                         <div className="relative">
                           <select
-                            id="timeline"
-                            name="timeline"
-                            value={formData.timeline}
-                            onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                            id="targetTimeline"
+                            name="targetTimeline"
+                            value={formData.targetTimeline}
+                            onChange={(e) => setFormData({ ...formData, targetTimeline: e.target.value })}
                             className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none appearance-none cursor-pointer"
                           >
                             <option value="">Select timeline...</option>
@@ -248,36 +284,45 @@ export function StartProject() {
                       </div>
                     </div>
 
-                    {/* Details */}
+                    {/* Details / Project Overview */}
                     <div className="space-y-2 md:space-y-3">
                       <label
-                        htmlFor="details"
+                        htmlFor="projectOverview"
                         className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
                       >
                         Project Overview (Optional)
                       </label>
                       <textarea
-                        id="details"
-                        name="details"
+                        id="projectOverview"
+                        name="projectOverview"
                         rows={4}
-                        value={formData.details}
-                        onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                        value={formData.projectOverview}
+                        onChange={(e) => setFormData({ ...formData, projectOverview: e.target.value })}
                         placeholder="Tell us about your core technical objectives, existing stack, or target deliverables..."
                         className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none resize-none"
                       />
                     </div>
 
                     {/* Submit Button */}
-                    <div className="pt-4 md:pt-6">
+                    <div className="pt-4 md:pt-6 space-y-4">
                       <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                        whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                         type="submit"
-                        className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-base md:text-lg shadow-lg shadow-indigo-600/25 transition-all duration-300 flex items-center justify-center gap-3"
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-4 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl font-bold text-base md:text-lg shadow-lg shadow-indigo-600/25 transition-all duration-300 flex items-center justify-center gap-3"
                       >
-                        Submit Inquiry
-                        <span className="material-symbols-outlined text-[20px] md:text-[24px]">arrow_forward</span>
+                        {isSubmitting ? 'Sending…' : 'Start a conversation'}
+                        {!isSubmitting && (
+                          <span className="material-symbols-outlined text-[20px] md:text-[24px]">arrow_forward</span>
+                        )}
                       </motion.button>
+
+                      {status && (
+                        <p role="status" className={status.type === 'success' ? 'text-green-600 font-medium text-sm' : 'text-red-600 font-medium text-sm'}>
+                          {status.message}
+                        </p>
+                      )}
                     </div>
                   </form>
                 )}

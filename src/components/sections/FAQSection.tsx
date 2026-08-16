@@ -71,38 +71,38 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-bg-primary dark:bg-bg-dark-primary transition-colors">
+    <section className="py-24 md:py-32 relative overflow-hidden bg-transparent transition-colors">
       {/* Background Decorative Ambient Glows */}
-      <div className="absolute top-1/4 left-0 -translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 translate-x-1/3 w-[30rem] h-[30rem] bg-tertiary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 -translate-x-1/2 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 translate-x-1/3 w-[30rem] h-[30rem] bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl xl:max-w-4xl mx-auto mb-16 xl:mb-20">
-          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-on-surface dark:text-white mb-6 leading-tight">
-          {faqSection.title1}<span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">{faqSection.titleHighlight}</span>
+          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+          {faqSection.title1}<span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800 dark:from-indigo-400 dark:via-indigo-300 dark:to-indigo-500 bg-clip-text text-transparent">{faqSection.titleHighlight}</span>
         </h2>
 
-        <p className="font-body-lg text-lg xl:text-xl text-text-secondary dark:text-secondary-fixed-dim leading-relaxed">
+        <p className="font-body-lg text-lg xl:text-xl text-slate-600 dark:text-zinc-400 leading-relaxed">
           {faqSection.subtitle}
         </p>
 
         {/* Search Bar */}
         <div className="w-full max-w-xl xl:max-w-2xl mt-8 xl:mt-10 relative">
           <div className="relative flex items-center">
-            <Search className="absolute left-4 w-5 h-5 text-text-secondary pointer-events-none" />
+            <Search className="absolute left-4 w-5 h-5 text-slate-400 dark:text-zinc-500 pointer-events-none" />
             <input
               type="text"
               placeholder={faqSection.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-10 py-3.5 xl:py-4 bg-bg-secondary dark:bg-bg-dark-secondary/80 border border-outline-variant/40 rounded-2xl font-body-md text-on-surface dark:text-white placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
+              className="w-full pl-12 pr-10 py-3.5 xl:py-4 bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-zinc-800 rounded-2xl font-body-md text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all shadow-sm"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3.5 p-1 rounded-full text-text-secondary hover:bg-outline-variant/20 hover:text-on-surface transition-colors"
+                className="absolute right-3.5 p-1 rounded-full text-slate-400 hover:text-slate-600 dark:text-zinc-500 dark:hover:text-zinc-300 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -126,12 +126,12 @@ export function FAQSection() {
                   setActiveIndex(0);
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${isActive
-                    ? "bg-primary text-white shadow-md shadow-primary/20 scale-105"
-                    : "bg-bg-secondary dark:bg-bg-dark-secondary/60 text-text-secondary dark:text-secondary-fixed-dim hover:bg-accent-subtle dark:hover:bg-primary/20 hover:text-primary"
+                    ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 scale-105"
+                    : "bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400"
                   }`}
               >
                 <span>{cat.label}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? "bg-white/20 text-white" : "bg-outline-variant/30 text-text-secondary dark:text-secondary-fixed-dim"}`}>
+                <span className={`text-xs px-2 py-0.5 rounded-full ${isActive ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400"}`}>
                   {count}
                 </span>
               </button>
@@ -145,12 +145,12 @@ export function FAQSection() {
 
         {/* Left Column: Interactive Advisor Card */}
         <div className="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-28">
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-bg-secondary via-bg-primary to-accent-subtle/30 dark:from-bg-dark-secondary dark:via-bg-dark-primary dark:to-primary/10 border border-outline-variant/40 shadow-xl relative overflow-hidden group">
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-100 to-white dark:from-[#0A0A0A] dark:to-black border border-slate-200 dark:border-zinc-800 shadow-xl relative overflow-hidden group">
             {/* Subtle background glow circle */}
-            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500" />
+            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-500" />
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-[#050505] border border-transparent dark:border-zinc-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-sm">
                 <MessageSquareText className="w-6 h-6" />
               </div>
               <div>
@@ -160,20 +160,20 @@ export function FAQSection() {
                     {faqSection.advisorCard.online}
                   </span>
                 </div>
-                <h3 className="font-heading-md text-lg font-bold text-on-surface dark:text-white">
+                <h3 className="font-heading-md text-lg font-bold text-slate-900 dark:text-white">
                   {faqSection.advisorCard.title}
                 </h3>
               </div>
             </div>
 
-            <p className="font-body-md text-sm text-text-secondary dark:text-secondary-fixed-dim mb-8 leading-relaxed">
+            <p className="font-body-md text-sm text-slate-600 dark:text-zinc-400 mb-8 leading-relaxed">
               {faqSection.advisorCard.desc}
             </p>
 
             <div className="space-y-3 mb-8">
               {faqSection.advisorCard.bullets.map((bullet, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 text-xs text-on-surface dark:text-secondary-fixed-dim font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-900 dark:text-zinc-300 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                   <span>{bullet}</span>
                 </div>
               ))}
@@ -181,7 +181,7 @@ export function FAQSection() {
 
             <Link
               to="/start-project"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary hover:bg-primary/90 text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-lg shadow-primary/25 hover:-translate-y-0.5 group/btn"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-lg shadow-indigo-600/25 hover:-translate-y-0.5 group/btn"
             >
               <span>{faqSection.advisorCard.cta}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -189,10 +189,10 @@ export function FAQSection() {
           </div>
 
           {/* Live Count Stat Box */}
-          <div className="p-6 rounded-2xl bg-bg-secondary/60 dark:bg-bg-dark-secondary/60 border border-outline-variant/30 flex items-center justify-between">
+          <div className="p-6 rounded-2xl bg-white dark:bg-[#0A0A0A] border border-slate-200 dark:border-zinc-800 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-3">
-              <HelpCircle className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium text-on-surface dark:text-white">
+              <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <span className="text-sm font-medium text-slate-900 dark:text-white">
                 {faqSection.showingAnswers.replace('{filtered}', filteredFaqs.length.toString()).replace('{total}', faqs.length.toString())}
               </span>
             </div>
@@ -202,7 +202,7 @@ export function FAQSection() {
                   setSearchQuery("");
                   setSelectedCategory("all");
                 }}
-                className="text-xs font-semibold text-primary hover:underline"
+                className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
               >
                 {faqSection.resetFilters}
               </button>
@@ -213,12 +213,12 @@ export function FAQSection() {
         {/* Right Column: Accordion List */}
         <div className="lg:col-span-8 flex flex-col gap-4">
           {filteredFaqs.length === 0 ? (
-            <div className="p-12 text-center rounded-3xl bg-bg-secondary/40 dark:bg-bg-dark-secondary/40 border border-dashed border-outline-variant/50">
-              <HelpCircle className="w-12 h-12 text-text-secondary mx-auto mb-4 opacity-50" />
-              <h4 className="font-heading-md text-lg font-semibold text-on-surface dark:text-white mb-2">
+            <div className="p-12 text-center rounded-3xl bg-white dark:bg-[#0A0A0A] border border-dashed border-slate-300 dark:border-zinc-800">
+              <HelpCircle className="w-12 h-12 text-slate-400 dark:text-zinc-500 mx-auto mb-4 opacity-50" />
+              <h4 className="font-heading-md text-lg font-semibold text-slate-900 dark:text-white mb-2">
                 {faqSection.noMatchTitle}
               </h4>
-              <p className="text-sm text-text-secondary dark:text-secondary-fixed-dim max-w-md mx-auto mb-6">
+              <p className="text-sm text-slate-600 dark:text-zinc-400 max-w-md mx-auto mb-6">
                 {faqSection.noMatchDesc.replace('{query}', searchQuery)}
               </p>
               <button
@@ -226,7 +226,7 @@ export function FAQSection() {
                   setSearchQuery("");
                   setSelectedCategory("all");
                 }}
-                className="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary/90 transition-colors shadow-md"
+                className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition-colors shadow-md"
               >
                 {faqSection.clearSearchFilter}
               </button>
@@ -240,8 +240,8 @@ export function FAQSection() {
                 <div
                   key={faq.id}
                   className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isActive
-                      ? "bg-bg-primary dark:bg-bg-dark-secondary border-primary/40 shadow-xl ring-1 ring-primary/20"
-                      : "bg-bg-primary/70 dark:bg-bg-dark-secondary/50 border-outline-variant/30 hover:border-primary/30 hover:bg-bg-primary"
+                      ? "bg-white dark:bg-[#0A0A0A] border-indigo-300 dark:border-zinc-800 shadow-xl"
+                      : "bg-white/80 dark:bg-[#050505] border-slate-200 dark:border-zinc-800 hover:border-indigo-300 dark:hover:border-indigo-500/50"
                     }`}
                 >
                   {/* Header Trigger */}
@@ -252,21 +252,21 @@ export function FAQSection() {
                   >
                     <div className="flex items-start gap-4 sm:gap-5">
                       <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-mono font-bold transition-colors ${isActive
-                          ? "bg-primary text-white shadow-sm"
-                          : "bg-accent-subtle dark:bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white"
+                          ? "bg-indigo-600 text-white shadow-sm"
+                          : "bg-indigo-50 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 border border-transparent dark:border-zinc-800 group-hover:bg-indigo-600 group-hover:text-white"
                         }`}>
                         {faq.number}
                       </span>
 
                       <div>
                         <div className="flex items-center gap-2.5 mb-2">
-                          <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-accent-subtle dark:bg-primary/15 text-primary">
+                          <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-indigo-50 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 border border-transparent dark:border-zinc-800">
                             {faq.categoryLabel}
                           </span>
                         </div>
                         <h3 className={`font-heading-md text-base sm:text-lg font-bold transition-colors ${isActive
-                            ? "text-primary dark:text-white"
-                            : "text-on-surface dark:text-secondary-fixed-dim group-hover:text-primary dark:group-hover:text-white"
+                            ? "text-indigo-600 dark:text-white"
+                            : "text-slate-900 dark:text-zinc-300 group-hover:text-indigo-600 dark:group-hover:text-white"
                           }`}>
                           {faq.question}
                         </h3>
@@ -275,8 +275,8 @@ export function FAQSection() {
 
                     {/* Expand / Collapse Icon */}
                     <div className={`p-2 rounded-full transition-all duration-300 shrink-0 ${isActive
-                        ? "bg-primary text-white rotate-180"
-                        : "bg-bg-secondary dark:bg-bg-dark-primary text-text-secondary group-hover:bg-accent-subtle group-hover:text-primary"
+                        ? "bg-indigo-600 text-white rotate-180"
+                        : "bg-slate-100 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 group-hover:bg-indigo-600 group-hover:text-white"
                       }`}>
                       {isActive ? (
                         <Minus className="w-5 h-5" />
@@ -291,23 +291,23 @@ export function FAQSection() {
                     className={`transition-all duration-500 ease-in-out overflow-hidden ${isActive ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                       }`}
                   >
-                    <div className="px-6 sm:px-7 pb-7 pt-2 border-t border-outline-variant/20">
-                      <p className="text-body-md text-sm sm:text-base text-text-secondary dark:text-secondary-fixed-dim leading-relaxed mb-6">
+                    <div className="px-6 sm:px-7 pb-7 pt-2 border-t border-slate-200 dark:border-zinc-850">
+                      <p className="text-body-md text-sm sm:text-base text-slate-600 dark:text-zinc-400 leading-relaxed mb-6">
                         {faq.answer}
                       </p>
 
                       {/* Feature Highlights Pills */}
                       <div className="flex flex-wrap items-center gap-2 pt-2">
-                        <span className="text-xs font-semibold text-on-surface dark:text-white mr-1 flex items-center gap-1">
-                          <IconComponent className="w-3.5 h-3.5 text-primary" />
+                        <span className="text-xs font-semibold text-slate-900 dark:text-white mr-1 flex items-center gap-1">
+                          <IconComponent className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                           {faqSection.highlightsLabel}
                         </span>
                         {faq.highlights.map((highlight, hIdx) => (
                           <span
                             key={hIdx}
-                            className="text-xs px-3 py-1 rounded-full bg-accent-subtle/80 dark:bg-primary/10 text-primary dark:text-primary-fixed font-medium border border-primary/10 flex items-center gap-1.5"
+                            className="text-xs px-3 py-1 rounded-full bg-indigo-50 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-300 font-medium border border-transparent dark:border-zinc-800 flex items-center gap-1.5"
                           >
-                            <CheckCircle2 className="w-3 h-3 text-primary" />
+                            <CheckCircle2 className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
                             {highlight}
                           </span>
                         ))}
@@ -323,6 +323,6 @@ export function FAQSection() {
       </div>
 
     </div>
-    </section >
+    </section>
   );
 }

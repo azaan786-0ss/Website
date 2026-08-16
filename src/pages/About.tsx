@@ -13,10 +13,10 @@ export function About() {
   }, []);
 
   return (
-    <div className="bg-slate-50 text-slate-900 font-body-md antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen pt-20 relative">
+    <div className="bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-body-md antialiased selection:bg-indigo-100 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-200 min-h-screen pt-20 relative transition-colors duration-300">
       {/* Global Page Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>
+        <div className="absolute inset-0 global-grid"></div>
       </div>
 
       <Navbar />

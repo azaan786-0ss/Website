@@ -8,7 +8,7 @@ export function Footer() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12 w-full relative z-10 overflow-hidden"
+      className="bg-slate-950 dark:bg-black text-slate-400 border-t border-slate-900 dark:border-zinc-900 pt-16 pb-12 w-full relative z-10 overflow-hidden transition-colors duration-300"
     >
       {/* Background ambient light */}
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />

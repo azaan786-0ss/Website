@@ -28,7 +28,7 @@ export function PhilosophyStats() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full bg-[#0A0A0A] py-16 md:py-20 lg:py-24 px-6 md:px-8 overflow-hidden z-10 rounded-3xl mt-16 max-w-[1400px] mx-auto border border-white/5 shadow-2xl">
+    <section className="relative w-full bg-slate-950 dark:bg-[#0A0A0A] py-16 md:py-20 lg:py-24 px-6 md:px-8 overflow-hidden z-10 rounded-3xl mt-16 max-w-[1400px] mx-auto border border-slate-900 dark:border-white/5 shadow-2xl">
       {/* Background Grid */}
       <div 
         className="absolute inset-0 z-0 opacity-20 pointer-events-none" 

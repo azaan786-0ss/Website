@@ -28,6 +28,15 @@
                       linear-gradient(to bottom, rgba(216, 218, 224, 0.3) 1px, transparent 1px);
     background-size: 32px 32px;
   }
+  .global-grid {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .dark .global-grid {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
   .timeline-line {
     position: absolute;
     left: 24px;

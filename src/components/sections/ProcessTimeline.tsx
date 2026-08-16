@@ -96,7 +96,7 @@ export function ProcessTimeline() {
     <section 
       ref={containerRef} 
       // Force a massive height on Desktop for scrolljacking. Natural height on Mobile.
-      className="relative h-auto lg:h-[400vh] bg-bg-primary dark:bg-bg-dark-primary transition-colors"
+      className="relative h-auto lg:h-[400vh] bg-transparent transition-colors"
     >
       {/* 
         This inner div pins to the screen on Desktop, giving the "full screen" feel.
@@ -105,20 +105,20 @@ export function ProcessTimeline() {
       <div className="relative lg:sticky lg:top-0 lg:h-screen w-full flex flex-col justify-center overflow-hidden py-16 md:py-24 lg:py-0">
         
         {/* Decorative Ambient Gradients */}
-        <div className="absolute top-1/3 left-0 -translate-x-1/2 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-0 translate-x-1/2 w-[35rem] h-[35rem] bg-accent-subtle/20 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-0 -translate-x-1/2 w-[30rem] h-[30rem] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-0 translate-x-1/2 w-[35rem] h-[35rem] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 w-full">
           
           {/* Section Header */}
           <div className="max-w-3xl xl:max-w-4xl mb-8 lg:mb-10 xl:mb-14">
             <SoftBlurIn delay={0.1}>
-              <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-on-surface dark:text-white mb-3 lg:mb-4">
-                {processTimeline.title1}<span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">{processTimeline.titleHighlight}</span>
+              <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-3 lg:mb-4">
+                {processTimeline.title1}<span className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800 dark:from-indigo-400 dark:via-indigo-300 dark:to-indigo-500 bg-clip-text text-transparent">{processTimeline.titleHighlight}</span>
               </h2>
             </SoftBlurIn>
             <SoftBlurIn delay={0.25}>
-              <p className="font-body-lg text-base lg:text-lg xl:text-xl text-text-secondary dark:text-secondary-fixed-dim leading-relaxed hidden sm:block">
+              <p className="font-body-lg text-base lg:text-lg xl:text-xl text-slate-600 dark:text-zinc-400 leading-relaxed hidden sm:block">
                 {processTimeline.subtitle}
               </p>
             </SoftBlurIn>
@@ -128,10 +128,10 @@ export function ProcessTimeline() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-20 items-start lg:items-center h-full">
             
             {/* Left Column: Board with Gauge (Desktop only) */}
-            <div className="hidden lg:block lg:col-span-5 relative bg-gradient-to-br from-bg-secondary/80 to-bg-primary dark:from-bg-dark-secondary dark:to-bg-dark-primary p-6 lg:p-7 rounded-3xl border border-outline-variant/40 shadow-xl overflow-hidden group">
+            <div className="hidden lg:block lg:col-span-5 relative bg-gradient-to-br from-slate-100 to-white dark:from-[#0A0A0A] dark:to-black p-6 lg:p-7 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-xl overflow-hidden group">
               
               {/* Ambient subtle light bulb glow */}
-              <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/15 rounded-full blur-3xl group-hover:bg-primary/25 transition-all duration-700" />
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-indigo-500/15 rounded-full blur-3xl group-hover:bg-indigo-500/25 transition-all duration-700" />
               
               <div className="relative z-10 flex flex-col items-center text-center">
                 
@@ -140,7 +140,7 @@ export function ProcessTimeline() {
                   <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                     {/* Background Track Circle */}
                     <circle
-                      className="text-outline-variant/20 stroke-current"
+                      className="text-slate-200 dark:text-zinc-800 stroke-current"
                       strokeWidth="6"
                       cx="50"
                       cy="50"
@@ -149,7 +149,7 @@ export function ProcessTimeline() {
                     />
                     {/* Progress Line Circle */}
                     <circle
-                      className="text-primary stroke-current transition-all duration-100 ease-linear"
+                      className="text-indigo-600 dark:text-indigo-400 stroke-current transition-all duration-100 ease-linear"
                       strokeWidth="6"
                       strokeDasharray="251.2"
                       strokeDashoffset={251.2 - (251.2 * scrollProgress)}
@@ -163,40 +163,40 @@ export function ProcessTimeline() {
                   
                   {/* Gauge Inner Info */}
                   <div className="absolute flex flex-col items-center justify-center">
-                    <span className="font-mono text-2xl font-bold text-on-surface dark:text-white">
+                    <span className="font-mono text-2xl font-bold text-slate-900 dark:text-white">
                       {Math.round(scrollProgress * 100)}%
                     </span>
-                    <span className="text-[10px] font-bold text-text-secondary uppercase tracking-widest mt-0.5">
+                    <span className="text-[10px] font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-widest mt-0.5">
                       {processTimeline.gaugeCompleted}
                     </span>
                   </div>
                 </div>
 
                 {/* Phase Details Card */}
-                <div className="w-full bg-bg-primary dark:bg-bg-dark-primary/60 border border-outline-variant/30 rounded-2xl p-5 shadow-sm">
+                <div className="w-full bg-white dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-2xl p-5 shadow-sm">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    <span className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 animate-pulse" />
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                       {processTimeline.activePhaseSync}
                     </span>
                   </div>
-                  <h3 className="font-display-md text-base font-bold text-on-surface dark:text-white mb-2">
+                  <h3 className="font-display-md text-base font-bold text-slate-900 dark:text-white mb-2">
                     {activeIndex + 1}. {activeStep.title}
                   </h3>
-                  <span className="inline-block text-[11px] px-2.5 py-0.5 bg-accent-subtle dark:bg-primary/20 text-primary font-medium rounded-full mb-3">
+                  <span className="inline-block text-[11px] px-2.5 py-0.5 bg-indigo-50 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 font-medium rounded-full mb-3 border border-transparent dark:border-zinc-800">
                     {activeStep.duration}
                   </span>
 
                   {/* Key Deliverables Block */}
-                  <div className="text-left border-t border-outline-variant/20 pt-3 mt-1">
-                    <span className="text-[11px] font-bold text-on-surface dark:text-white flex items-center gap-1.5 mb-2">
-                      <FileCheck className="w-3.5 h-3.5 text-primary" />
+                  <div className="text-left border-t border-slate-200 dark:border-zinc-850 pt-3 mt-1">
+                    <span className="text-[11px] font-bold text-slate-900 dark:text-white flex items-center gap-1.5 mb-2">
+                      <FileCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                       {processTimeline.keyArtifacts}
                     </span>
                     <ul className="space-y-1.5">
                       {activeStep.artifacts.map((artifact, aIdx) => (
-                        <li key={aIdx} className="flex items-center gap-1.5 text-[11px] text-text-secondary dark:text-secondary-fixed-dim">
-                          <CheckCircle className="w-3 h-3 text-primary shrink-0" />
+                        <li key={aIdx} className="flex items-center gap-1.5 text-[11px] text-slate-600 dark:text-zinc-400">
+                          <CheckCircle className="w-3 h-3 text-indigo-600 dark:text-indigo-400 shrink-0" />
                           <span className="font-medium">{artifact}</span>
                         </li>
                       ))}
@@ -204,7 +204,7 @@ export function ProcessTimeline() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 mt-4 text-[11px] text-text-secondary">
+                <div className="flex items-center gap-2 mt-4 text-[11px] text-slate-500 dark:text-zinc-400">
                   <div className="flex items-center gap-1.5">
                     <Activity className="w-3.5 h-3.5 text-emerald-500" />
                     <span>{processTimeline.agileTransparency}</span>
@@ -218,11 +218,11 @@ export function ProcessTimeline() {
             <div className="lg:col-span-7 relative lg:h-[360px]">
               
               {/* Mobile Vertical Visual connector line */}
-              <div className="lg:hidden absolute left-[27px] md:left-[39px] top-4 bottom-4 w-[2px] bg-outline-variant/30 dark:bg-outline-variant/10 rounded-full" />
+              <div className="lg:hidden absolute left-[27px] md:left-[39px] top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-zinc-800 rounded-full" />
               
               {/* Mobile Neon active progress traveler line */}
               <div 
-                className="lg:hidden absolute left-[27px] md:left-[39px] top-4 w-[2px] bg-primary rounded-full transition-all duration-100 ease-out origin-top shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+                className="lg:hidden absolute left-[27px] md:left-[39px] top-4 w-[2px] bg-indigo-600 dark:bg-indigo-400 rounded-full transition-all duration-100 ease-out origin-top shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                 style={{ height: `${scrollProgress * 98}%` }}
               />
 
@@ -251,9 +251,9 @@ export function ProcessTimeline() {
                       <div 
                         className={`p-5 sm:p-6 rounded-2xl border transition-all duration-500 ${
                           isCurrent
-                            ? "bg-bg-primary dark:bg-bg-dark-secondary border-primary/40 shadow-xl shadow-primary/5"
+                            ? "bg-white dark:bg-[#0A0A0A] border-indigo-300 dark:border-zinc-800 shadow-xl"
                             : isActive
-                              ? "bg-bg-primary/50 dark:bg-bg-dark-secondary/20 border-outline-variant/30 lg:border-transparent"
+                              ? "bg-white/50 dark:bg-[#0A0A0A]/30 border-slate-200 dark:border-zinc-850 lg:border-transparent"
                               : "bg-transparent border-transparent"
                         }`}
                       >
@@ -262,10 +262,10 @@ export function ProcessTimeline() {
                         <div 
                           className={`absolute left-2 md:left-4 top-5 lg:relative lg:left-0 lg:top-0 lg:mb-4 w-10 h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center border-2 z-20 transition-all duration-500 shadow-sm ${
                             isCurrent
-                              ? "bg-primary border-primary text-white scale-110 shadow-lg shadow-primary/20"
+                              ? "bg-indigo-600 border-indigo-600 text-white scale-110 shadow-lg"
                               : isActive
-                                ? "bg-bg-primary border-primary/50 text-primary"
-                                : "bg-bg-secondary dark:bg-bg-dark-secondary border-outline-variant/40 text-text-secondary"
+                                ? "bg-white dark:bg-black border-indigo-500/50 text-indigo-600 dark:text-indigo-400"
+                                : "bg-slate-100 dark:bg-zinc-900 border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400"
                           }`}
                         >
                           <IconComponent className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6" />
@@ -273,10 +273,10 @@ export function ProcessTimeline() {
 
                         {/* Badge and Duration */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-2 lg:mb-3">
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-accent-subtle dark:bg-primary/10 text-primary">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-indigo-50 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 border border-transparent dark:border-zinc-800">
                             {step.tag}
                           </span>
-                          <span className="text-[11px] font-mono font-bold text-text-secondary">
+                          <span className="text-[11px] font-mono font-bold text-slate-500 dark:text-zinc-400">
                             Phase {index + 1} — {step.duration}
                           </span>
                         </div>
@@ -284,27 +284,27 @@ export function ProcessTimeline() {
                         {/* Title */}
                         <h3 className={`font-display-md text-xl sm:text-2xl lg:text-2xl font-bold mb-2 transition-colors ${
                           isCurrent 
-                            ? "text-primary dark:text-white" 
-                            : "text-on-surface dark:text-secondary-fixed-dim"
+                            ? "text-indigo-600 dark:text-white" 
+                            : "text-slate-900 dark:text-zinc-300"
                         }`}>
                           {step.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="font-body-md text-sm sm:text-base lg:text-base text-text-secondary dark:text-secondary-fixed-dim leading-relaxed mb-0">
+                        <p className="font-body-md text-sm sm:text-base lg:text-base text-slate-600 dark:text-zinc-400 leading-relaxed mb-0">
                           {step.desc}
                         </p>
 
                         {/* Mobile key deliverables list (shown only on mobile/tablet) */}
-                        <div className="block lg:hidden border-t border-outline-variant/20 pt-4">
-                          <span className="text-xs font-bold text-on-surface dark:text-white flex items-center gap-1.5 mb-2">
-                            <FileCheck className="w-3.5 h-3.5 text-primary" />
+                        <div className="block lg:hidden border-t border-slate-200 dark:border-zinc-850 pt-4 mt-4">
+                          <span className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 mb-2">
+                            <FileCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                             {processTimeline.keyDeliverables}
                           </span>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {step.artifacts.map((artifact, aIdx) => (
-                              <div key={aIdx} className="flex items-center gap-1.5 text-xs text-text-secondary dark:text-secondary-fixed-dim">
-                                <CheckCircle className="w-3 h-3 text-primary shrink-0" />
+                              <div key={aIdx} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-zinc-400">
+                                <CheckCircle className="w-3 h-3 text-indigo-600 dark:text-indigo-400 shrink-0" />
                                 <span>{artifact}</span>
                               </div>
                             ))}

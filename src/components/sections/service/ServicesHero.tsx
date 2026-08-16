@@ -173,23 +173,23 @@ export function ServicesHero() {
         }}
       >
         <motion.div variants={badgeVariants} className="mb-8">
-          <div className="group relative inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50/50 text-indigo-700 border border-indigo-200/50 rounded-full font-caption text-xs sm:text-sm font-semibold shadow-sm hover:bg-indigo-50 hover:border-indigo-300 hover:shadow-indigo-500/10 transition-all duration-300 cursor-default overflow-hidden">
-            <div className="absolute inset-0 bg-white/40 group-hover:bg-transparent transition-colors duration-300" />
-            <span className="material-symbols-outlined text-[18px] text-indigo-600 group-hover:rotate-12 transition-transform duration-300 relative z-10">
+          <div className="group relative inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50/50 dark:bg-zinc-900/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200/50 dark:border-zinc-800/80 rounded-full font-caption text-xs sm:text-sm font-semibold shadow-sm hover:bg-indigo-50 dark:hover:bg-zinc-900 hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-indigo-500/10 transition-all duration-300 cursor-default overflow-hidden">
+            <div className="absolute inset-0 bg-white/40 dark:bg-transparent group-hover:bg-transparent transition-colors duration-300" />
+            <span className="material-symbols-outlined text-[18px] text-indigo-600 dark:text-indigo-400 group-hover:rotate-12 transition-transform duration-300 relative z-10">
               workspaces
             </span>
             <span className="relative z-10">OUR EXPERTISE</span>
           </div>
         </motion.div>
 
-        <h1 className="font-display-xl text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.05] max-w-4xl mx-auto cursor-default group">
+        <h1 className="font-display-xl text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.05] max-w-4xl mx-auto cursor-default group">
           <motion.div variants={lineVariants} className="overflow-hidden pb-1">
-            <span className="block bg-clip-text text-transparent bg-slate-900 group-hover:bg-[linear-gradient(110deg,#0f172a,35%,#6366f1,50%,#0f172a)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700">
+            <span className="block bg-clip-text text-transparent bg-slate-900 dark:bg-white group-hover:bg-[linear-gradient(110deg,#0f172a,35%,#6366f1,50%,#0f172a)] dark:group-hover:bg-[linear-gradient(110deg,#ffffff,35%,#818cf8,50%,#ffffff)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700">
               Engineering Digital Products
             </span>
           </motion.div>
           <motion.div variants={lineVariants} className="overflow-hidden pb-2">
-            <span className="block bg-clip-text text-transparent bg-slate-900 group-hover:bg-[linear-gradient(110deg,#0f172a,55%,#6366f1,70%,#0f172a)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700 delay-100">
+            <span className="block bg-clip-text text-transparent bg-slate-900 dark:bg-white group-hover:bg-[linear-gradient(110deg,#0f172a,55%,#6366f1,70%,#0f172a)] dark:group-hover:bg-[linear-gradient(110deg,#ffffff,55%,#818cf8,70%,#ffffff)] group-hover:bg-[length:200%_100%] group-hover:animate-shine transition-all duration-700 delay-100">
               That Scale With Your Business
             </span>
           </motion.div>
@@ -197,7 +197,7 @@ export function ServicesHero() {
 
         <motion.p 
           variants={fadeVariants}
-          className="font-body-lg text-lg sm:text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="font-body-lg text-lg sm:text-xl md:text-2xl text-slate-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           We craft distinctive brand identities, robust cloud architectures, and scalable digital products tailored for ambitious founders.
         </motion.p>
@@ -211,11 +211,11 @@ export function ServicesHero() {
           <Link to="/start-project" className="w-full sm:w-auto">
             <motion.button
               variants={buttonVariants}
-              className="group relative w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-2xl font-semibold shadow-lg hover:shadow-2xl hover:shadow-slate-900/20 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden"
+              className="group relative w-full sm:w-auto px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-semibold shadow-lg hover:shadow-2xl hover:shadow-slate-900/20 dark:hover:shadow-white/20 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden"
             >
               <div className="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative z-10 text-[15px]">Start a Project</span>
-              <span className="relative z-10 material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform duration-300">
+              <span className="relative z-10 text-[15px] group-hover:text-white transition-colors duration-300">Start a Project</span>
+              <span className="relative z-10 material-symbols-outlined text-[18px] group-hover:text-white group-hover:translate-x-1 transition-all duration-300">
                 arrow_forward
               </span>
             </motion.button>
@@ -223,7 +223,7 @@ export function ServicesHero() {
           
           <motion.button
             variants={buttonVariants}
-            className="w-full sm:w-auto px-8 py-4 border border-slate-200 text-slate-700 bg-white/50 backdrop-blur-sm rounded-2xl font-semibold hover:bg-white hover:border-slate-300 hover:text-slate-900 hover:shadow-lg hover:shadow-slate-200/50 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center text-[15px]"
+            className="w-full sm:w-auto px-8 py-4 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 bg-white/50 dark:bg-[#050505]/50 backdrop-blur-sm rounded-2xl font-semibold hover:bg-white dark:hover:bg-[#0A0A0A] hover:border-slate-300 dark:hover:border-zinc-700 hover:text-slate-900 dark:hover:text-white hover:shadow-lg hover:shadow-slate-200/50 dark:hover:shadow-black/50 hover:-translate-y-[3px] transition-all duration-300 flex items-center justify-center text-[15px]"
           >
             View Case Studies
           </motion.button>

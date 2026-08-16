@@ -48,11 +48,8 @@ export function HeroSection() {
   return (
     <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 lg:pt-40 lg:pb-32 px-6 md:px-8 max-w-[1400px] mx-auto overflow-hidden">
       {/* Dynamic Ambient Background Elements */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-sky-400/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      
-      {/* Background Micro Grid */}
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#e2e8f015_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f015_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-sky-400/10 dark:bg-sky-400/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
         
@@ -78,7 +75,7 @@ export function HeroSection() {
           {/* Body Subtitle */}
           <motion.p 
             variants={itemVariants} 
-            className="font-body-lg text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8"
+            className="font-body-lg text-base sm:text-lg md:text-xl text-slate-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8"
           >
             {heroSection.subtitle}
           </motion.p>
@@ -99,23 +96,23 @@ export function HeroSection() {
 
             <a 
               href="#services" 
-              className="rounded-xl border border-slate-300 dark:border-slate-700 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md px-6 py-3.5 text-slate-700 dark:text-slate-200 font-semibold text-base hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-xs"
+              className="rounded-xl border border-slate-300 dark:border-zinc-800 bg-white/60 dark:bg-[#0A0A0A]/60 backdrop-blur-md px-6 py-3.5 text-slate-700 dark:text-zinc-300 font-semibold text-base hover:bg-slate-100 dark:hover:bg-zinc-900 hover:border-slate-400 dark:hover:border-zinc-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-xs"
             >
               <span>{heroSection.cta2}</span>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="w-4 h-4 text-slate-400 dark:text-zinc-500 group-hover:text-slate-600 dark:group-hover:text-zinc-300 transition-transform group-hover:translate-x-0.5" />
             </a>
           </motion.div>
 
           {/* Trust Metrics Pill Bar */}
           <motion.div 
             variants={itemVariants}
-            className="pt-4 border-t border-slate-200/80 dark:border-slate-800/80 w-full flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400"
+            className="pt-4 border-t border-slate-200/80 dark:border-zinc-800/80 w-full flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs sm:text-sm font-medium text-slate-500 dark:text-zinc-400"
           >
             {trustMetrics.map((item, idx) => {
               const IconComp = item.icon;
               return (
                 <div key={idx} className="flex items-center gap-2">
-                  <div className="p-1 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <div className="p-1 rounded-md bg-indigo-50 dark:bg-[#050505] text-indigo-600 dark:text-indigo-400 border border-transparent dark:border-zinc-800">
                     <IconComp className="w-3.5 h-3.5" />
                   </div>
                   <span>{item.label}</span>
@@ -133,7 +130,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Subtle Glow Ring behind the Bot */}
-          <div className="absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-indigo-400/20 blur-3xl pointer-events-none" />
+          <div className="absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full bg-indigo-400/20 dark:bg-indigo-500/10 blur-3xl pointer-events-none" />
 
           {/* 3D Canvas */}
           <div className="w-full h-full relative z-10">
@@ -142,7 +139,7 @@ export function HeroSection() {
 
           {/* Floating HUD Widget 1: System Operational (Top-Left) */}
           <motion.div 
-            className="absolute top-4 left-2 sm:-left-4 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-3 rounded-2xl shadow-xl flex items-center gap-3 cursor-default"
+            className="absolute top-4 left-2 sm:-left-4 z-20 bg-white/80 dark:bg-[#0A0A0A]/90 backdrop-blur-xl border border-slate-200/80 dark:border-zinc-800 p-3 rounded-2xl shadow-xl flex items-center gap-3 cursor-default"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
@@ -152,17 +149,17 @@ export function HeroSection() {
               <Activity className="w-4 h-4 animate-pulse" />
             </div>
             <div>
-              <div className="text-xs font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+              <div className="text-xs font-semibold text-slate-800 dark:text-white flex items-center gap-1.5">
                 <span>{heroSection.widget1.title}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
               </div>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{heroSection.widget1.subtitle}</p>
+              <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-mono">{heroSection.widget1.subtitle}</p>
             </div>
           </motion.div>
 
           {/* Floating HUD Widget 2: Architecture Score Card (Bottom-Right) */}
           <motion.div 
-            className="absolute bottom-6 right-2 sm:-right-4 z-20 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 p-3.5 rounded-2xl shadow-xl flex items-center gap-3.5 cursor-default"
+            className="absolute bottom-6 right-2 sm:-right-4 z-20 bg-white/85 dark:bg-[#0A0A0A]/90 backdrop-blur-xl border border-slate-200/80 dark:border-zinc-800 p-3.5 rounded-2xl shadow-xl flex items-center gap-3.5 cursor-default"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -172,17 +169,15 @@ export function HeroSection() {
               <TrendingUp className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{heroSection.widget2.title}</div>
+              <div className="text-xs font-semibold text-slate-800 dark:text-white">{heroSection.widget2.title}</div>
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{heroSection.widget2.score}</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-semibold">
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-100 dark:bg-zinc-900 text-indigo-700 dark:text-indigo-300 font-semibold border border-transparent dark:border-zinc-800">
                   {heroSection.widget2.badge}
                 </span>
               </div>
             </div>
           </motion.div>
-
-
 
         </motion.div>
 

@@ -31,7 +31,13 @@ export function TrueFocus({ sentence }: { sentence: string }) {
           ref={el => { wordRefs.current[i] = el; }}
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
-          className={`transition-all duration-300 relative z-10 ${hoveredIndex === i ? 'text-primary' : hoveredIndex !== null ? 'opacity-40 blur-[2px]' : ''}`}
+          className={`transition-all duration-300 relative z-10 ${
+            hoveredIndex === i 
+              ? 'text-indigo-600 dark:text-indigo-400' 
+              : hoveredIndex !== null 
+                ? 'opacity-40 blur-[2px]' 
+                : 'text-slate-900 dark:text-white'
+          }`}
         >
           {word}
         </span>
@@ -49,10 +55,10 @@ export function TrueFocus({ sentence }: { sentence: string }) {
           transform: targetRect ? 'scale(1)' : 'scale(1.1)'
         }}
       >
-        <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary"></span>
-        <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary"></span>
-        <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary"></span>
-        <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary"></span>
+        <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-indigo-600 dark:border-indigo-400"></span>
+        <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-indigo-600 dark:border-indigo-400"></span>
+        <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-indigo-600 dark:border-indigo-400"></span>
+        <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-indigo-600 dark:border-indigo-400"></span>
       </div>
     </div>
   );

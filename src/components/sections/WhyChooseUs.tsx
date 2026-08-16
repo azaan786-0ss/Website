@@ -126,8 +126,8 @@ function DesignConsole() {
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            <div className="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-[16px] text-primary">draw</span>
+            <div className="w-8 h-8 rounded bg-indigo-500/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[16px] text-indigo-400">draw</span>
             </div>
             <div className="h-3 w-20 bg-white/20 rounded"></div>
             <div className="h-2 w-32 bg-white/10 rounded"></div>
@@ -136,14 +136,14 @@ function DesignConsole() {
 
           {/* Morphing overlay on hover */}
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-primary/50 rounded-lg flex items-center justify-center"
+            className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/50 rounded-lg flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: hovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
             <div className="text-center">
               <div className="text-xs font-semibold text-white">{whyChooseUs.designConsole.renderTitle}</div>
-              <div className="text-[9px] text-primary-fixed mt-1">{whyChooseUs.designConsole.renderStatus}</div>
+              <div className="text-[9px] text-indigo-300 mt-1">{whyChooseUs.designConsole.renderStatus}</div>
             </div>
           </motion.div>
         </div>
@@ -307,17 +307,14 @@ export function WhyChooseUs() {
   };
 
   return (
-    <section className="bg-bg-secondary py-space-32 relative overflow-hidden">
-      {/* Subtle top border gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-      
+    <section className="py-16 md:py-24 relative overflow-hidden bg-transparent border-t border-slate-200/60 dark:border-zinc-850">
       <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
         <div className="mb-16 md:mb-24 text-center max-w-3xl xl:max-w-4xl mx-auto">
-          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-4 md:mb-6 flex justify-center text-on-surface dark:text-white">
+          <h2 className="font-display-xl text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-4 md:mb-6 flex justify-center text-slate-900 dark:text-white">
             <TrueFocus sentence={whyChooseUs.titleSentence} />
           </h2>
-          <p className="font-body-lg text-base sm:text-lg xl:text-xl text-secondary dark:text-secondary-fixed-dim leading-relaxed">
-            {whyChooseUs.subtitle1}<span className="text-primary font-medium">{whyChooseUs.subtitleHighlight}</span>
+          <p className="font-body-lg text-base sm:text-lg xl:text-xl text-slate-600 dark:text-zinc-400 leading-relaxed">
+            {whyChooseUs.subtitle1}<span className="text-indigo-600 dark:text-indigo-400 font-medium">{whyChooseUs.subtitleHighlight}</span>
           </p>
         </div>
         
@@ -330,8 +327,8 @@ export function WhyChooseUs() {
                 onClick={() => setActiveTab(adv.id)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border transition-all duration-300
                   ${activeTab === adv.id 
-                    ? 'bg-primary text-on-primary border-primary shadow-lg' 
-                    : 'bg-white border-outline-variant/60 text-secondary dark:bg-bg-dark-secondary dark:border-white/10 dark:text-secondary-fixed-dim'}`}
+                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-lg' 
+                    : 'bg-white dark:bg-[#0A0A0A] border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300'}`}
               >
                 <span className="material-symbols-outlined text-[16px]">{adv.icon}</span>
                 {adv.title}
@@ -339,12 +336,12 @@ export function WhyChooseUs() {
             ))}
           </div>
           
-          <div className="bg-bg-primary dark:bg-bg-dark-secondary rounded-2xl border border-outline-variant/60 dark:border-white/10 p-4 h-[320px] shadow-sm">
+          <div className="bg-white dark:bg-[#0A0A0A] rounded-2xl border border-slate-200 dark:border-zinc-800 p-4 h-[320px] shadow-sm">
             {getConsole()}
           </div>
           
           <div className="text-center px-4">
-            <p className="font-body-md text-secondary leading-relaxed">
+            <p className="font-body-md text-slate-600 dark:text-zinc-400 leading-relaxed">
               {advantages[activeTab].description}
             </p>
           </div>
@@ -363,14 +360,14 @@ export function WhyChooseUs() {
                   onClick={() => setActiveTab(adv.id)}
                   className={`group relative rounded-xl p-5 border cursor-pointer transition-all duration-300 flex items-start gap-4 xl:gap-6 select-none
                     ${isActive 
-                      ? 'bg-bg-primary border-primary/40 shadow-[0_4px_20px_-4px_rgba(99,102,241,0.12)]' 
-                      : 'bg-transparent border-transparent hover:bg-bg-primary/50 hover:border-outline-variant/30'}`}
+                      ? 'bg-white dark:bg-[#0A0A0A] border-indigo-300 dark:border-zinc-800 shadow-xl' 
+                      : 'bg-transparent border-transparent hover:bg-white/50 dark:hover:bg-[#0A0A0A]/50 hover:border-slate-200 dark:hover:border-zinc-850'}`}
                 >
                   {/* Left edge accent indicator line */}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary rounded-l-xl"
+                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-indigo-600 dark:bg-indigo-400 rounded-l-xl"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -378,19 +375,19 @@ export function WhyChooseUs() {
                   {/* Icon badge */}
                   <div className={`w-10 h-10 xl:w-12 xl:h-12 rounded-lg flex items-center justify-center transition-colors duration-300 flex-shrink-0
                     ${isActive 
-                      ? 'bg-primary/10 text-primary' 
-                      : 'bg-neutral-100 dark:bg-zinc-800 text-secondary'}`}
+                      ? 'bg-indigo-50 dark:bg-[#050505] text-indigo-600 dark:text-indigo-400 border border-transparent dark:border-zinc-800' 
+                      : 'bg-slate-100 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400'}`}
                   >
                     <span className="material-symbols-outlined text-[20px] xl:text-[24px]">{adv.icon}</span>
                   </div>
 
                   <div>
                     <h4 className={`font-heading-md text-base xl:text-lg font-semibold transition-colors duration-300
-                      ${isActive ? 'text-primary' : 'text-on-surface'}`}
+                      ${isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}
                     >
                       {adv.title}
                     </h4>
-                    <p className="font-body-md text-xs xl:text-sm text-secondary mt-1.5 leading-relaxed">
+                    <p className="font-body-md text-xs xl:text-sm text-slate-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
                       {adv.description}
                     </p>
                   </div>
@@ -400,7 +397,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Right Column: Console/Visualization Workspace */}
-          <div className="col-span-7 h-[380px] xl:h-[460px] rounded-2xl bg-zinc-900 border border-white/15 p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+          <div className="col-span-7 h-[380px] xl:h-[460px] rounded-2xl bg-[#0A0A0A] border border-zinc-800 p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
             {/* Top workspace bar */}
             <div className="flex items-center justify-between text-[10px] text-white/40 pb-3 border-b border-white/5 mb-4">
               <div className="flex items-center gap-2">

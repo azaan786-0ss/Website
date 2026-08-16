@@ -112,7 +112,7 @@ export function PrinciplesSection() {
   return (
     // Outer container needs to be very tall to allow scrolling. 
     // 100vh per card = 600vh total height.
-    <section ref={containerRef} className="relative h-[600vh] bg-slate-950">
+    <section ref={containerRef} className="relative h-[600vh] bg-slate-950 dark:bg-black">
       
       {/* Sticky Inner Viewport */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">

@@ -98,10 +98,12 @@ export function StartProject() {
   ];
 
   return (
-    <div className="bg-slate-50 text-slate-900 font-body-md antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen flex flex-col relative">
-      {/* Global Page Grid Background */}
+    <div className="bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-body-md antialiased selection:bg-indigo-100 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-200 min-h-screen flex flex-col relative overflow-hidden transition-colors duration-300">
+      {/* Global Tech Grid & Ambient Glass Glows Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>
+        <div className="absolute inset-0 global-grid" />
+        <div className="hidden dark:block absolute top-1/4 left-10 w-96 h-96 bg-indigo-600/5 rounded-full blur-[120px]" />
+        <div className="hidden dark:block absolute bottom-1/3 right-10 w-[500px] h-[500px] bg-slate-800/10 rounded-full blur-[120px]" />
       </div>
 
       <Navbar />
@@ -116,13 +118,13 @@ export function StartProject() {
           {/* Left Column: Form & Header */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-8 md:space-y-10">
             <motion.div variants={itemVariants}>
-              <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px] font-extrabold text-slate-900 mb-4 md:mb-6 tracking-tight leading-[1.1]">
+              <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[72px] font-extrabold text-slate-900 dark:text-white mb-4 md:mb-6 tracking-tight leading-[1.1]">
                 Let's build{' '}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-indigo-500 to-indigo-800 dark:from-indigo-400 dark:via-indigo-300 dark:to-indigo-500">
                   something extraordinary.
                 </span>
               </h1>
-              <p className="font-body-lg text-base sm:text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed">
+              <p className="font-body-lg text-base sm:text-lg md:text-xl text-slate-600 dark:text-zinc-400 max-w-xl leading-relaxed">
                 No obligation. 30-minute discovery call with senior engineers. We respond within one
                 business day.
               </p>
@@ -135,15 +137,15 @@ export function StartProject() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="bg-white p-8 sm:p-12 md:p-16 rounded-3xl border border-indigo-100 shadow-xl shadow-indigo-950/5 text-center space-y-6"
+                    className="bg-white dark:bg-[#0A0A0A] p-8 sm:p-12 md:p-16 rounded-3xl border border-indigo-100 dark:border-zinc-800 shadow-xl dark:shadow-2xl text-center space-y-6"
                   >
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-200/60 shadow-xs">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-200/60 dark:border-emerald-500/20 shadow-xs">
                       <span className="material-symbols-outlined text-[36px] md:text-[48px]">check_circle</span>
                     </div>
-                    <h3 className="font-display-md text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
+                    <h3 className="font-display-md text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
                       Inquiry Received!
                     </h3>
-                    <p className="text-slate-600 max-w-md mx-auto text-base md:text-lg leading-relaxed">
+                    <p className="text-slate-600 dark:text-zinc-400 max-w-md mx-auto text-base md:text-lg leading-relaxed">
                       Thank you for reaching out. Our engineering team is currently reviewing your project details and will be in touch within 24 hours.
                     </p>
                     <button
@@ -151,7 +153,7 @@ export function StartProject() {
                         setIsSubmitted(false);
                         setStatus(null);
                       }}
-                      className="px-6 py-3 md:px-8 md:py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm md:text-base transition-colors"
+                      className="px-6 py-3 md:px-8 md:py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-zinc-850 dark:hover:bg-zinc-700 text-slate-700 dark:text-white font-bold rounded-xl text-sm md:text-base transition-colors border border-slate-200 dark:border-zinc-750"
                     >
                       Send Another Inquiry
                     </button>
@@ -159,16 +161,19 @@ export function StartProject() {
                 ) : (
                   <form
                     onSubmit={handleSubmit}
-                    className="bg-white/90 backdrop-blur-sm p-6 sm:p-10 md:p-12 rounded-[2rem] border border-slate-200/80 shadow-xl shadow-slate-200/50 space-y-6 md:space-y-8 hover:border-indigo-300 transition-colors duration-300"
+                    className="bg-white/90 dark:bg-[#0A0A0A] p-6 sm:p-10 md:p-12 rounded-[2rem] border border-slate-200/80 dark:border-zinc-800 shadow-xl dark:shadow-2xl space-y-6 md:space-y-8 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all duration-300 relative overflow-hidden group"
                   >
+                    {/* Top subtle shine line */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 dark:via-indigo-500/30 to-transparent" />
+
                     {/* Name & Work Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                       <div className="space-y-2 md:space-y-3">
                         <label
                           htmlFor="fullName"
-                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                         >
-                          Full Name <span className="text-indigo-600">*</span>
+                          Full Name <span className="text-indigo-600 dark:text-indigo-400">*</span>
                         </label>
                         <input
                           type="text"
@@ -178,16 +183,16 @@ export function StartProject() {
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           placeholder="Alex Morgan"
-                          className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                          className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-600 text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none"
                         />
                       </div>
 
                       <div className="space-y-2 md:space-y-3">
                         <label
                           htmlFor="workEmail"
-                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                         >
-                          Work Email <span className="text-indigo-600">*</span>
+                          Work Email <span className="text-indigo-600 dark:text-indigo-400">*</span>
                         </label>
                         <input
                           type="email"
@@ -197,7 +202,7 @@ export function StartProject() {
                           value={formData.workEmail}
                           onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                           placeholder="alex@company.com"
-                          className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                          className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-600 text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none"
                         />
                       </div>
                     </div>
@@ -206,9 +211,9 @@ export function StartProject() {
                     <div className="space-y-2 md:space-y-3">
                       <label
                         htmlFor="companyName"
-                        className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                        className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                       >
-                        Company Name <span className="text-indigo-600">*</span>
+                        Company Name <span className="text-indigo-600 dark:text-indigo-400">*</span>
                       </label>
                       <input
                         type="text"
@@ -218,7 +223,7 @@ export function StartProject() {
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="Acme Technologies Inc."
-                        className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                        className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-600 text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none"
                       />
                     </div>
 
@@ -227,7 +232,7 @@ export function StartProject() {
                       <div className="space-y-2 md:space-y-3">
                         <label
                           htmlFor="projectType"
-                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                         >
                           Project Type
                         </label>
@@ -239,15 +244,15 @@ export function StartProject() {
                             onChange={(e) =>
                               setFormData({ ...formData, projectType: e.target.value })
                             }
-                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none appearance-none cursor-pointer"
+                            className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-500 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none appearance-none cursor-pointer"
                           >
-                            <option value="">Select project type...</option>
-                            <option value="web-app">Web Application</option>
-                            <option value="mobile-app">Mobile App</option>
-                            <option value="ai-solutions">AI & LLM Integration</option>
-                            <option value="cloud-architecture">Cloud Architecture</option>
-                            <option value="digital-transformation">Digital Transformation</option>
-                            <option value="other">Other / Multi-disciplinary</option>
+                            <option value="" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Select project type...</option>
+                            <option value="web-app" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Web Application</option>
+                            <option value="mobile-app" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Mobile App</option>
+                            <option value="ai-solutions" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">AI & LLM Integration</option>
+                            <option value="cloud-architecture" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Cloud Architecture</option>
+                            <option value="digital-transformation" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Digital Transformation</option>
+                            <option value="other" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Other / Multi-disciplinary</option>
                           </select>
                           <span className="material-symbols-outlined text-[20px] md:text-[24px] text-slate-400 absolute right-3 md:right-4 top-3.5 md:top-4 pointer-events-none">
                             expand_more
@@ -258,7 +263,7 @@ export function StartProject() {
                       <div className="space-y-2 md:space-y-3">
                         <label
                           htmlFor="targetTimeline"
-                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                          className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                         >
                           Target Timeline
                         </label>
@@ -268,13 +273,13 @@ export function StartProject() {
                             name="targetTimeline"
                             value={formData.targetTimeline}
                             onChange={(e) => setFormData({ ...formData, targetTimeline: e.target.value })}
-                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none appearance-none cursor-pointer"
+                            className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-400 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none appearance-none cursor-pointer"
                           >
-                            <option value="">Select timeline...</option>
-                            <option value="immediate">Immediate (Next 2-4 Weeks)</option>
-                            <option value="quarter">1-3 Months</option>
-                            <option value="future">3-6 Months</option>
-                            <option value="flexible">Flexible / Planning Phase</option>
+                            <option value="" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Select timeline...</option>
+                            <option value="immediate" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Immediate (Next 2-4 Weeks)</option>
+                            <option value="quarter" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">1-3 Months</option>
+                            <option value="future" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">3-6 Months</option>
+                            <option value="flexible" className="bg-white dark:bg-[#050505] text-slate-900 dark:text-white">Flexible / Planning Phase</option>
                           </select>
                           <span className="material-symbols-outlined text-[20px] md:text-[24px] text-slate-400 absolute right-3 md:right-4 top-3.5 md:top-4 pointer-events-none">
                             expand_more
@@ -287,7 +292,7 @@ export function StartProject() {
                     <div className="space-y-2 md:space-y-3">
                       <label
                         htmlFor="projectOverview"
-                        className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600"
+                        className="block text-[11px] md:text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400"
                       >
                         Project Overview (Optional)
                       </label>
@@ -298,7 +303,7 @@ export function StartProject() {
                         value={formData.projectOverview}
                         onChange={(e) => setFormData({ ...formData, projectOverview: e.target.value })}
                         placeholder="Tell us about your core technical objectives, existing stack, or target deliverables..."
-                        className="w-full bg-slate-50/70 border border-slate-200 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 text-sm md:text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none resize-none"
+                        className="w-full bg-slate-50/70 dark:bg-[#050505] border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3.5 md:py-4 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-zinc-650 text-sm md:text-base focus:border-indigo-500 dark:focus:border-indigo-400 focus:bg-white dark:focus:bg-[#0A0A0A] focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/10 transition-all outline-none resize-none"
                       />
                     </div>
 
@@ -309,7 +314,7 @@ export function StartProject() {
                         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-4 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl font-bold text-base md:text-lg shadow-lg shadow-indigo-600/25 transition-all duration-300 flex items-center justify-center gap-3"
+                        className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed text-white rounded-xl font-bold text-base md:text-lg shadow-lg shadow-indigo-600/25 dark:shadow-indigo-600/30 transition-all duration-300 flex items-center justify-center gap-3"
                       >
                         {isSubmitting ? 'Sending…' : 'Start a conversation'}
                         {!isSubmitting && (
@@ -318,7 +323,7 @@ export function StartProject() {
                       </motion.button>
 
                       {status && (
-                        <p role="status" className={status.type === 'success' ? 'text-green-600 font-medium text-sm' : 'text-red-600 font-medium text-sm'}>
+                        <p role="status" className={status.type === 'success' ? 'text-green-600 dark:text-emerald-400 font-medium text-sm' : 'text-red-600 dark:text-red-400 font-medium text-sm'}>
                           {status.message}
                         </p>
                       )}
@@ -333,35 +338,35 @@ export function StartProject() {
           <div className="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-36 xl:top-40 space-y-6 md:space-y-8">
             <motion.div
               variants={itemVariants}
-              className="bg-white p-6 sm:p-8 md:p-10 lg:p-8 xl:p-10 rounded-[2rem] border border-slate-200/80 shadow-xl shadow-slate-200/50 relative overflow-hidden"
+              className="bg-white dark:bg-[#0A0A0A] p-6 sm:p-8 md:p-10 lg:p-8 xl:p-10 rounded-[2rem] border border-slate-200/80 dark:border-zinc-800 shadow-xl shadow-slate-200/50 dark:shadow-2xl relative overflow-hidden"
             >
               {/* Background ambient glow */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none" />
 
-              <h2 className="font-display-md text-2xl md:text-3xl font-bold text-slate-900 mb-8 md:mb-10 flex items-center gap-3">
-                <span className="w-3 h-3 rounded-full bg-indigo-600" />
+              <h2 className="font-display-md text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8 md:mb-10 flex items-center gap-3">
+                <span className="w-3 h-3 rounded-full bg-indigo-600 dark:bg-indigo-505" />
                 What Happens Next
               </h2>
 
               <div className="relative space-y-8 md:space-y-10">
                 {/* Connecting Line */}
-                <div className="absolute left-6 md:left-7 top-8 md:top-10 bottom-8 md:bottom-10 w-0.5 bg-indigo-100 z-0" />
+                <div className="absolute left-6 md:left-7 top-8 md:top-10 bottom-8 md:bottom-10 w-0.5 bg-indigo-100 dark:bg-zinc-800 z-0" />
 
                 {timelineSteps.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-5 md:gap-6 relative z-10 group">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center font-bold shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 shadow-xs">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-indigo-50 dark:bg-[#050505] border border-indigo-100 dark:border-zinc-800 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold shrink-0 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:text-white dark:group-hover:border-indigo-500 transition-all duration-300 shadow-xs">
                       <span className="material-symbols-outlined text-[22px] md:text-[26px]">{item.icon}</span>
                     </div>
                     <div className="space-y-1 md:space-y-1.5 pt-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] md:text-xs font-bold text-indigo-600 uppercase tracking-wider">
+                        <span className="text-[10px] md:text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
                           {item.step}
                         </span>
-                        <h3 className="font-bold text-base md:text-lg text-slate-900 group-hover:text-indigo-600 transition-colors">
+                        <h3 className="font-bold text-base md:text-lg text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.desc}</p>
+                      <p className="text-slate-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -371,13 +376,13 @@ export function StartProject() {
             {/* Security & Confidentiality Box */}
             <motion.div
               variants={itemVariants}
-              className="bg-slate-900 text-white p-6 md:p-8 rounded-[2rem] border border-slate-800 shadow-md flex items-center gap-5 md:gap-6"
+              className="bg-slate-900 dark:bg-[#0A0A0A] text-white p-6 md:p-8 rounded-[2rem] border border-slate-800 dark:border-zinc-800 shadow-md dark:shadow-xl flex items-center gap-5 md:gap-6 hover:border-slate-700 dark:hover:border-zinc-700 transition-colors"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/10 text-indigo-300 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/10 dark:bg-indigo-500/10 text-indigo-300 dark:text-indigo-400 border border-white/10 dark:border-indigo-500/20 flex items-center justify-center shrink-0">
                 <span className="material-symbols-outlined text-[24px] md:text-[28px]">verified_user</span>
               </div>
               <div className="space-y-1">
-                <div className="text-sm md:text-base font-bold text-white">Strict Confidentiality</div>
+                <div className="text-sm md:text-base font-bold text-slate-100">Strict Confidentiality</div>
                 <div className="text-[13px] md:text-sm text-slate-400 leading-relaxed">
                   All submissions are protected under mutual non-disclosure standards.
                 </div>

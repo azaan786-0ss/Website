@@ -64,7 +64,7 @@ export function TrustSection() {
                 group flex flex-col
                 py-10 lg:py-4
                 px-4 md:px-8 lg:px-10
-                border-slate-100
+                border-slate-100 dark:border-zinc-850
                 first:pt-4 md:first:pt-10 lg:first:pt-4
                 last:pb-4 md:last:pb-10 lg:last:pb-4
                 ${index !== 3 ? 'border-b' : ''}
@@ -74,13 +74,13 @@ export function TrustSection() {
                 lg:border-b-0
               `}
             >
-              <div className="mb-4 text-slate-400 group-hover:text-indigo-600 transition-colors duration-300 group-hover:scale-110 origin-left inline-flex">
+              <div className="mb-4 text-slate-400 dark:text-zinc-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 group-hover:scale-110 origin-left inline-flex">
                 <Icon strokeWidth={1.5} size={24} />
               </div>
-              <h3 className="text-[18px] font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors duration-300 mb-2">
+              <h3 className="text-[18px] font-semibold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 mb-2">
                 {item.title}
               </h3>
-              <p className="text-[14px] sm:text-[15px] text-slate-500 max-w-[220px] leading-relaxed">
+              <p className="text-[14px] sm:text-[15px] text-slate-500 dark:text-zinc-400 max-w-[220px] leading-relaxed">
                 {item.description}
               </p>
             </motion.div>

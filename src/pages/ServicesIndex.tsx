@@ -90,10 +90,10 @@ export function ServicesIndex() {
   ];
 
   return (
-    <div className="bg-slate-50 text-slate-900 font-body-md antialiased selection:bg-indigo-100 selection:text-indigo-900 min-h-screen flex flex-col">
+    <div className="bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-body-md antialiased selection:bg-indigo-100 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-200 min-h-screen flex flex-col transition-colors duration-300">
       {/* Global Page Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[length:64px_64px]"></div>
+        <div className="absolute inset-0 global-grid"></div>
       </div>
       <Navbar />
 
@@ -102,7 +102,7 @@ export function ServicesIndex() {
 
         {/* Thin divider and Trust Section */}
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 relative z-20">
-          <hr className="border-slate-200" />
+          <hr className="border-slate-200 dark:border-zinc-800" />
           <div className="py-16 sm:py-20">
             <TrustSection />
           </div>
@@ -120,10 +120,10 @@ export function ServicesIndex() {
           >
             <motion.h2
               variants={itemVariants}
-              className="font-bold text-xl sm:text-2xl border-b border-slate-200 pb-4 flex items-center gap-2"
+              className="font-bold text-xl sm:text-2xl border-b border-slate-200 dark:border-zinc-800 pb-4 flex items-center gap-2"
             >
-              <span className="material-symbols-outlined text-indigo-600">palette</span>
-              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] bg-[length:200%_100%]">
+              <span className="material-symbols-outlined text-indigo-600 dark:text-indigo-400">palette</span>
+              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%]">
                 <SplitText text="Product & Design" />
               </span>
             </motion.h2>
@@ -132,9 +132,9 @@ export function ServicesIndex() {
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
                     to={service.to}
-                    className="block h-full border border-slate-200 rounded-2xl p-6 sm:p-8 bg-white hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
+                    className="block h-full border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 bg-white dark:bg-[#0A0A0A] hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-indigo-50 dark:bg-[#050505] rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 border border-transparent dark:border-zinc-800 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
                       <span
                         className="material-symbols-outlined text-[24px]"
                         style={{ fontVariationSettings: "'FILL' 1" }}
@@ -142,10 +142,10 @@ export function ServicesIndex() {
                         {service.icon}
                       </span>
                     </div>
-                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
                       {service.desc}
                     </p>
                   </Link>
@@ -164,10 +164,10 @@ export function ServicesIndex() {
           >
             <motion.h2
               variants={itemVariants}
-              className="font-bold text-xl sm:text-2xl border-b border-slate-200 pb-4 flex items-center gap-2"
+              className="font-bold text-xl sm:text-2xl border-b border-slate-200 dark:border-zinc-800 pb-4 flex items-center gap-2"
             >
-              <span className="material-symbols-outlined text-indigo-600">terminal</span>
-              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] bg-[length:200%_100%]">
+              <span className="material-symbols-outlined text-indigo-600 dark:text-indigo-400">terminal</span>
+              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%]">
                 <SplitText text="Engineering & Cloud" />
               </span>
             </motion.h2>
@@ -176,9 +176,9 @@ export function ServicesIndex() {
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
                     to={service.to}
-                    className="block h-full border border-slate-200 rounded-2xl p-6 sm:p-8 bg-white hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
+                    className="block h-full border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 bg-white dark:bg-[#0A0A0A] hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-indigo-50 dark:bg-[#050505] rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 border border-transparent dark:border-zinc-800 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
                       <span
                         className="material-symbols-outlined text-[24px]"
                         style={{ fontVariationSettings: "'FILL' 1" }}
@@ -186,10 +186,10 @@ export function ServicesIndex() {
                         {service.icon}
                       </span>
                     </div>
-                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
                       {service.desc}
                     </p>
                   </Link>
@@ -208,10 +208,10 @@ export function ServicesIndex() {
           >
             <motion.h2
               variants={itemVariants}
-              className="font-bold text-xl sm:text-2xl border-b border-slate-200 pb-4 flex items-center gap-2"
+              className="font-bold text-xl sm:text-2xl border-b border-slate-200 dark:border-zinc-800 pb-4 flex items-center gap-2"
             >
-              <span className="material-symbols-outlined text-indigo-600">trending_up</span>
-              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] bg-[length:200%_100%]">
+              <span className="material-symbols-outlined text-indigo-600 dark:text-indigo-400">trending_up</span>
+              <span className="animate-shine bg-clip-text text-transparent bg-[linear-gradient(110deg,#0f172a,45%,#818cf8,55%,#0f172a)] dark:bg-[linear-gradient(110deg,#ffffff,45%,#818cf8,55%,#ffffff)] bg-[length:200%_100%]">
                 <SplitText text="Growth & Ops" />
               </span>
             </motion.h2>
@@ -220,9 +220,9 @@ export function ServicesIndex() {
                 <motion.div key={idx} variants={itemVariants}>
                   <Link
                     to={service.to}
-                    className="block h-full border border-slate-200 rounded-2xl p-6 sm:p-8 bg-white hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
+                    className="block h-full border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 bg-white dark:bg-[#0A0A0A] hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 group cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-indigo-50 dark:bg-[#050505] rounded-xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 border border-transparent dark:border-zinc-800 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
                       <span
                         className="material-symbols-outlined text-[24px]"
                         style={{ fontVariationSettings: "'FILL' 1" }}
@@ -230,10 +230,10 @@ export function ServicesIndex() {
                         {service.icon}
                       </span>
                     </div>
-                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
                       {service.desc}
                     </p>
                   </Link>
@@ -244,18 +244,18 @@ export function ServicesIndex() {
         </section>
 
         {/* CTA Band */}
-        <section className="bg-indigo-600 py-16 xl:py-24 text-white overflow-hidden relative">
+        <section className="bg-indigo-600 dark:bg-black py-16 xl:py-24 text-white overflow-hidden relative border-t-0 dark:border-t dark:border-zinc-800">
           <motion.div
             animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute -top-24 right-10 w-96 h-96 bg-white/20 rounded-full blur-3xl pointer-events-none"
+            className="absolute -top-24 right-10 w-96 h-96 bg-white/20 dark:bg-white/5 rounded-full blur-3xl pointer-events-none"
           />
           <div className="max-w-[1400px] mx-auto px-6 md:px-8 xl:px-12 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="text-center md:text-left w-full md:w-auto">
-              <h2 className="font-display-md text-2xl sm:text-3xl font-extrabold mb-2">
+              <h2 className="font-display-md text-2xl sm:text-3xl font-extrabold mb-2 text-white">
                 Ready to start a specific project?
               </h2>
-              <p className="text-indigo-100 text-sm sm:text-base max-w-xl mx-auto md:mx-0">
+              <p className="text-indigo-100 dark:text-zinc-400 text-sm sm:text-base max-w-xl mx-auto md:mx-0">
                 Let's discuss how our engineering rigor can accelerate your growth.
               </p>
             </div>
@@ -263,7 +263,7 @@ export function ServicesIndex() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full md:w-auto bg-white text-indigo-600 px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-indigo-900/20 hover:shadow-2xl transition-all flex items-center justify-center"
+                className="w-full md:w-auto bg-white dark:bg-[#050505] text-indigo-600 dark:text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl shadow-indigo-900/20 hover:shadow-2xl transition-all flex items-center justify-center border border-transparent dark:border-zinc-800"
               >
                 Contact us
               </motion.button>

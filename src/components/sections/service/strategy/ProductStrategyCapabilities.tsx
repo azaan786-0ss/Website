@@ -44,31 +44,31 @@ const CapabilityPanel = ({
   return (
     <motion.div 
       style={{ scale }}
-      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-200/50"
+      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-white dark:bg-[#12151C] rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-2xl shadow-slate-200/50 dark:shadow-none"
     >
       {/* Left Side: Content */}
-      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-white/95 backdrop-blur-md">
+      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-white/95 dark:bg-[#12151C]/95 backdrop-blur-md">
         <div className="max-w-md w-full">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-100 shadow-sm">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-100 dark:border-indigo-800/50 shadow-sm">
             <span className="material-symbols-outlined text-[26px] sm:text-[30px]">{item.icon}</span>
           </div>
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-2 block">
             Phase 0{idx + 1}
           </span>
-          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 leading-tight group-hover:text-indigo-700 transition-colors">
+          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#f3f4f6] mb-3 sm:mb-4 leading-tight group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors">
             {item.title}
           </h3>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-[#9ca3af] text-sm sm:text-base md:text-lg leading-relaxed">
             {item.desc}
           </p>
         </div>
       </div>
 
       {/* Right Side: Visual */}
-      <div className="w-full lg:w-1/2 h-[45%] lg:h-full relative overflow-hidden bg-slate-100">
-        <div className="absolute inset-0 bg-indigo-900/10 z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent z-10 hidden lg:block"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent z-10 block lg:hidden"></div>
+      <div className="w-full lg:w-1/2 h-[45%] lg:h-full relative overflow-hidden bg-slate-100 dark:bg-slate-900">
+        <div className="absolute inset-0 bg-indigo-900/10 dark:bg-indigo-900/30 z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white dark:from-[#12151C] via-white/20 dark:via-[#12151C]/20 to-transparent z-10 hidden lg:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#12151C] via-white/20 dark:via-[#12151C]/20 to-transparent z-10 block lg:hidden"></div>
         
         <img 
           src={item.image}
@@ -126,7 +126,7 @@ const IndicatorDot = ({
   return (
     <motion.div 
       style={{ opacity, scale }}
-      className="w-3 h-3 rounded-full bg-indigo-600 transition-all shadow-sm"
+      className="w-3 h-3 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all shadow-sm"
     />
   );
 };
@@ -189,27 +189,27 @@ export function ProductStrategyCapabilities() {
   const x = useTransform(xNum, (v) => `${v}%`);
 
   return (
-    <section ref={targetRef} className="relative h-[500vh] bg-slate-950">
-      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950">
+    <section ref={targetRef} className="relative h-[500vh] bg-slate-950 dark:bg-[#0B0E14] transition-colors duration-300">
+      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950 dark:bg-[#0B0E14] transition-colors duration-300">
         
         {/* Floating Section Title - Below Fixed Navbar */}
         <div className="px-6 md:px-12 z-20 pointer-events-none flex justify-between items-end">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-1">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 dark:text-[#818cf8] block mb-1">
               Core Capabilities
             </span>
-            <h2 className="font-heading-lg text-2xl md:text-3xl font-extrabold text-white">
+            <h2 className="font-heading-lg text-2xl md:text-3xl font-extrabold text-white dark:text-[#f3f4f6]">
               Strategic Ecosystem
             </h2>
           </div>
-          <div className="hidden sm:block text-slate-400 text-xs tracking-wider uppercase font-semibold">
+          <div className="hidden sm:block text-slate-400 dark:text-slate-500 text-xs tracking-wider uppercase font-semibold">
             Scroll to explore →
           </div>
         </div>
 
         {/* Horizontal Scrolling Track */}
         <div className="flex-1 flex items-center overflow-hidden my-auto">
-          <motion.div style={{ x }} className="flex w-[600vw] items-center text-slate-900 flex-nowrap">
+          <motion.div style={{ x }} className="flex w-[600vw] items-center text-slate-900 dark:text-[#f3f4f6] flex-nowrap">
             {capabilities.map((item, idx) => (
               <div key={item.id} className="w-screen shrink-0 flex justify-center items-center px-4 md:px-8">
                 <CapabilityPanel 
@@ -225,7 +225,7 @@ export function ProductStrategyCapabilities() {
         
         {/* Progress Indicator Dots */}
         <div className="z-20 flex justify-center items-center">
-          <div className="flex items-center gap-4 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-200 shadow-xl shadow-slate-200/50">
+          <div className="flex items-center gap-4 bg-white/90 dark:bg-[#12151C]/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none">
             {capabilities.map((_, i) => (
               <IndicatorDot 
                 key={i} 

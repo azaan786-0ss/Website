@@ -34,13 +34,13 @@ export function ProcessAutomationDeliverables() {
           className="lg:col-span-6 space-y-8"
         >
           <div>
-            <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
-              <span className="material-symbols-outlined text-[18px] text-indigo-600">
+            <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 dark:bg-[#111111] text-indigo-700 dark:text-[#c084fc] border border-indigo-200/60 dark:border-[#262626] rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
+              <span className="material-symbols-outlined text-[18px] text-indigo-600 dark:text-[#c084fc]">
                 inventory_2
               </span>
               SYSTEM HANDOFF
             </span>
-            <h2 className="font-display-lg text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-display-lg text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-[#fafafa] tracking-tight">
               Production Deliverables
             </h2>
           </div>
@@ -53,12 +53,12 @@ export function ProcessAutomationDeliverables() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex items-start gap-4 p-4 bg-white/80 rounded-2xl border border-slate-200/80 shadow-xs hover:border-indigo-300 transition-colors group"
+                className="flex items-start gap-4 p-4 bg-white/80 dark:bg-[#111111] rounded-2xl border border-slate-200/80 dark:border-[#262626] shadow-xs hover:border-indigo-300 dark:hover:border-[#c084fc] transition-colors group"
               >
-                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-[#050505] text-emerald-600 dark:text-[#10b981] border border-emerald-200/60 dark:border-[#262626] flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                   <span className="material-symbols-outlined text-[20px]">check</span>
                 </div>
-                <span className="font-body-md text-sm sm:text-base font-semibold text-slate-800 pt-1">
+                <span className="font-body-md text-sm sm:text-base font-semibold text-slate-800 dark:text-[#fafafa] pt-1">
                   {item}
                 </span>
               </motion.li>
@@ -72,16 +72,16 @@ export function ProcessAutomationDeliverables() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 space-y-8 relative overflow-hidden"
+          className="lg:col-span-6 bg-white dark:bg-[#111111] p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-[#262626] shadow-xl shadow-slate-200/50 dark:shadow-[#050505] space-y-8 relative overflow-hidden"
         >
           {/* Subtle Glow */}
           <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
 
           <div>
-            <h3 className="font-display-md text-2xl font-bold text-slate-900 mb-2">
+            <h3 className="font-display-md text-2xl font-bold text-slate-900 dark:text-[#fafafa] mb-2">
               Integrated Tech Ecosystem
             </h3>
-            <p className="font-body-md text-sm text-slate-600">
+            <p className="font-body-md text-sm text-slate-600 dark:text-[#a3a3a3]">
               We leverage modern, battle-tested open standards and enterprise automation tooling.
             </p>
           </div>
@@ -91,15 +91,15 @@ export function ProcessAutomationDeliverables() {
               <motion.span
                 key={idx}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-4 py-2 bg-slate-50 border border-slate-200 text-slate-700 font-mono text-xs sm:text-sm font-semibold rounded-xl hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 transition-all duration-200 cursor-default shadow-xs"
+                className="px-4 py-2 bg-slate-50 dark:bg-[#050505] border border-slate-200 dark:border-[#262626] text-slate-700 dark:text-[#a3a3a3] font-mono text-xs sm:text-sm font-semibold rounded-xl hover:bg-indigo-50 dark:hover:bg-[#4f46e5]/10 hover:text-indigo-700 dark:hover:text-[#c084fc] hover:border-indigo-200 dark:hover:border-[#c084fc] transition-all duration-200 cursor-default shadow-xs"
               >
                 {tech}
               </motion.span>
             ))}
           </div>
 
-          <div className="pt-6 border-t border-dashed border-slate-200">
-            <p className="text-sm italic text-slate-500 leading-relaxed">
+          <div className="pt-6 border-t border-dashed border-slate-200 dark:border-[#262626]">
+            <p className="text-sm italic text-slate-500 dark:text-[#a3a3a3] leading-relaxed">
               "Our stack is chosen for maximum uptime reliability and elastic scale, ensuring your
               automated infrastructure grows seamlessly with business volume."
             </p>

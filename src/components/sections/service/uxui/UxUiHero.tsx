@@ -39,16 +39,16 @@ export function UxUiHero() {
 
       {/* Left-Aligned Breadcrumb Back Navigation */}
       <div className="w-full flex items-center justify-start text-left mb-6 relative z-20">
-        <div className="flex items-center space-x-2 text-slate-500 font-caption text-xs sm:text-sm">
-          <Link className="hover:text-indigo-600 transition-colors" to="/">
+        <div className="flex items-center space-x-2 text-slate-500 dark:text-[#9ca3af] font-caption text-xs sm:text-sm">
+          <Link className="hover:text-indigo-600 dark:hover:text-[#818cf8] transition-colors" to="/">
             Home
           </Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-          <Link className="hover:text-indigo-600 transition-colors" to="/services">
+          <Link className="hover:text-indigo-600 dark:hover:text-[#818cf8] transition-colors" to="/services">
             Services
           </Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-          <span className="text-slate-900 font-medium">UX/UI Design</span>
+          <span className="text-slate-900 dark:text-[#f3f4f6] font-medium">UX/UI Design</span>
         </div>
       </div>
 
@@ -60,14 +60,14 @@ export function UxUiHero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-slate-900 font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-slate-900 leading-tight"
+          className="text-slate-900 dark:text-[#f3f4f6] font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
         >
           <SplitText text={titleText} />
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="font-body-lg text-sm sm:text-base md:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed"
+          className="font-body-lg text-sm sm:text-base md:text-lg text-slate-600 dark:text-[#9ca3af] mb-8 max-w-2xl leading-relaxed"
         >
           We blend deep user research, strategic interaction design, and pixel-perfect UI to
           transform complex workflows into effortless web and mobile products.
@@ -81,7 +81,7 @@ export function UxUiHero() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-indigo-600/25"
+              className="bg-indigo-600 dark:bg-[#818cf8] text-white dark:text-[#1e1b4b] px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 dark:hover:bg-[#6366f1] transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-indigo-600/25 dark:shadow-indigo-500/20"
             >
               Schedule a UX Audit
               <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -90,7 +90,7 @@ export function UxUiHero() {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="border border-slate-300 text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300 w-full sm:w-auto"
+            className="border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-[#f3f4f6] px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-[#12151C] transition-all duration-300 w-full sm:w-auto"
           >
             View Case Studies
           </motion.button>
@@ -110,12 +110,12 @@ export function UxUiHero() {
             key={idx}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-            className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-400 hover:shadow-indigo-500/10 transition-all duration-300 flex flex-col items-center text-center group"
+            className="bg-white dark:bg-[#12151C] p-6 sm:p-8 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-indigo-400 dark:hover:border-indigo-500/50 hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/10 transition-all duration-300 flex flex-col items-center text-center group"
           >
-            <span className="text-indigo-600 font-display-md text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">
+            <span className="text-indigo-600 dark:text-[#818cf8] font-display-md text-3xl sm:text-4xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">
               {item.value}
             </span>
-            <span className="text-slate-500 font-caption text-xs sm:text-sm uppercase tracking-wider font-medium">
+            <span className="text-slate-500 dark:text-[#9ca3af] font-caption text-xs sm:text-sm uppercase tracking-wider font-medium">
               {item.label}
             </span>
           </motion.div>

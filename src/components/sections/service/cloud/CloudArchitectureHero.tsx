@@ -33,7 +33,7 @@ export function CloudArchitectureHero() {
   ];
 
   return (
-    <section className="relative pt-6 sm:pt-10 pb-16 px-6 md:px-8 max-w-[1280px] mx-auto overflow-hidden">
+    <section className="relative pt-6 sm:pt-10 pb-16 px-6 md:px-8 max-w-[1280px] mx-auto overflow-hidden dark:bg-[#050505] transition-colors duration-300">
       {/* Background glow and subtle grid pattern */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -45,29 +45,29 @@ export function CloudArchitectureHero() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex items-center space-x-2 text-slate-500 font-caption text-xs sm:text-sm mb-4"
+          className="flex items-center space-x-2 text-slate-500 dark:text-[#a3a3a3] font-caption text-xs sm:text-sm mb-4"
         >
-          <Link className="hover:text-indigo-600 transition-colors" to="/">
+          <Link className="hover:text-indigo-600 dark:hover:text-[#4f46e5] transition-colors" to="/">
             Home
           </Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-          <Link className="hover:text-indigo-600 transition-colors" to="/services">
+          <Link className="hover:text-indigo-600 dark:hover:text-[#4f46e5] transition-colors" to="/services">
             Services
           </Link>
           <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-          <span className="text-slate-900 font-medium">Cloud Architecture</span>
+          <span className="text-slate-900 dark:text-[#fafafa] font-medium">Cloud Architecture</span>
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-slate-900 font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 leading-tight tracking-tight"
+          className="text-slate-900 dark:text-[#fafafa] font-display-xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight tracking-tight"
         >
           <SplitText text={titleText} />
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="font-body-lg text-base sm:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed"
+          className="font-body-lg text-base sm:text-lg text-slate-600 dark:text-[#a3a3a3] mb-8 max-w-2xl leading-relaxed"
         >
           Architecting high-availability, auto-scaling cloud foundations on AWS and GCP designed to
           handle traffic spikes, reduce cloud spend, and eliminate downtime.
@@ -78,7 +78,7 @@ export function CloudArchitectureHero() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 w-full sm:w-auto"
+              className="bg-indigo-600 dark:bg-[#4f46e5] text-white dark:text-[#fafafa] px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 dark:hover:bg-[#4338ca] transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 dark:shadow-[#4f46e5]/20 w-full sm:w-auto"
             >
               Audit Your Infrastructure
               <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -87,7 +87,7 @@ export function CloudArchitectureHero() {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="border border-slate-300 bg-white text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all w-full sm:w-auto"
+            className="border border-slate-300 dark:border-[#262626] bg-white dark:bg-transparent text-slate-800 dark:text-[#fafafa] px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-[#111111] transition-all w-full sm:w-auto"
           >
             Explore Cloud Services
           </motion.button>
@@ -106,12 +106,12 @@ export function CloudArchitectureHero() {
           <motion.div
             key={idx}
             whileHover={{ y: -4 }}
-            className="p-6 border border-slate-200/80 rounded-2xl bg-white shadow-xs hover:border-indigo-400 hover:shadow-xl transition-all"
+            className="p-6 border border-slate-200/80 dark:border-[#262626] rounded-2xl bg-white dark:bg-[#111111] shadow-xs hover:border-indigo-400 dark:hover:border-[#c084fc] hover:shadow-xl dark:hover:shadow-[#c084fc]/10 transition-all"
           >
-            <div className="font-display-md text-2xl sm:text-3xl font-extrabold text-indigo-600 mb-1">
+            <div className="font-display-md text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-[#c084fc] mb-1">
               {m.value}
             </div>
-            <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <div className="text-xs font-semibold text-slate-500 dark:text-[#a3a3a3] uppercase tracking-wider">
               {m.label}
             </div>
           </motion.div>

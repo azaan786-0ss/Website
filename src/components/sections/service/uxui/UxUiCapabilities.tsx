@@ -1,74 +1,74 @@
 import { motion } from 'framer-motion';
 
 export function UxUiCapabilities() {
-  const colorThemes = {
-    indigo: {
-      cardBg: 'bg-indigo-500/10',
-      cardBorder: 'border-indigo-500/20',
-      hoverCardBg: 'hover:bg-indigo-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-indigo-600',
-      hoverIconBg: 'group-hover:bg-indigo-600',
-      hoverBorder: 'hover:border-indigo-500/50',
-      hoverShadow: 'hover:shadow-indigo-500/20',
-      hoverTitle: 'group-hover:text-indigo-700',
-    },
-    purple: {
-      cardBg: 'bg-purple-500/10',
-      cardBorder: 'border-purple-500/20',
-      hoverCardBg: 'hover:bg-purple-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-purple-600',
-      hoverIconBg: 'group-hover:bg-purple-600',
-      hoverBorder: 'hover:border-purple-500/50',
-      hoverShadow: 'hover:shadow-purple-500/20',
-      hoverTitle: 'group-hover:text-purple-700',
-    },
-    emerald: {
-      cardBg: 'bg-emerald-500/10',
-      cardBorder: 'border-emerald-500/20',
-      hoverCardBg: 'hover:bg-emerald-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-emerald-600',
-      hoverIconBg: 'group-hover:bg-emerald-600',
-      hoverBorder: 'hover:border-emerald-500/50',
-      hoverShadow: 'hover:shadow-emerald-500/20',
-      hoverTitle: 'group-hover:text-emerald-700',
-    },
-    blue: {
-      cardBg: 'bg-blue-500/10',
-      cardBorder: 'border-blue-500/20',
-      hoverCardBg: 'hover:bg-blue-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-blue-600',
-      hoverIconBg: 'group-hover:bg-blue-600',
-      hoverBorder: 'hover:border-blue-500/50',
-      hoverShadow: 'hover:shadow-blue-500/20',
-      hoverTitle: 'group-hover:text-blue-700',
-    },
-    amber: {
-      cardBg: 'bg-amber-500/10',
-      cardBorder: 'border-amber-500/20',
-      hoverCardBg: 'hover:bg-amber-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-amber-600',
-      hoverIconBg: 'group-hover:bg-amber-600',
-      hoverBorder: 'hover:border-amber-500/50',
-      hoverShadow: 'hover:shadow-amber-500/20',
-      hoverTitle: 'group-hover:text-amber-700',
-    },
-    rose: {
-      cardBg: 'bg-rose-500/10',
-      cardBorder: 'border-rose-500/20',
-      hoverCardBg: 'hover:bg-rose-500/15',
-      iconBg: 'bg-white shadow-sm',
-      iconText: 'text-rose-600',
-      hoverIconBg: 'group-hover:bg-rose-600',
-      hoverBorder: 'hover:border-rose-500/50',
-      hoverShadow: 'hover:shadow-rose-500/20',
-      hoverTitle: 'group-hover:text-rose-700',
-    },
-  };
+    const colorThemes = {
+      indigo: {
+        cardBg: 'bg-indigo-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-indigo-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-indigo-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-indigo-600 dark:text-[#818cf8]',
+        hoverIconBg: 'group-hover:bg-indigo-600 dark:group-hover:bg-[#818cf8]',
+        hoverBorder: 'hover:border-indigo-500/50 dark:hover:border-indigo-500/50',
+        hoverShadow: 'hover:shadow-indigo-500/20 dark:hover:shadow-indigo-500/10',
+        hoverTitle: 'group-hover:text-indigo-700 dark:group-hover:text-[#818cf8]',
+      },
+      purple: {
+        cardBg: 'bg-purple-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-purple-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-purple-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-purple-600 dark:text-purple-400',
+        hoverIconBg: 'group-hover:bg-purple-600 dark:group-hover:bg-purple-500',
+        hoverBorder: 'hover:border-purple-500/50 dark:hover:border-purple-500/50',
+        hoverShadow: 'hover:shadow-purple-500/20 dark:hover:shadow-purple-500/10',
+        hoverTitle: 'group-hover:text-purple-700 dark:group-hover:text-purple-400',
+      },
+      emerald: {
+        cardBg: 'bg-emerald-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-emerald-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-emerald-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-emerald-600 dark:text-emerald-400',
+        hoverIconBg: 'group-hover:bg-emerald-600 dark:group-hover:bg-emerald-500',
+        hoverBorder: 'hover:border-emerald-500/50 dark:hover:border-emerald-500/50',
+        hoverShadow: 'hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/10',
+        hoverTitle: 'group-hover:text-emerald-700 dark:group-hover:text-emerald-400',
+      },
+      blue: {
+        cardBg: 'bg-blue-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-blue-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-blue-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-blue-600 dark:text-blue-400',
+        hoverIconBg: 'group-hover:bg-blue-600 dark:group-hover:bg-blue-500',
+        hoverBorder: 'hover:border-blue-500/50 dark:hover:border-blue-500/50',
+        hoverShadow: 'hover:shadow-blue-500/20 dark:hover:shadow-blue-500/10',
+        hoverTitle: 'group-hover:text-blue-700 dark:group-hover:text-blue-400',
+      },
+      amber: {
+        cardBg: 'bg-amber-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-amber-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-amber-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-amber-600 dark:text-amber-400',
+        hoverIconBg: 'group-hover:bg-amber-600 dark:group-hover:bg-amber-500',
+        hoverBorder: 'hover:border-amber-500/50 dark:hover:border-amber-500/50',
+        hoverShadow: 'hover:shadow-amber-500/20 dark:hover:shadow-amber-500/10',
+        hoverTitle: 'group-hover:text-amber-700 dark:group-hover:text-amber-400',
+      },
+      rose: {
+        cardBg: 'bg-rose-500/10 dark:bg-[#12151C]',
+        cardBorder: 'border-rose-500/20 dark:border-slate-800',
+        hoverCardBg: 'hover:bg-rose-500/15 dark:hover:bg-[#1a1e28]',
+        iconBg: 'bg-white dark:bg-[#0B0E14] shadow-sm dark:shadow-none border dark:border-slate-800',
+        iconText: 'text-rose-600 dark:text-rose-400',
+        hoverIconBg: 'group-hover:bg-rose-600 dark:group-hover:bg-rose-500',
+        hoverBorder: 'hover:border-rose-500/50 dark:hover:border-rose-500/50',
+        hoverShadow: 'hover:shadow-rose-500/20 dark:hover:shadow-rose-500/10',
+        hoverTitle: 'group-hover:text-rose-700 dark:group-hover:text-rose-400',
+      },
+    };
 
   const capabilities = [
     {
@@ -148,7 +148,7 @@ export function UxUiCapabilities() {
   };
 
   return (
-    <section className="bg-slate-50/50 py-space-24 relative overflow-hidden">
+    <section className="bg-slate-50/50 dark:bg-[#0B0E14] py-space-24 relative overflow-hidden transition-colors duration-300">
       {/* Glassmorphism Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-300/20 blur-[120px]" />
@@ -164,10 +164,10 @@ export function UxUiCapabilities() {
           transition={{ duration: 0.6 }}
           className="mb-space-12 text-center"
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#f3f4f6] mb-space-4">
             Core Capabilities
           </h2>
-          <p className="text-slate-600 max-w-xl mx-auto font-body-md text-base">
+          <p className="text-slate-600 dark:text-[#9ca3af] max-w-xl mx-auto font-body-md text-base">
             End-to-end design excellence tailored for modern digital ecosystems.
           </p>
         </motion.div>
@@ -196,14 +196,14 @@ export function UxUiCapabilities() {
                     </div>
 
                     {item.stat && (
-                      <div className="bg-white/50 backdrop-blur-md border border-white/60 px-5 py-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-start transform group-hover:-translate-y-1 transition-transform duration-300">
+                      <div className="bg-white/50 dark:bg-[#12151C]/80 backdrop-blur-md border border-white/60 dark:border-slate-800 px-5 py-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-start transform group-hover:-translate-y-1 transition-transform duration-300">
                         <div className="flex items-center gap-2.5 mb-1.5">
                           <div className={`w-8 h-8 rounded-full ${theme.cardBg} flex items-center justify-center`}>
                             <span className={`material-symbols-outlined ${theme.iconText} text-[16px]`}>{item.stat.icon}</span>
                           </div>
-                          <span className="font-heading-md text-3xl font-extrabold text-slate-800">{item.stat.value}</span>
+                          <span className="font-heading-md text-3xl font-extrabold text-slate-800 dark:text-[#f3f4f6]">{item.stat.value}</span>
                         </div>
-                        <span className="text-slate-600 font-body-md text-sm font-semibold">{item.stat.label}</span>
+                        <span className="text-slate-600 dark:text-[#9ca3af] font-body-md text-sm font-semibold">{item.stat.label}</span>
                       </div>
                     )}
                   </div>
@@ -220,8 +220,8 @@ export function UxUiCapabilities() {
                             viewport={{ once: true }}
                             className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border backdrop-blur-md text-xs sm:text-sm font-semibold shadow-sm flex items-center gap-2 transition-transform duration-300 hover:scale-105 hover:-translate-y-1 ${
                               i % 2 === 0 
-                                ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-700' 
-                                : 'bg-white/50 border-white/60 text-slate-700'
+                                ? 'bg-indigo-500/10 dark:bg-indigo-500/20 border-indigo-500/20 dark:border-indigo-500/30 text-indigo-700 dark:text-[#818cf8]' 
+                                : 'bg-white/50 dark:bg-[#12151C]/80 border-white/60 dark:border-slate-800 text-slate-700 dark:text-[#f3f4f6]'
                             }`}
                           >
                             <span className="material-symbols-outlined text-[16px]">{tag.icon}</span>
@@ -233,10 +233,10 @@ export function UxUiCapabilities() {
                   )}
                   
                   <div>
-                    <h3 className={`font-heading-md font-bold text-slate-900 transition-colors ${item.isLarge ? 'text-2xl sm:text-3xl mb-4' : 'text-lg sm:text-xl mb-3'} ${theme.hoverTitle}`}>
+                    <h3 className={`font-heading-md font-bold text-slate-900 dark:text-[#f3f4f6] transition-colors ${item.isLarge ? 'text-2xl sm:text-3xl mb-4' : 'text-lg sm:text-xl mb-3'} ${theme.hoverTitle}`}>
                       {item.title}
                     </h3>
-                    <p className={`text-slate-700 font-body-md leading-relaxed ${item.isLarge ? 'text-base sm:text-lg max-w-2xl' : 'text-sm sm:text-base'}`}>
+                    <p className={`text-slate-700 dark:text-[#9ca3af] font-body-md leading-relaxed ${item.isLarge ? 'text-base sm:text-lg max-w-2xl' : 'text-sm sm:text-base'}`}>
                       {item.desc}
                     </p>
                   </div>

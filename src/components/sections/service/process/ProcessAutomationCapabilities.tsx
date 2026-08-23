@@ -18,10 +18,10 @@ export function ProcessAutomationCapabilities() {
       icon: 'hub',
       title: 'Custom Workflow Automation',
       desc: 'End-to-end automation of cross-departmental operations, syncing data seamlessly between internal platforms, CRMs, and communication tools.',
-      className: 'md:col-span-2 lg:col-span-2 row-span-2 bg-gradient-to-br from-indigo-50/80 via-white to-white border-indigo-100 overflow-hidden relative',
-      iconClass: 'bg-indigo-600 text-white shadow-md shadow-indigo-200',
-      titleClass: 'text-2xl md:text-3xl font-bold text-slate-900',
-      descClass: 'text-slate-600 text-base sm:text-lg md:text-xl',
+      className: 'md:col-span-2 lg:col-span-2 row-span-2 bg-gradient-to-br from-indigo-50/80 via-white to-white dark:from-[#111111] dark:via-[#111111] dark:to-[#111111] border-indigo-100 dark:border-[#262626] overflow-hidden relative',
+      iconClass: 'bg-indigo-600 dark:bg-[#4f46e5] text-white dark:text-[#fafafa] shadow-md shadow-indigo-200 dark:shadow-none',
+      titleClass: 'text-2xl md:text-3xl font-bold text-slate-900 dark:text-[#fafafa]',
+      descClass: 'text-slate-600 dark:text-[#a3a3a3] text-base sm:text-lg md:text-xl',
       renderVisual: () => (
         <div className="absolute -bottom-8 -right-8 opacity-[0.03] pointer-events-none">
           <span className="material-symbols-outlined text-[240px] text-indigo-900">account_tree</span>
@@ -32,37 +32,37 @@ export function ProcessAutomationCapabilities() {
       icon: 'smart_toy',
       title: 'Operational AI & LLM Agents',
       desc: 'Integrating custom AI agents into business workflows.',
-      className: 'col-span-1 bg-violet-50/40 border-violet-100',
-      iconClass: 'bg-violet-100 text-violet-700',
-      titleClass: 'text-lg font-bold text-violet-950',
-      descClass: 'text-violet-800/80 text-sm',
+      className: 'col-span-1 bg-violet-50/40 dark:bg-[#111111] border-violet-100 dark:border-[#262626]',
+      iconClass: 'bg-violet-100 dark:bg-[#050505] text-violet-700 dark:text-[#c084fc]',
+      titleClass: 'text-lg font-bold text-violet-950 dark:text-[#fafafa]',
+      descClass: 'text-violet-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'integration_instructions',
       title: 'Enterprise Integration',
       desc: 'Connecting isolated software with robust custom APIs.',
-      className: 'col-span-1 bg-sky-50/40 border-sky-100',
-      iconClass: 'bg-sky-100 text-sky-700',
-      titleClass: 'text-lg font-bold text-sky-950',
-      descClass: 'text-sky-800/80 text-sm',
+      className: 'col-span-1 bg-sky-50/40 dark:bg-[#111111] border-sky-100 dark:border-[#262626]',
+      iconClass: 'bg-sky-100 dark:bg-[#050505] text-sky-700 dark:text-[#c084fc]',
+      titleClass: 'text-lg font-bold text-sky-950 dark:text-[#fafafa]',
+      descClass: 'text-sky-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'description',
       title: 'Automated Data Processing',
       desc: 'Intelligent OCR workflows to extract database records.',
-      className: 'col-span-1 bg-emerald-50/40 border-emerald-100',
-      iconClass: 'bg-emerald-100 text-emerald-700',
-      titleClass: 'text-lg font-bold text-emerald-950',
-      descClass: 'text-emerald-800/80 text-sm',
+      className: 'col-span-1 bg-emerald-50/40 dark:bg-[#111111] border-emerald-100 dark:border-[#262626]',
+      iconClass: 'bg-emerald-100 dark:bg-[#050505] text-emerald-700 dark:text-[#c084fc]',
+      titleClass: 'text-lg font-bold text-emerald-950 dark:text-[#fafafa]',
+      descClass: 'text-emerald-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'dynamic_feed',
       title: 'Trigger-Based Lifecycle',
       desc: 'Automated messaging and account triggers based on real-time customer behavior.',
-      className: 'md:col-span-2 lg:col-span-2 bg-slate-900 border-slate-800 relative overflow-hidden',
-      iconClass: 'bg-white/10 text-white shadow-inner',
-      titleClass: 'text-xl font-bold text-white',
-      descClass: 'text-slate-400 text-sm sm:text-base',
+      className: 'md:col-span-2 lg:col-span-2 bg-slate-900 dark:bg-[#111111] border-slate-800 dark:border-[#262626] relative overflow-hidden',
+      iconClass: 'bg-white/10 dark:bg-[#050505] text-white dark:text-[#c084fc] shadow-inner',
+      titleClass: 'text-xl font-bold text-white dark:text-[#fafafa]',
+      descClass: 'text-slate-400 dark:text-[#a3a3a3] text-sm sm:text-base',
       renderVisual: () => (
          <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-indigo-500/10 to-transparent pointer-events-none"></div>
       )
@@ -71,10 +71,10 @@ export function ProcessAutomationCapabilities() {
       icon: 'precision_manufacturing',
       title: 'Robotic Process Automation (RPA)',
       desc: 'Software bots engineered to navigate legacy user interfaces, handling repetitive data entry where traditional APIs are unavailable.',
-      className: 'md:col-span-2 lg:col-span-3 bg-indigo-50/30 border-indigo-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden',
-      iconClass: 'bg-indigo-100 text-indigo-700',
-      titleClass: 'text-xl font-bold text-indigo-950',
-      descClass: 'text-indigo-900/70 text-sm sm:text-base max-w-2xl',
+      className: 'md:col-span-2 lg:col-span-3 bg-indigo-50/30 dark:bg-[#111111] border-indigo-100 dark:border-[#262626] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden',
+      iconClass: 'bg-indigo-100 dark:bg-[#050505] text-indigo-700 dark:text-[#c084fc]',
+      titleClass: 'text-xl font-bold text-indigo-950 dark:text-[#fafafa]',
+      descClass: 'text-indigo-900/70 dark:text-[#a3a3a3] text-sm sm:text-base max-w-2xl',
       renderVisual: () => (
         <div className="hidden md:flex flex-1 items-center justify-end mr-4">
            <div className="flex items-end gap-1.5 h-12 opacity-40">
@@ -123,16 +123,16 @@ export function ProcessAutomationCapabilities() {
         transition={{ duration: 0.6 }}
         className="max-w-3xl mb-16"
       >
-        <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
-          <span className="material-symbols-outlined text-[18px] text-indigo-600">
+        <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 dark:bg-[#050505] text-indigo-700 dark:text-[#c084fc] border border-indigo-200/60 dark:border-[#262626] rounded-full font-caption text-xs sm:text-sm font-semibold mb-4 shadow-xs">
+          <span className="material-symbols-outlined text-[18px] text-indigo-600 dark:text-[#c084fc]">
             settings_suggest
           </span>
           CORE CAPABILITIES
         </span>
-        <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+        <h2 className="font-display-lg text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-[#fafafa] tracking-tight mb-4">
           Autonomous Infrastructure Built for Scale
         </h2>
-        <p className="font-body-lg text-base sm:text-lg text-slate-600 leading-relaxed">
+        <p className="font-body-lg text-base sm:text-lg text-slate-600 dark:text-[#a3a3a3] leading-relaxed">
           Engineering-grade solutions designed to bridge the gap between human creativity and
           operational scale.
         </p>

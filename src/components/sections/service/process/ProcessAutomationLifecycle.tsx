@@ -54,28 +54,28 @@ export function ProcessAutomationLifecycle() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-5 space-y-6 lg:sticky lg:top-32"
         >
-          <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 text-indigo-700 border border-indigo-200/60 rounded-full font-caption text-xs sm:text-sm font-semibold shadow-xs">
-            <span className="material-symbols-outlined text-[18px] text-indigo-600">route</span>
+          <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-indigo-50 dark:bg-[#111111] text-indigo-700 dark:text-[#c084fc] border border-indigo-200/60 dark:border-[#262626] rounded-full font-caption text-xs sm:text-sm font-semibold shadow-xs">
+            <span className="material-symbols-outlined text-[18px] text-indigo-600 dark:text-[#c084fc]">route</span>
             EXECUTION METHODOLOGY
           </span>
-          <h2 className="font-display-lg text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-display-lg text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-[#fafafa] tracking-tight">
             Automation Lifecycle
           </h2>
-          <p className="font-body-lg text-base text-slate-600 leading-relaxed">
+          <p className="font-body-lg text-base text-slate-600 dark:text-[#a3a3a3] leading-relaxed">
             Our rigorous engineering approach ensures that automation doesn't just work—it creates
             lasting enterprise value without accumulating technical debt.
           </p>
 
-          <div className="p-6 bg-white rounded-3xl border border-slate-200/80 shadow-md space-y-4">
-            <div className="flex items-center justify-between text-sm font-bold text-slate-900">
+          <div className="p-6 bg-white dark:bg-[#111111] rounded-3xl border border-slate-200/80 dark:border-[#262626] shadow-md space-y-4">
+            <div className="flex items-center justify-between text-sm font-bold text-slate-900 dark:text-[#fafafa]">
               <span className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
                 Engineering Standards
               </span>
-              <span className="text-indigo-600 font-mono">100% Quality Assurance</span>
+              <span className="text-indigo-600 dark:text-[#c084fc] font-mono">100% Quality Assurance</span>
             </div>
-            <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-              <div className="h-full bg-indigo-600 w-full animate-pulse" />
+            <div className="h-2 w-full bg-slate-100 dark:bg-[#262626] rounded-full overflow-hidden">
+              <div className="h-full bg-indigo-600 dark:bg-[#4f46e5] w-full animate-pulse" />
             </div>
           </div>
         </motion.div>
@@ -89,23 +89,23 @@ export function ProcessAutomationLifecycle() {
           className="lg:col-span-7 relative space-y-8"
         >
           {/* Vertical Connecting Line */}
-          <div className="absolute left-10 sm:left-12 top-6 bottom-6 w-0.5 bg-indigo-100 block z-0" />
+          <div className="absolute left-10 sm:left-12 top-6 bottom-6 w-0.5 bg-indigo-100 dark:bg-[#262626] block z-0" />
 
           {steps.map((item, idx) => (
-            <motion.div
+              <motion.div
               key={idx}
               variants={itemVariants}
               whileHover={{ x: 4 }}
-              className="relative z-10 flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white/90 backdrop-blur-sm rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 group"
+              className="relative z-10 flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm rounded-3xl border border-slate-200/80 dark:border-[#262626] shadow-sm hover:shadow-xl hover:border-indigo-300 dark:hover:border-[#c084fc] transition-all duration-300 group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-base shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 shadow-xs">
+              <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-[#050505] border border-indigo-100 dark:border-[#262626] text-indigo-600 dark:text-[#c084fc] flex items-center justify-center font-bold text-base shrink-0 group-hover:bg-indigo-600 dark:group-hover:bg-[#4f46e5] group-hover:text-white dark:group-hover:text-[#fafafa] transition-colors duration-300 shadow-xs">
                 {item.num}
               </div>
               <div className="space-y-2">
-                <h3 className="font-display-sm text-lg sm:text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <h3 className="font-display-sm text-lg sm:text-xl font-bold text-slate-900 dark:text-[#fafafa] group-hover:text-indigo-600 dark:group-hover:text-[#c084fc] transition-colors">
                   {item.title}
                 </h3>
-                <p className="font-body-md text-sm sm:text-base text-slate-600 leading-relaxed">
+                <p className="font-body-md text-sm sm:text-base text-slate-600 dark:text-[#a3a3a3] leading-relaxed">
                   {item.desc}
                 </p>
               </div>

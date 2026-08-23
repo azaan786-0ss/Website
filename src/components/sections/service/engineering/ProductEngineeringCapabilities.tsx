@@ -44,21 +44,21 @@ const CapabilityPanel = ({
   return (
     <motion.div 
       style={{ scale }}
-      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-950/50"
+      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-slate-900 dark:bg-[#111111] rounded-3xl overflow-hidden border border-slate-800 dark:border-[#262626] shadow-2xl shadow-indigo-950/50 dark:shadow-[#c084fc]/10"
     >
       {/* Left Side: Content */}
-      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-slate-900/95 backdrop-blur-md">
+      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-slate-900/95 dark:bg-[#111111]/95 backdrop-blur-md">
         <div className="max-w-md w-full">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-500/20 shadow-inner">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-500/10 dark:bg-[#c084fc]/10 text-indigo-400 dark:text-[#c084fc] rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-500/20 dark:border-[#c084fc]/20 shadow-inner">
             <span className="material-symbols-outlined text-[26px] sm:text-[30px]">{item.icon}</span>
           </div>
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-400/80 mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-400/80 dark:text-[#4f46e5] mb-2 block">
             Phase 0{idx + 1}
           </span>
-          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 sm:mb-4 leading-tight">
+          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-white dark:text-[#fafafa] mb-3 sm:mb-4 leading-tight">
             {item.title}
           </h3>
-          <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-400 dark:text-[#a3a3a3] text-sm sm:text-base md:text-lg leading-relaxed">
             {item.desc}
           </p>
         </div>
@@ -126,7 +126,7 @@ const IndicatorDot = ({
   return (
     <motion.div 
       style={{ opacity, scale }}
-      className="w-3 h-3 rounded-full bg-indigo-500 transition-all"
+      className="w-3 h-3 rounded-full bg-indigo-500 dark:bg-[#c084fc] transition-all"
     />
   );
 };
@@ -189,27 +189,27 @@ export function ProductEngineeringCapabilities() {
   const x = useTransform(xNum, (v) => `${v}%`);
 
   return (
-    <section ref={targetRef} className="relative h-[500vh] bg-slate-950">
-      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950">
+    <section ref={targetRef} className="relative h-[500vh] bg-slate-950 dark:bg-[#050505] transition-colors duration-300">
+      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950 dark:bg-[#050505] transition-colors duration-300">
         
         {/* Floating Section Title - Below Fixed Navbar */}
         <div className="px-6 md:px-12 z-20 pointer-events-none flex justify-between items-end">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-1">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 dark:text-[#4f46e5] block mb-1">
               Core Capabilities
             </span>
-            <h2 className="font-heading-lg text-2xl md:text-3xl font-extrabold text-white">
+            <h2 className="font-heading-lg text-2xl md:text-3xl font-extrabold text-white dark:text-[#fafafa]">
               Engineering Ecosystem
             </h2>
           </div>
-          <div className="hidden sm:block text-slate-500 text-xs tracking-wider uppercase font-semibold">
+          <div className="hidden sm:block text-slate-500 dark:text-[#a3a3a3] text-xs tracking-wider uppercase font-semibold">
             Scroll to explore →
           </div>
         </div>
 
         {/* Horizontal Scrolling Track */}
         <div className="flex-1 flex items-center overflow-hidden my-auto">
-          <motion.div style={{ x }} className="flex w-[600vw] items-center text-white flex-nowrap">
+          <motion.div style={{ x }} className="flex w-[600vw] items-center text-white dark:text-[#fafafa] flex-nowrap">
             {capabilities.map((item, idx) => (
               <div key={item.id} className="w-screen shrink-0 flex justify-center items-center px-4 md:px-8">
                 <CapabilityPanel 
@@ -225,7 +225,7 @@ export function ProductEngineeringCapabilities() {
         
         {/* Progress Indicator Dots */}
         <div className="z-20 flex justify-center items-center">
-          <div className="flex items-center gap-4 bg-slate-900/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-800 shadow-xl">
+          <div className="flex items-center gap-4 bg-slate-900/90 dark:bg-[#111111]/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-800 dark:border-[#262626] shadow-xl">
             {capabilities.map((_, i) => (
               <IndicatorDot 
                 key={i} 

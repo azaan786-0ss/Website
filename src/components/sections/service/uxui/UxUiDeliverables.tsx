@@ -18,7 +18,7 @@ export function UxUiDeliverables() {
   ];
 
   return (
-    <section className="bg-slate-50/70 py-space-24">
+    <section className="bg-slate-50/70 dark:bg-[#0B0E14] py-space-24 transition-colors duration-300">
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -26,7 +26,7 @@ export function UxUiDeliverables() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-8">
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#f3f4f6] mb-space-8">
             Premium Deliverables
           </h2>
           <ul className="space-y-4">
@@ -37,7 +37,7 @@ export function UxUiDeliverables() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex items-center gap-4 text-slate-700 text-sm sm:text-base font-medium"
+                className="flex items-center gap-4 text-slate-700 dark:text-[#9ca3af] text-sm sm:text-base font-medium"
               >
                 <span className="material-symbols-outlined text-emerald-500 text-[22px]">
                   check_circle
@@ -53,9 +53,9 @@ export function UxUiDeliverables() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md"
+          className="bg-white dark:bg-[#12151C] p-8 sm:p-12 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md"
         >
-          <p className="font-caption text-xs uppercase text-slate-500 mb-space-8 tracking-widest text-center font-semibold">
+          <p className="font-caption text-xs uppercase text-slate-500 dark:text-[#9ca3af] mb-space-8 tracking-widest text-center font-semibold">
             Powering our workflow
           </p>
           <div className="grid grid-cols-3 gap-6 sm:gap-8 items-center justify-items-center">
@@ -66,10 +66,10 @@ export function UxUiDeliverables() {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className="flex flex-col items-center gap-2 cursor-pointer group"
               >
-                <span className="material-symbols-outlined text-[42px] text-slate-600 group-hover:text-indigo-600 transition-colors">
+                <span className="material-symbols-outlined text-[42px] text-slate-600 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-[#818cf8] transition-colors">
                   {tool.icon}
                 </span>
-                <span className="font-mono text-xs font-semibold text-slate-600 group-hover:text-indigo-600 transition-colors">
+                <span className="font-mono text-xs font-semibold text-slate-600 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-[#818cf8] transition-colors">
                   {tool.name}
                 </span>
               </motion.div>

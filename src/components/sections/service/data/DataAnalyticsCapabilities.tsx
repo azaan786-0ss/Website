@@ -44,21 +44,21 @@ const CapabilityPanel = ({
   return (
     <motion.div 
       style={{ scale }}
-      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl shadow-slate-200/50"
+      className="w-full max-w-5xl h-[60vh] md:h-[68vh] shrink-0 flex flex-col lg:flex-row relative group bg-white dark:bg-[#111111] rounded-3xl overflow-hidden border border-slate-200/80 dark:border-[#262626] shadow-2xl shadow-slate-200/50 dark:shadow-none"
     >
       {/* Left Side: Content */}
-      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-white/95 backdrop-blur-md">
+      <div className="w-full lg:w-1/2 h-[55%] lg:h-full flex items-center justify-center p-6 sm:p-10 md:p-14 relative z-10 bg-white/95 dark:bg-[#111111]/95 backdrop-blur-md">
         <div className="max-w-md w-full">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-100 shadow-sm">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-indigo-50 dark:bg-[#050505] text-indigo-600 dark:text-[#c084fc] rounded-2xl flex items-center justify-center mb-5 sm:mb-6 border border-indigo-100 dark:border-[#262626] shadow-sm">
             <span className="material-symbols-outlined text-[26px] sm:text-[30px]">{item.icon}</span>
           </div>
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-[#c084fc] mb-2 block">
             Phase 0{idx + 1}
           </span>
-          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 leading-tight group-hover:text-indigo-700 transition-colors">
+          <h3 className="font-heading-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#fafafa] mb-3 sm:mb-4 leading-tight group-hover:text-indigo-700 dark:group-hover:text-[#c084fc] transition-colors">
             {item.title}
           </h3>
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-[#a3a3a3] text-sm sm:text-base md:text-lg leading-relaxed">
             {item.desc}
           </p>
         </div>
@@ -126,7 +126,7 @@ const IndicatorDot = ({
   return (
     <motion.div 
       style={{ opacity, scale }}
-      className="w-3 h-3 rounded-full bg-indigo-600 transition-all shadow-sm"
+      className="w-3 h-3 rounded-full bg-indigo-600 dark:bg-[#4f46e5] transition-all shadow-sm"
     />
   );
 };
@@ -189,8 +189,8 @@ export function DataAnalyticsCapabilities() {
   const x = useTransform(xNum, (v) => `${v}%`);
 
   return (
-    <section ref={targetRef} className="relative h-[500vh] bg-slate-950">
-      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950">
+    <section ref={targetRef} className="relative h-[500vh] bg-slate-950 dark:bg-[#050505] transition-colors duration-300">
+      <div className="sticky top-0 h-screen flex flex-col justify-between pt-24 pb-8 overflow-hidden bg-slate-950 dark:bg-[#050505] transition-colors duration-300">
         
         {/* Floating Section Title - Below Fixed Navbar */}
         <div className="px-6 md:px-12 z-20 pointer-events-none flex justify-between items-end">
@@ -225,7 +225,7 @@ export function DataAnalyticsCapabilities() {
         
         {/* Progress Indicator Dots */}
         <div className="z-20 flex justify-center items-center">
-          <div className="flex items-center gap-4 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-200 shadow-xl shadow-slate-200/50">
+          <div className="flex items-center gap-4 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-md px-6 py-3 rounded-full border border-slate-200 dark:border-[#262626] shadow-xl shadow-slate-200/50 dark:shadow-none">
             {capabilities.map((_, i) => (
               <IndicatorDot 
                 key={i} 

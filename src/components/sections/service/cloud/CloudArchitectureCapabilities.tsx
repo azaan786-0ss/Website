@@ -18,13 +18,13 @@ export function CloudArchitectureCapabilities() {
       icon: 'cloud_done',
       title: 'Cloud-Native Architecture',
       desc: 'Serverless, containerized microservices, and multi-region setups designed from the ground up for maximum resilience, infinite scale, and global availability.',
-      className: 'md:col-span-2 lg:col-span-2 row-span-2 bg-gradient-to-br from-indigo-50/80 via-white to-white border-indigo-100 overflow-hidden relative',
-      iconClass: 'bg-indigo-600 text-white shadow-md shadow-indigo-200',
-      titleClass: 'text-2xl md:text-3xl font-bold text-slate-900',
-      descClass: 'text-slate-600 text-base sm:text-lg md:text-xl',
+      className: 'md:col-span-2 lg:col-span-2 row-span-2 bg-gradient-to-br from-indigo-50/80 via-white to-white dark:from-[#111111] dark:via-[#111111] dark:to-[#111111] border-indigo-100 dark:border-[#262626] overflow-hidden relative',
+      iconClass: 'bg-indigo-600 dark:bg-[#4f46e5] text-white dark:text-[#fafafa] shadow-md shadow-indigo-200 dark:shadow-none',
+      titleClass: 'text-2xl md:text-3xl font-bold text-slate-900 dark:text-[#fafafa]',
+      descClass: 'text-slate-600 dark:text-[#a3a3a3] text-base sm:text-lg md:text-xl',
       renderVisual: () => (
         <div className="absolute -bottom-8 -right-8 opacity-[0.03] pointer-events-none">
-          <span className="material-symbols-outlined text-[240px] text-indigo-900">cloud</span>
+          <span className="material-symbols-outlined text-[240px] text-indigo-900 dark:text-[#4f46e5]">cloud</span>
         </div>
       )
     },
@@ -32,37 +32,37 @@ export function CloudArchitectureCapabilities() {
       icon: 'code_blocks',
       title: 'Infrastructure as Code',
       desc: 'Terraform, AWS CDK, and reproducible environments.',
-      className: 'col-span-1 bg-sky-50/40 border-sky-100',
-      iconClass: 'bg-sky-100 text-sky-700',
-      titleClass: 'text-lg font-bold text-sky-950',
-      descClass: 'text-sky-800/80 text-sm',
+      className: 'col-span-1 bg-sky-50/40 dark:bg-[#111111] border-sky-100 dark:border-[#262626]',
+      iconClass: 'bg-sky-100 dark:bg-[#4f46e5]/20 text-sky-700 dark:text-[#4f46e5]',
+      titleClass: 'text-lg font-bold text-sky-950 dark:text-[#fafafa]',
+      descClass: 'text-sky-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'rocket_launch',
       title: 'Automated CI/CD',
       desc: 'GitHub Actions and automated testing for safe releases.',
-      className: 'col-span-1 bg-violet-50/40 border-violet-100',
-      iconClass: 'bg-violet-100 text-violet-700',
-      titleClass: 'text-lg font-bold text-violet-950',
-      descClass: 'text-violet-800/80 text-sm',
+      className: 'col-span-1 bg-violet-50/40 dark:bg-[#111111] border-violet-100 dark:border-[#262626]',
+      iconClass: 'bg-violet-100 dark:bg-[#c084fc]/20 text-violet-700 dark:text-[#c084fc]',
+      titleClass: 'text-lg font-bold text-violet-950 dark:text-[#fafafa]',
+      descClass: 'text-violet-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'admin_panel_settings',
       title: 'Security & Recovery',
       desc: 'IAM least-privilege, automated backups, and multi-region failovers.',
-      className: 'col-span-1 bg-emerald-50/40 border-emerald-100',
-      iconClass: 'bg-emerald-100 text-emerald-700',
-      titleClass: 'text-lg font-bold text-emerald-950',
-      descClass: 'text-emerald-800/80 text-sm',
+      className: 'col-span-1 bg-emerald-50/40 dark:bg-[#111111] border-emerald-100 dark:border-[#262626]',
+      iconClass: 'bg-emerald-100 dark:bg-[#4f46e5]/20 text-emerald-700 dark:text-[#4f46e5]',
+      titleClass: 'text-lg font-bold text-emerald-950 dark:text-[#fafafa]',
+      descClass: 'text-emerald-800/80 dark:text-[#a3a3a3] text-sm',
     },
     {
       icon: 'payments',
       title: 'FinOps & Cost Tuning',
       desc: 'Expenditure audits, rightsizing, and auto-scaling logic to optimize every dollar spent in the cloud.',
-      className: 'md:col-span-2 lg:col-span-2 bg-slate-900 border-slate-800 relative overflow-hidden',
-      iconClass: 'bg-white/10 text-white shadow-inner',
-      titleClass: 'text-xl font-bold text-white',
-      descClass: 'text-slate-400 text-sm sm:text-base',
+      className: 'md:col-span-2 lg:col-span-2 bg-slate-900 dark:bg-[#111111] border-slate-800 dark:border-[#262626] relative overflow-hidden',
+      iconClass: 'bg-white/10 dark:bg-white/10 text-white dark:text-[#fafafa] shadow-inner',
+      titleClass: 'text-xl font-bold text-white dark:text-[#fafafa]',
+      descClass: 'text-slate-400 dark:text-[#a3a3a3] text-sm sm:text-base',
       renderVisual: () => (
          <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-indigo-500/10 to-transparent pointer-events-none"></div>
       )
@@ -71,10 +71,10 @@ export function CloudArchitectureCapabilities() {
       icon: 'monitoring',
       title: 'Observability & Metrics',
       desc: 'Full telemetry using Datadog and Prometheus with intelligent, noise-free alerting.',
-      className: 'md:col-span-2 lg:col-span-3 bg-indigo-50/30 border-indigo-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden',
-      iconClass: 'bg-indigo-100 text-indigo-700',
-      titleClass: 'text-xl font-bold text-indigo-950',
-      descClass: 'text-indigo-900/70 text-sm sm:text-base max-w-2xl',
+      className: 'md:col-span-2 lg:col-span-3 bg-indigo-50/30 dark:bg-[#111111] border-indigo-100 dark:border-[#262626] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden',
+      iconClass: 'bg-indigo-100 dark:bg-[#4f46e5]/20 text-indigo-700 dark:text-[#4f46e5]',
+      titleClass: 'text-xl font-bold text-indigo-950 dark:text-[#fafafa]',
+      descClass: 'text-indigo-900/70 dark:text-[#a3a3a3] text-sm sm:text-base max-w-2xl',
       renderVisual: () => (
         <div className="hidden md:flex flex-1 items-center justify-end mr-4">
            {/* Visual mock of a chart/dashboard */}
@@ -86,7 +86,7 @@ export function CloudArchitectureCapabilities() {
                    whileInView={{ height: `${h}%` }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
-                   className="w-2.5 bg-indigo-600 rounded-t-sm"
+                   className="w-2.5 bg-indigo-600 dark:bg-[#c084fc] rounded-t-sm"
                  ></motion.div>
               ))}
            </div>
@@ -116,7 +116,7 @@ export function CloudArchitectureCapabilities() {
   };
 
   return (
-    <section className="py-space-32 bg-slate-50/70 border-y border-slate-200/60">
+    <section className="py-space-32 bg-slate-50/70 dark:bg-[#050505] border-y border-slate-200/60 dark:border-[#262626] transition-colors duration-300">
       <div className="px-6 md:px-8 max-w-[1280px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -125,10 +125,10 @@ export function CloudArchitectureCapabilities() {
           transition={{ duration: 0.6 }}
           className="mb-space-16 text-center md:text-left"
         >
-          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-space-4">
+          <h2 className="font-display-lg text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#fafafa] mb-space-4">
             Core Capabilities
           </h2>
-          <p className="text-slate-600 max-w-xl text-base sm:text-lg">
+          <p className="text-slate-600 dark:text-[#a3a3a3] max-w-xl text-base sm:text-lg">
             Deep technical expertise across the modern cloud stack to ensure your infrastructure
             scales as fast as your business.
           </p>

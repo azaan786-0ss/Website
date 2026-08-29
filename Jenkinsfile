@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        VITE_IRONSTACK_API_URL = 'https://ironstack-backend.ironstacksystems.workers.dev'
+    }
+
     stages {
 
         stage('Checkout') {
@@ -25,6 +29,14 @@ pipeline {
             steps {
                 sh 'test -d dist'
                 sh 'test -f dist/index.html'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                withCredentials([string(credentialsId: 'cloudflare-api-token', variable: 'CLOUDFLARE_API_TOKEN')]) {
+                    sh 'npx wrangler deploy'
+                }
             }
         }
     }
